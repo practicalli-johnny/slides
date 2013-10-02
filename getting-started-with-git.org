@@ -1,0 +1,190 @@
+#+Title: Getting Started with Git & Github 
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil 
+#+OPTIONS: reveal_width:1600
+#+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket 
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Getting started with Git and Github">
+
+* Managing code with Git 
+
+ A distributed approach to source control 
+
+Advantages:
+#+ATTR_REVEAL: :frag roll-in
+- local repository, manage commits off-line
+- change sets for more detailed history
+- easy to create branches, easy to throw away too 
+
+* Creating a local repository 
+
+Version managed as objects in .git folder 
+#+ATTR_REVEAL: :frag highlight-red
+- dont delete .git 
+
+#+BEGIN_SRC bash
+  git init 
+#+END_SRC
+
+
+* Local Git  workflow 
+
+#+BEGIN_SRC bash 
+  git status 
+
+  git add
+
+  git commit
+#+END_SRC
+
+
+
+* Git Log
+
+#+BEGIN_SRC bash 
+git log 
+
+git log --oneline --graph --decorate
+#+END_SRC
+
+
+* Collaborating
+
+
+#+BEGIN_SRC bash 
+git push repository branch 
+#+END_SRC
+
+* Branching and Merging
+
+#+BEGIN_SRC bash 
+git checkout branch-name
+#+END_SRC
+
+
+* Moving things around
+
+
+#+BEGIN_SRC bash 
+git mv filename new-filename
+#+END_SRC
+
+
+
+
+* Web-based Presentations
+#+ATTR_REVEAL: :frag grow highlight-red 
+  Try Reveal.js
+
+#+ATTR_REVEAL: :frag roll-in
+  * Nice animations in your presentation
+  * Only need a browser, no PowerPoint
+  * Share presentation on the web
+  * Deploy the file on your server (eg. Heroku)
+
+
+
+* What is Reveal.js?
+
+  HTML5-based presentation framework, created by [[hakim.se][Hakim El Hattab]].
+
+  Write presentations in HTML, present it by Reveal.js.
+
+  This page is a Reveal.js presentation. Check the
+  HTML source codes.
+
+* Don't know HTML?
+
+  Try Org-Reveal, an Emacs Orgmode extension.
+
+  Export simple formatted Org text to ready-to-use Reveal.js
+  presentations.
+
+  [[./images/org-reveal.png]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - One Org documents, multiple export format.
+  - Now Org knows Reveal.js!
+
+
+
+* Reveal.js is 2-D
+
+  Org-Reveal knows how to drill down into a subject.
+
+  Press the "Down" key on the page or the down arrow
+
+** Fragments in Reveal.js
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
+   So do Org-Reveal.
+#+BEGIN_SRC org
+ ** Reveal.js Can Alert
+    :PROPERTIES:
+    :reveal_data_state: alert
+    :END:
+#+END_SRC
+
+** Paste Codes
+
+   Paste codes in your favorite Emacs style.
+#+BEGIN_SRC c++
+  cout << "Hello world! --C++"
+       << endl;
+#+END_SRC
+
+#+BEGIN_SRC lisp
+  (message 
+   "Hello world! --LISP"
+  )
+#+END_SRC
+
+#+BEGIN_SRC python
+  print "Hello world! --Python"
+#+END_SRC
+
+** Display Math
+
+   Write equations in Org. Present equations in HTML5.
+
+   $\lim_{x \to \infty} \exp(-x) = 0$
+
+#+BEGIN_SRC org
+   $\lim_{x \to \infty} \exp(-x) = 0$
+#+END_SRC
+
+* The Org Source
+
+  Get Org source text for this presentation [[http://nage-eda.org/home/yujie/index.org][here]].
+
+* Get Reveal.js and Org-reveal
+
+  - Reveal.js on GitHub:\\
+    [[https://github.com/hakimel/reveal.js]]
+  - Org-reveal on GitHub:\\
+    [[https://github.com/yjwen/org-reveal]]
+
