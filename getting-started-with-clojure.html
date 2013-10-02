@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>(Getting Started with Clojure)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/reveal.min.css">
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/theme/night.css" id="theme">
+
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/print/pdf.css" type="text/css" media="print">
+<meta name="description" content="Getting started with Clojure">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Getting Started with Clojure</h1>
+<h2>John Stevenson</h2>
+<h2><a href="http://www.twitter.com/jr0cket">@Clojure</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Leiningen for everything</h2>
+
+<p>
+<a href="http://leiningen.org">Leiningen</a> allows you to:
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Create projects
+</li>
+<li class="fragment roll-in">Manage dependencies (uses mvn local cache)
+</li>
+<li class="fragment roll-in">Package projects into libraries
+</li>
+<li class="fragment roll-in">Generate Maven POM files (if you must)
+</li>
+<li class="fragment roll-in">Deploy your libraries on <a href="http://clojars.org">Clojars</a>
+</li>
+<li class="fragment roll-in">Run the REPL
+</li>
+</ul>
+
+</section>
+<section id="sec-1-1" >
+
+<h3>Leiningen Requirements</h3>
+<p>
+Must have the Java JDK (not just the JRE)
+</p>
+
+<ul class="org-ul">
+<li>this is a requirement for any Clojure development
+</li>
+</ul>
+</section>
+<section id="sec-1-2"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h3>Leiningen Demo</h3>
+
+<p>
+Time for some live hacking&#x2026;
+</p>
+</section>
+<section id="sec-1-3" >
+
+<h3>Leiningen core commands</h3>
+<ul class="org-ul">
+<li>Create a new project
+</li>
+</ul>
+<p>
+lein new project-name
+</p>
+
+<ul class="org-ul">
+<li>Check dependencies and download any required
+</li>
+</ul>
+<p>
+lein deps
+</p>
+
+<ul class="org-ul">
+<li>Run a REPL
+</li>
+</ul>
+<p>
+lein repl
+</p>
+
+<ul class="org-ul">
+<li>Find out more
+</li>
+</ul>
+<p>
+lein help
+</p>
+</section>
+<section id="sec-1-4"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h3>Demo code - project.clj</h3>
+
+<p>
+A basic Leiningen project definition
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">defproject</span> <span style="color: #ff1493;">whats-my-salary</span> <span style="color: #61CE3C;">"0.1.0-SNAPSHOT"</span>
+  <span style="color: #4c83ff;">:description</span> <span style="color: #61CE3C;">"Calculate salary after tax for perminant employees"</span>
+  <span style="color: #4c83ff;">:url</span> <span style="color: #61CE3C;">"http://blog.jr0cket.co.uk"</span>
+  <span style="color: #4c83ff;">:license</span> {<span style="color: #4c83ff;">:name</span> <span style="color: #61CE3C;">"Eclipse Public License"</span>
+            <span style="color: #4c83ff;">:url</span> <span style="color: #61CE3C;">"http://www.eclipse.org/legal/epl-v10.html"</span>}
+  <span style="color: #4c83ff;">:dependencies</span> [[org.clojure/clojure <span style="color: #61CE3C;">"1.4.0"</span>]]
+  <span style="color: #4c83ff;">:main</span> whats-my-salary.core )
+</pre>
+</div>
+</section>
+<section id="sec-1-5"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h3>Demo code - more stuff..</h3>
+
+<p>
+Colourful code
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">show-me-the-colours</span> [colour]
+   ( str <span style="color: #61CE3C;">"The colour of money is"</span> colour))
+</pre>
+</div>
+</section>
+
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Emacs for Clojure</h2>
+<p>
+Emacs is a powerful tool for your developer life, its a nice editor too&#x2026;
+</p>
+
+<ul class="org-ul">
+<li>development environments for lots of languages
+</li>
+<li>manage tasks, take effective notes and create presentations
+</li>
+</ul>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Ubuntu:  <a href="https://launchpad.net/~cassou/+archive/emacs">Personal Package Archive</a> for latest version
+</li>
+<li class="fragment roll-in">MacOSX: <a href="http://emacsformacosx.com/">EmacsForMacOSX.com</a> or via <a href="http://brew.sh/">Homebrew</a>
+</li>
+<li class="fragment roll-in">Windows: <a href="http://ftp.gnu.org/gnu/emacs/windows/">pre-compiled version available</a>
+</li>
+</ul>
+
+</section>
+<section id="sec-2-1" >
+
+<h3>Emacs Live</h3>
+<p>
+Creates an amazing environment for Clojure development
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">keeping () under control with ParEdit
+</li>
+<li class="fragment roll-in">starting / connecting to a REPL
+</li>
+<li class="fragment roll-in">evaluating code in-line (C-x C-e) or all the code (C-c C-k)
+</li>
+<li class="fragment roll-in">syntax highlighting &amp; auto-complete
+</li>
+<li class="fragment roll-in">gloriously colourful themes
+</li>
+</ul>
+</section>
+<section id="sec-2-2" >
+
+<h3>Roll your own Emacs setup</h3>
+<p>
+Add the following Emacs packages
+</p>
+
+<p>
+clojure-mode
+clojure-test-mode
+rainbow-delimiters
+ac-slime
+</p>
+
+<p>
+Look at my basic setup on <a href="http://clojuremadesimple.co.uk">clojuremadesimple.co.uk</a>
+</p>
+
+</section>
+<section id="sec-2-3" >
+
+<h3>Learning Lisp with Emacs</h3>
+<p>
+Configuring Emacs is via a Lisp language called ELisp
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">practice your core Clojure skills by tweaking Emacs
+</li>
+<li class="fragment roll-in">lots of examples of Lisp code on Github
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-3"  data-background="./images/clojure-lighttable-slide-background.png" data-background-transition="slide">
+
+<h2>Light Table</h2>
+
+<p>
+A project to create a great experience for Clojure Development
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">instarepl
+</li>
+<li class="fragment roll-in">start / connect to multiple REPL's
+</li>
+<li class="fragment roll-in">written in Clojurescript &amp; a few lines of Clojure
+</li>
+<li class="fragment roll-in">run browser &amp; graphics in a window
+</li>
+<li class="fragment roll-in">also supports Clojurescript, JavaScript &amp; Python
+</li>
+<li class="fragment roll-in">still beta, not officially release as yet
+</li>
+<li class="fragment roll-in">join <a href="https://groups.google.com/forum/#!forum/light-table-discussion">light-table-discussion</a> Google group to keep up with changes
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1" >
+
+<h3>Installing Light Table</h3>
+<p>
+<a href="http://lighttable.com">LightTable.com</a> - binaries for Linux (32bit &amp; 64bit), MacOSX &amp; Windows
+</p>
+</section>
+<section id="sec-3-2" >
+
+<h3>Documentation</h3>
+<p>
+Built in documentation
+</p>
+
+<p>
+<a href="http://docs.lighttable.com/">docs.lighttable.com</a>
+</p>
+
+<p>
+<a href="http://www.chris-granger.com/">Chris Granger's blog</a> - major announcements &amp; a few guides
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-4"  data-background="#770000" data-background-transition="slide">
+
+<h2>Java IDE's</h2>
+
+</section>
+<section id="sec-4-1"  data-background="#770000" data-background-transition="slide">
+
+<h3>Eclipse &amp; Counterclockwise</h3>
+
+<p>
+<a href="https://code.google.com/p/counterclockwise/">code.google.com/p/counterclockwise</a>
+</p>
+
+<p>
+A great combo if you are used to Eclipse
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">uses Leiningen underneath
+</li>
+<li class="fragment roll-in">provides a REPL window
+</li>
+<li class="fragment roll-in">usual syntax highlighting and other IDE stuff
+</li>
+</ul>
+
+</section>
+<section id="sec-4-2"  data-background="#770000" data-background-transition="slide">
+
+<h3>Netbeans &amp; Enclojure</h3>
+
+<p>
+Sadly the <a href="http://enclojure.wikispaces.com/">Enclojure</a> plugin for Netbeans is depreciated
+</p>
+
+<p>
+The <a href="https://github.com/EricThorsen/enclojure">Enclojure code is available on Github</a>, if you want to kickstart the project.
+</p>
+
+</section>
+<section id="sec-4-3"  data-background="#770000" data-background-transition="slide">
+
+<h3>Intelij &amp; LaClojure</h3>
+
+<p>
+<a href="http://wiki.jetbrains.net/intellij/Getting_started_with_La_Clojure">Getting started with La Clojure</a>
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-5"  data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+
+<h2>Clojars.org - clojure libraries galore</h2>
+
+<p>
+<a href="http://clojars.org">Clojars.org</a>
+</p>
+
+<ul class="org-ul">
+<li>search for libraries
+</li>
+<li>gives you dependencie definitions
+</li>
+</ul>
+
+</section>
+<section id="sec-5-1"  data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+
+<h3>A few notable Clojar projects</h3>
+<ul class="org-ul">
+<li><a href="https://clojars.org/midje">Midje</a> - TDD testing framework
+</li>
+<li><a href="https://clojars.org/clj-time">clj-time</a> - date/time library, wrapper around joda time
+</li>
+<li><a href="https://clojars.org/compojure">compojure</a> - used to help build webapps with <a href="https://clojars.org/ring">Ring</a>
+</li>
+<li><a href="https://clojars.org/com.cemerick/drawbridge">drawbridge</a> - connect to your REPL and your webapp
+</li>
+<li><a href="https://clojars.org/brevis">brevis</a> - artifical life generator
+</li>
+<li><a href="https://clojars.org/incanter">Incanter</a> - statistical programming &amp; data visualization
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-6"  data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+
+<h2>Learning Clojure</h2>
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #D8FA3C;">false?</span> (afraid brackets))
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Join in the fun at London Clojurians
+</li>
+<li>Learn Clojure on the Internet
+</li>
+<li>Read some Clojure books
+</li>
+</ul>
+
+</section>
+<section id="sec-6-1" >
+
+<h3>4Clojure</h3>
+<p>
+An increasingly difficult set of changenges to help you understand Clojure
+</p>
+
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-home.png"  alt="clojure-4clojure-home.png"/></p>
+</div>
+</section>
+<section id="sec-6-2" >
+
+<h3>4Clojure - simple example</h3>
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-example-list-elementry.png"  alt="clojure-4clojure-example-list-elementry.png"/></p>
+</div>
+</section>
+<section id="sec-6-3" >
+
+<h3>4Clojure - more complexe example</h3>
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-example-forthewin.png"  alt="clojure-4clojure-example-forthewin.png"/></p>
+</div>
+</section>
+<section id="sec-6-4" >
+
+<h3>Books</h3>
+<ul class="org-ul">
+<li><a href="http://developerpress.com/en/clojure-made-simple-introduction-clojure">Clojure Made Simple</a> (ebook) - £1.99 on <a href="http://www.amazon.co.uk/Clojure-Made-Simple-ebook/dp/B00BSY20HS">Amazon.co.uk</a>
+</li>
+<li><a href="http://joyofclojure.com/">Joy of Clojure</a>
+</li>
+<li><a href="http://www.clojurebook.com/">Clojure Programming</a>
+</li>
+<li><a href="http://pragprog.com/book/shcloj2/programming-clojure">Programming Clojure</a> - 2nd edition
+</li>
+</ul>
+</section>
+<section id="sec-6-5" >
+
+<h3>Blogs, Documentation, etc.</h3>
+<p>
+<a href="http://planet.clojure.in/">Planet Clojure</a> - blog aggregator
+</p>
+
+<p>
+<a href="http://blog.jr0cket.co.uk/">blog.jr0cket.co.uk</a> - Clojure, Emacs &amp; Git articles
+</p>
+
+<p>
+<a href="http://clojure.org/">clojure.org</a> - official documentation
+</p>
+
+<p>
+<a href="http://clojuredocs.org/">clojuredocs.org</a> - community docs &amp; examples
+</p>
+
+<p>
+<a href="http://clojure.org/cheatsheet">Clojure Cheatsheet</a> - quick syntax &amp; function reference
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Thank you</h2>
+<p>
+Get Leiningen
+</p>
+
+<p>
+Use Emacs, LightTable or your favourite IDE
+</p>
+
+<p>
+Have fun in the REPL and love writing Clojure
+</p>
+
+<p class="fragment hightlight-green">
+ps. This presentation was brought to you via Emacs &amp; Revealjs
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-8" >
+
+<h2>Reveal.js is 2-D</h2>
+<p>
+Org-Reveal knows how to drill down into a subject.
+</p>
+
+<p>
+Press the "Down" key on the page or the down arrow
+</p>
+
+</section>
+<section id="sec-8-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-8-2"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+
+<p>
+So do Org-Reveal.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #D8FA3C;">** Reveal.js Can Alert</span>
+<span style="color: #FBDE2D;">   :PROPERTIES:</span>
+   <span style="color: #FBDE2D;">:reveal_data_state:</span> alert
+<span style="color: #FBDE2D;">   :END:</span>
+</pre>
+</div>
+
+</section>
+<section id="sec-8-3" >
+
+<h3>Display Math</h3>
+<p>
+Write equations in Org. Present equations in HTML5.
+</p>
+
+<p>
+\(\lim_{x \to \infty} \exp(-x) = 0\)
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org">$\lim_{x \to \infty} \exp(-x) = 0$
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>The Org Source</h2>
+<p>
+Get Org source text for this presentation <a href="http://nage-eda.org/home/yujie/index.org">here</a>.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Get Reveal.js and Org-reveal</h2>
+<ul class="org-ul">
+<li>Reveal.js on GitHub:<br/>
+    <a href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a>
+</li>
+<li>Org-reveal on GitHub:<br/>
+    <a href="https://github.com/yjwen/org-reveal">https://github.com/yjwen/org-reveal</a>
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/org-reveal.png"  alt="org-reveal.png"/></p>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/jr0cket/apps/revealjs/current/lib/js/head.min.js"></script>
+<script src="file:///home/jr0cket/apps/revealjs/current/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: true,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1600, // slide width
+        			height: 900, // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///home/jr0cket/apps/revealjs/current/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///home/jr0cket/apps/revealjs/current/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        			]
+        		});
+</script>
+</body>
+</html>
