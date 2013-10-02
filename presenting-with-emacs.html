@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>(Presenting with Emacs)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/reveal.min.css">
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/theme/night.css" id="theme">
+
+<link rel="stylesheet" href="file:///home/jr0cket/apps/revealjs/current/css/print/pdf.css" type="text/css" media="print">
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Presenting with Emacs</h1>
+<br />
+<h2>John Stevenson</h2>
+<h2><a href="http://www.twitter.com/jr0cket">@jr0cket</a></h2>
+</section>
+
+<section>
+<section id="sec-1" >
+
+<h2><span class="section-number-2">1</span> Emacs based presentation</h2>
+<p>
+Emacs gives a simple way to give interactive presentations
+</p>
+
+
+</section>
+<section id="sec-1-1" >
+
+<h3><span class="section-number-3">1.1</span> org-present</h3>
+<p class="fragment roll-in">
+Cycle through slides under each top level heading
+</p>
+</section>
+<section id="sec-1-2" >
+
+<h3><span class="section-number-3">1.2</span> org-presie</h3>
+<p class="fragment roll-in">
+Expand one top-level heading at a time, allowing the audience to see progress through the talk  
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2><span class="section-number-2">2</span> Web-based Presentation</h2>
+<p class="fragment grow highlight-red">
+Try Reveal.js!
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">Cool animation in your presentation
+</li>
+<li class="fragment roll-in">Share presentation on the web?
+</li>
+<li class="fragment roll-in">Only need a browser, no PowerPoint
+</li>
+<li class="fragment roll-in">Deploy the file on your server (eg. Heroku)
+</li>
+</ul>
+</section>
+
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2><span class="section-number-2">3</span> What is Reveal.js?</h2>
+<p>
+HTML5-based presentation framework, created by <i>Hakim El Hattab</i>.
+</p>
+
+<p>
+Write presentations in HTML, present it by Reveal.js.
+</p>
+
+<p>
+This page is a Reveal.js presentation. Check the
+HTML source codes.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2><span class="section-number-2">4</span> Don't know HTML?</h2>
+<p>
+Try Org-Reveal, an Emacs Orgmode extension.
+</p>
+
+<p>
+Export simple formatted Org text to ready-to-use Reveal.js
+presentations.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/org-reveal.png"  alt="org-reveal.png"/></p>
+</div>
+
+<ul class="org-ul">
+<li class="fragment roll-in">One Org documents, multiple export format.
+</li>
+<li class="fragment roll-in">Now Org knows Reveal.js!
+</li>
+</ul>
+</section>
+
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2><span class="section-number-2">5</span> Reveal.js is 2-D</h2>
+<p>
+Org-Reveal knows how to drill down into a subject.
+</p>
+
+<p>
+Press the "Down" key on the page or the down arrow
+</p>
+
+</section>
+<section id="sec-5-1" >
+
+<h3><span class="section-number-3">5.1</span> Fragments in Reveal.js</h3>
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-5-2"  data-state="alert">
+
+<h3><span class="section-number-3">5.2</span> Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+
+<p>
+So do Org-Reveal.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #D8FA3C;">** Reveal.js Can Alert</span>
+<span style="color: #FBDE2D;">   :PROPERTIES:</span>
+   <span style="color: #FBDE2D;">:reveal_data_state:</span> alert
+<span style="color: #FBDE2D;">   :END:</span>
+</pre>
+</div>
+</section>
+<section id="sec-5-3" >
+
+<h3><span class="section-number-3">5.3</span> Paste Codes</h3>
+<p>
+Paste codes in your favorite Emacs style.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++">cout &lt;&lt; <span style="color: #61CE3C;">"Hello world! --C++"</span>
+     &lt;&lt; endl;
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp">(message 
+ <span style="color: #61CE3C;">"Hello world! --LISP"</span>
+)
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #FBDE2D;">print</span> <span style="color: #61CE3C;">"Hello world! --Python"</span>
+</pre>
+</div>
+</section>
+<section id="sec-5-4" >
+
+<h3><span class="section-number-3">5.4</span> Display Math</h3>
+<p>
+Write equations in Org. Present equations in HTML5.
+</p>
+
+<p>
+\(\lim_{x \to \infty} \exp(-x) = 0\)
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org">$\lim_{x \to \infty} \exp(-x) = 0$
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2><span class="section-number-2">6</span> The Org Source</h2>
+<p>
+Get Org source text for this presentation <a href="http://nage-eda.org/home/yujie/index.org">here</a>.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2><span class="section-number-2">7</span> Get Reveal.js and Org-reveal</h2>
+<ul class="org-ul">
+<li>Reveal.js on GitHub:<br/>
+    <a href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a>
+</li>
+<li>Org-reveal on GitHub:<br/>
+    <a href="https://github.com/yjwen/org-reveal">https://github.com/yjwen/org-reveal</a>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///home/jr0cket/apps/revealjs/current/lib/js/head.min.js"></script>
+<script src="file:///home/jr0cket/apps/revealjs/current/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: true,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        				{ src: 'file:///home/jr0cket/apps/revealjs/current/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///home/jr0cket/apps/revealjs/current/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: 'file:///home/jr0cket/apps/revealjs/current/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        			]
+        		});
+</script>
+</body>
+</html>
