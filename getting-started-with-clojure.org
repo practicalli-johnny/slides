@@ -1,0 +1,347 @@
+#+Title: Getting Started with Clojure
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1600
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+OPTIONS: reveal_height:900
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: night
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Getting started with Clojure">
+
+* Leiningen for everything 
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://leiningen.org][Leiningen]] allows you to:
+
+#+ATTR_REVEAL: :frag roll-in
+  * Create projects
+  * Manage dependencies (uses mvn local cache)
+  * Package projects into libraries 
+  * Generate Maven POM files (if you must)
+  * Deploy your libraries on [[http://clojars.org][Clojars]]
+  * Run the REPL
+
+** Leiningen Requirements
+
+Must have the Java JDK (not just the JRE)
+
+- this is a requirement for any Clojure development 
+
+** Leiningen Demo
+:PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+Time for some live hacking...
+
+** Leiningen core commands
+
+- Create a new project 
+lein new project-name
+
+- Check dependencies and download any required 
+lein deps 
+
+- Run a REPL
+lein repl 
+
+- Find out more
+lein help 
+
+** Demo code - project.clj  
+:PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+  A basic Leiningen project definition
+
+#+BEGIN_SRC clojure
+(defproject whats-my-salary "0.1.0-SNAPSHOT"
+  :description "Calculate salary after tax for perminant employees"
+  :url "http://blog.jr0cket.co.uk"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :main whats-my-salary.core )
+#+END_SRC
+
+** Demo code - more stuff..  
+:PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+  Colourful code
+
+#+BEGIN_SRC clojure
+(defn show-me-the-colours [colour]
+   ( str "The colour of money is" colour))
+#+END_SRC
+
+
+
+* Emacs for Clojure
+
+Emacs is a powerful tool for your developer life, its a nice editor too...
+
+- development environments for lots of languages
+- manage tasks, take effective notes and create presentations
+
+#+ATTR_REVEAL: :frag roll-in
+- Ubuntu:  [[https://launchpad.net/~cassou/+archive/emacs][Personal Package Archive]] for latest version
+- MacOSX: [[http://emacsformacosx.com/][EmacsForMacOSX.com]] or via [[http://brew.sh/][Homebrew]]
+- Windows: [[http://ftp.gnu.org/gnu/emacs/windows/][pre-compiled version available]]
+
+** Emacs Live 
+
+Creates an amazing environment for Clojure development
+
+#+ATTR_REVEAL: :frag roll-in
+- keeping () under control with ParEdit
+- starting / connecting to a REPL
+- evaluating code in-line (C-x C-e) or all the code (C-c C-k)
+- syntax highlighting & auto-complete
+- gloriously colourful themes 
+
+** Roll your own Emacs setup 
+
+Add the following Emacs packages 
+
+clojure-mode 
+clojure-test-mode
+rainbow-delimiters
+ac-slime
+
+Look at my basic setup on [[http://clojuremadesimple.co.uk][clojuremadesimple.co.uk]] 
+
+
+** Learning Lisp with Emacs
+
+Configuring Emacs is via a Lisp language called ELisp
+
+#+ATTR_REVEAL: :frag roll-in
+- practice your core Clojure skills by tweaking Emacs
+- lots of examples of Lisp code on Github 
+
+
+* Light Table 
+:PROPERTIES:
+    :reveal_background: ./images/clojure-lighttable-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+A project to create a great experience for Clojure Development
+
+#+ATTR_REVEAL: :frag roll-in
+- instarepl
+- start / connect to multiple REPL's
+- written in Clojurescript & a few lines of Clojure 
+- run browser & graphics in a window 
+- also supports Clojurescript, JavaScript & Python
+- still beta, not officially release as yet
+- join [[https://groups.google.com/forum/#!forum/light-table-discussion][light-table-discussion]] Google group to keep up with changes
+
+** Installing Light Table
+
+[[http://lighttable.com][LightTable.com]] - binaries for Linux (32bit & 64bit), MacOSX & Windows
+
+** Documentation
+
+Built in documentation 
+
+[[http://docs.lighttable.com/][docs.lighttable.com]]
+
+[[http://www.chris-granger.com/][Chris Granger's blog]] - major announcements & a few guides
+
+
+* Java IDE's
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+** Eclipse & Counterclockwise
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+[[https://code.google.com/p/counterclockwise/][code.google.com/p/counterclockwise]]
+
+A great combo if you are used to Eclipse
+ 
+#+ATTR_REVEAL: :frag roll-in
+- uses Leiningen underneath
+- provides a REPL window
+- usual syntax highlighting and other IDE stuff
+
+
+** Netbeans & Enclojure
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+Sadly the [[http://enclojure.wikispaces.com/][Enclojure]] plugin for Netbeans is depreciated
+
+The [[https://github.com/EricThorsen/enclojure][Enclojure code is available on Github]], if you want to kickstart the project. 
+
+
+** Intelij & LaClojure 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+[[http://wiki.jetbrains.net/intellij/Getting_started_with_La_Clojure][Getting started with La Clojure]]
+
+
+* Clojars.org - clojure libraries galore
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://clojars.org][Clojars.org]] 
+
+- search for libraries 
+- gives you dependencie definitions
+
+** A few notable Clojar projects
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- [[https://clojars.org/midje][Midje]] - TDD testing framework
+- [[https://clojars.org/clj-time][clj-time]] - date/time library, wrapper around joda time
+- [[https://clojars.org/compojure][compojure]] - used to help build webapps with [[https://clojars.org/ring][Ring]]
+- [[https://clojars.org/com.cemerick/drawbridge][drawbridge]] - connect to your REPL and your webapp
+- [[https://clojars.org/brevis][brevis]] - artifical life generator
+- [[https://clojars.org/incanter][Incanter]] - statistical programming & data visualization
+
+
+* Learning Clojure
+:PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+#+BEGIN_SRC clojure
+(false? (afraid brackets))
+#+END_SRC
+
+- Join in the fun at London Clojurians
+- Learn Clojure on the Internet
+- Read some Clojure books
+
+** 4Clojure
+
+An increasingly difficult set of changenges to help you understand Clojure 
+
+[[./images/clojure-4clojure-home.png]]
+
+** 4Clojure - simple example
+
+[[./images/clojure-4clojure-example-list-elementry.png]]
+
+** 4Clojure - more complexe example
+
+[[./images/clojure-4clojure-example-forthewin.png]]
+
+** Books
+
+- [[http://developerpress.com/en/clojure-made-simple-introduction-clojure][Clojure Made Simple]] (ebook) - £1.99 on [[http://www.amazon.co.uk/Clojure-Made-Simple-ebook/dp/B00BSY20HS][Amazon.co.uk]]
+- [[http://joyofclojure.com/][Joy of Clojure]]
+- [[http://www.clojurebook.com/][Clojure Programming]]
+- [[http://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] - 2nd edition 
+
+** Blogs, Documentation, etc.
+
+[[http://planet.clojure.in/][Planet Clojure]] - blog aggregator
+
+[[http://blog.jr0cket.co.uk/][blog.jr0cket.co.uk]] - Clojure, Emacs & Git articles
+ 
+[[http://clojure.org/][clojure.org]] - official documentation 
+
+[[http://clojuredocs.org/][clojuredocs.org]] - community docs & examples
+
+[[http://clojure.org/cheatsheet][Clojure Cheatsheet]] - quick syntax & function reference
+
+
+* Thank you 
+
+Get Leiningen
+
+Use Emacs, LightTable or your favourite IDE
+
+Have fun in the REPL and love writing Clojure
+
+#+ATTR_REVEAL: :frag hightlight-red
+ps. This presentation was brought to you via Emacs & Revealjs
+
+
+* Reveal.js is 2-D
+
+  Org-Reveal knows how to drill down into a subject.
+
+  Press the "Down" key on the page or the down arrow
+
+** Fragments in Reveal.js
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
+   So do Org-Reveal.
+#+BEGIN_SRC org
+ ** Reveal.js Can Alert
+    :PROPERTIES:
+    :reveal_data_state: alert
+    :END:
+#+END_SRC
+
+
+** Display Math
+
+   Write equations in Org. Present equations in HTML5.
+
+   $\lim_{x \to \infty} \exp(-x) = 0$
+
+#+BEGIN_SRC org
+   $\lim_{x \to \infty} \exp(-x) = 0$
+#+END_SRC
+
+* The Org Source
+
+  Get Org source text for this presentation [[http://nage-eda.org/home/yujie/index.org][here]].
+
+* Get Reveal.js and Org-reveal
+
+  - Reveal.js on GitHub:\\
+    [[https://github.com/hakimel/reveal.js]]
+  - Org-reveal on GitHub:\\
+    [[https://github.com/yjwen/org-reveal]]
+
+  [[./images/org-reveal.png]]
