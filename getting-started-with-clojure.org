@@ -4,10 +4,11 @@
 
 #+OPTIONS: toc:nil num:nil
 #+OPTIONS: reveal_width:1600
-#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
 #+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
 #+REVEAL_TRANS: linear
-#+REVEAL_THEME: night
+#+REVEAL_THEME: jr0cket
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Getting started with Clojure">
 
 * Leiningen for everything 
