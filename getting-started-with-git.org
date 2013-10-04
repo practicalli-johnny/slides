@@ -180,7 +180,7 @@ See all the commits made
   git log 
 #+END_SRC
 
-[[./images/git-log-default.png]]
+[[./images/git-log-default.png]
 
 ** Customise the output to see the history better
 
@@ -188,7 +188,7 @@ See all the commits made
   git log --oneline --graph --decorate 
 #+END_SRC
 
-[[./images/git-log-custom.png]]
+[[./images/git-log-custom.png]
 
 ** Drilling deeper into a commit
 
@@ -215,7 +215,7 @@ Add a public key to identify yourself
 
 ** Github the big picture
 
-[[./image/git-and-github-workflow.png]]
+[[./images/git-and-github-workflow.png]]
 
 
 ** Github forking 
@@ -234,7 +234,7 @@ Add a public key to identify yourself
   ;; Go to your repository on Github.com,
   ;; press the pull request button, add a message
 #+END_SRC
-
+ 
 * Branching and Merging
 
 #+BEGIN_SRC bash 
