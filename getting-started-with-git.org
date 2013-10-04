@@ -19,11 +19,40 @@ Advantages:
 #+ATTR_REVEAL: :frag roll-in
 - local repository, manage commits off-line
 - change sets for more detailed history
+- unique commit numbers rather than version numbers 
 - easy to create branches, easy to throw away too 
+
+* Git Quickstart Guide
+
+[[./images/git-quickstart-guide.png]]
+
+* Installing Git 
+
+Download Git Client from http://git-scm.com/
+
+** Introduce yourself to Git
+
+#+BEGIN_SRC bash
+git config --global user.name "John Stevenson"
+git config --global user.email "john@jr0cket.co.uk"
+#+END_SRC
+
+** Set up some nice aliases
+
+(Optional)
+
+Edit your Git config file:
+~/.gitconfig
+
+ - add aliases for common commands & options
+ - add a global ignore file
+ - use external diff & merge tools 
+
+See my [[https://github.com/jr0cket/dot-files-ubuntu/blob/master/.gitconfig][.gitconfig]] file for examples 
 
 * Creating a local repository 
 
-Version managed as objects in .git folder 
+Changes managed as unique data objects in .git folder 
 #+ATTR_REVEAL: :frag highlight-red
 - dont delete .git 
 
@@ -31,33 +60,179 @@ Version managed as objects in .git folder
   git init 
 #+END_SRC
 
+* Git local workflow - overview 
 
-* Local Git  workflow 
+[[./images/git-local-workflow.png]]
+
+
+* Git local workflow - commands 
+
+Just need to get familiar with 5 commands to start with
 
 #+BEGIN_SRC bash 
   git status 
 
   git add
 
+  git diff 
+
   git commit
+
+  git log 
 #+END_SRC
 
+* Git status
 
+Whats going on, what has changes?
+
+#+BEGIN_SRC bash
+  git status
+  git status -sb 
+#+END_SRC
+
+** Git Status example
+
+[[./images/git-status-modified-untracked.png]]
+
+
+** Git Status example
+
+[[./images/git-status-staged-modified-untracked.png]]
+
+
+* Git add 
+Tell git which changes make up the next commit (version)
+- refered to as staging or index
+
+#+BEGIN_SRC bash 
+  ; adds everything
+  git add .  
+
+  git add filename.ext 
+
+  git add my-class.java 
+#+END_SRC
+
+** Working with Staging
+
+Easy to add and remove changes 
+  - nothing has been committed as yet
+  - gives another level of comparison (diffs)
+
+#+BEGIN_SRC bash 
+  ;; updates files in staging 
+  git add .  
+  git add filename.ext 
+  git add my-class.java
+
+  git reset --HEAD 
+  git reset --HEAD filename.ext
+  git reset --HEAD my-class.java  
+#+END_SRC
+
+* Git diff 
+View changes in your files, compared to the last commit  
+
+#+BEGIN_SRC bash 
+  ;; show changes made in the working copy 
+  git diff 
+
+  ;; show changes made in staging
+  git diff --cache
+#+END_SRC
+
+** Git diff - more specifically
+
+Just show the words that have changed 
+- use the option --word-diff 
+
+#+BEGIN_SRC bash 
+  ;; show changes made in the working copy 
+  git diff --word-diff
+
+  ;; show changes made in staging
+  git diff --cache --word-diff
+#+END_SRC
+ 
+* Git commit 
+Make a new commit (version) with everything in staging
+- option -m specifies the commit message (not optinal)
+
+#+BEGIN_SRC bash 
+  ;; commit changes from staging
+  git commit -m "useful commit message"
+
+  ;; commit changes from all tracked files 
+  git commit -am "useful commit message"
+
+#+END_SRC
 
 * Git Log
 
-#+BEGIN_SRC bash 
-git log 
+See all the commits made
+ - dates of commit
+ - author of commit
+ - keep track of branches & forks 
 
-git log --oneline --graph --decorate
+** Default log view is boring
+
+#+BEGIN_SRC bash 
+  git log 
+#+END_SRC
+
+[[./image/git-log-default.png]]
+
+** Customise the output to see the history better
+
+#+BEGIN_SRC bash 
+  git log --oneline --graph --decorate 
+#+END_SRC
+
+[[./images/git-log-custom.png]]
+
+** Drilling deeper into a commit
+
+Show the code that is part of the commit 
+
+#+BEGIN_SRC bash 
+git show 9690af6
 #+END_SRC
 
 
-* Collaborating
+* Collaborating with Github
 
+Github == Social Coding 
+
+- share your code with others
+- keep a backup of your code (if your laptop dies)
+
+** Create a Github account (free)
+
+Sign up at: http://github.com 
+
+Add a public key to identify yourself
+- Github help shows you how [[https://help.github.com/articles/generating-ssh-keys][generate an SSH key]]
+
+** Github the big picture
+
+[[./image/git-and-github-workflow.png]]
+
+
+** Github forking 
+
+** Github pull requests
+
+ - Commit your changes locally
+ - push changes to your fork
+ - click the pull reuest button on Github page 
 
 #+BEGIN_SRC bash 
-git push repository branch 
+  git add .
+  git commit -m "a new feature"
+  git push my-fork branch
+ 
+  ;; Go to your repository on Github.com,
+  ;; press the pull request button, add a message
 #+END_SRC
 
 * Branching and Merging
@@ -77,112 +252,10 @@ git mv filename new-filename
 
 
 
-* Web-based Presentations
-#+ATTR_REVEAL: :frag grow highlight-red 
-  Try Reveal.js
-
-#+ATTR_REVEAL: :frag roll-in
-  * Nice animations in your presentation
-  * Only need a browser, no PowerPoint
-  * Share presentation on the web
-  * Deploy the file on your server (eg. Heroku)
-
-
-
-* What is Reveal.js?
-
-  HTML5-based presentation framework, created by [[hakim.se][Hakim El Hattab]].
-
-  Write presentations in HTML, present it by Reveal.js.
-
-  This page is a Reveal.js presentation. Check the
-  HTML source codes.
-
-* Don't know HTML?
-
-  Try Org-Reveal, an Emacs Orgmode extension.
-
-  Export simple formatted Org text to ready-to-use Reveal.js
-  presentations.
-
-  [[./images/org-reveal.png]]
-
-#+ATTR_REVEAL: :frag roll-in
-  - One Org documents, multiple export format.
-  - Now Org knows Reveal.js!
-
-
-
-* Reveal.js is 2-D
-
-  Org-Reveal knows how to drill down into a subject.
-
-  Press the "Down" key on the page or the down arrow
-
-** Fragments in Reveal.js
-
-#+ATTR_REVEAL: :frag highlight-blue
-   * Create
-   * Fragment
-   * At Ease
-   
-#+CAPTION: The Org text source.
-#+BEGIN_SRC org
-#+ATTR_REVEAL: :frag
-   * Create
-   * Fragment
-   * At Ease
-#+END_SRC
-
-** Reveal.js Can Alert
-   :PROPERTIES:
-   :reveal_data_state: alert
-   :END:
-
-   Change slide style to wake up the sleepy audience.
-
-   So do Org-Reveal.
-#+BEGIN_SRC org
- ** Reveal.js Can Alert
-    :PROPERTIES:
-    :reveal_data_state: alert
-    :END:
-#+END_SRC
-
-** Paste Codes
-
-   Paste codes in your favorite Emacs style.
-#+BEGIN_SRC c++
-  cout << "Hello world! --C++"
-       << endl;
-#+END_SRC
-
-#+BEGIN_SRC lisp
-  (message 
-   "Hello world! --LISP"
-  )
-#+END_SRC
-
-#+BEGIN_SRC python
-  print "Hello world! --Python"
-#+END_SRC
-
-** Display Math
-
-   Write equations in Org. Present equations in HTML5.
-
-   $\lim_{x \to \infty} \exp(-x) = 0$
-
-#+BEGIN_SRC org
-   $\lim_{x \to \infty} \exp(-x) = 0$
-#+END_SRC
-
-* The Org Source
-
-  Get Org source text for this presentation [[http://nage-eda.org/home/yujie/index.org][here]].
-
 * Get Reveal.js and Org-reveal
 
+  - Emacs
+    http://www.gnu.org/software/emacs/
   - Reveal.js on GitHub:\\
     [[https://github.com/hakimel/reveal.js]]
   - Org-reveal on GitHub:\\

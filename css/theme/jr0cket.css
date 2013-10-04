@@ -13,7 +13,7 @@ body {
   background-color: #111111; }
 
 .reveal {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Ubuntu", ubuntu;
   font-size: 36px;
   font-weight: 200;
   letter-spacing: -0.02em;
@@ -88,9 +88,10 @@ body {
 * jr0cket style over-rides
 */
 
+
 .reveal pre {
   font-family: "Ubuntu Mono", ubuntu;
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 200;
   letter-spacing: -0.02em;
   color: #00cc00;

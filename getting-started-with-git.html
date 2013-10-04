@@ -16,7 +16,7 @@
 <section>
 <h1>Getting Started with Git &amp; Github</h1>
 <h2>John Stevenson</h2>
-<h2><a href="mailto:john@jr0cket.co.uk">john@jr0cket.co.uk</a></h2>
+<h2><a href="http://www.twitter.com/jr0cket">@jr0cket</a></h2>
 <h2></h2></section>
 
 <section>
@@ -35,6 +35,8 @@ Advantages:
 </li>
 <li class="fragment roll-in">change sets for more detailed history
 </li>
+<li class="fragment roll-in">unique commit numbers rather than version numbers 
+</li>
 <li class="fragment roll-in">easy to create branches, easy to throw away too 
 </li>
 </ul>
@@ -43,9 +45,64 @@ Advantages:
 <section>
 <section id="sec-2" >
 
+<h2>Git Quickstart Guide</h2>
+
+<div class="figure">
+<p><img src="./images/git-quickstart-guide.png"  alt="git-quickstart-guide.png"/></p>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Installing Git</h2>
+<p>
+Download Git Client from <a href="http://git-scm.com/">http://git-scm.com/</a>
+</p>
+
+</section>
+<section id="sec-3-1" >
+
+<h3>Introduce yourself to Git</h3>
+<div class="org-src-container">
+
+<pre class="src src-bash">git config --global user.name "John Stevenson"
+git config --global user.email "john@jr0cket.co.uk"
+</pre>
+</div>
+</section>
+<section id="sec-3-2" >
+
+<h3>Set up some nice aliases</h3>
+<p>
+(Optional)
+</p>
+
+<p>
+Edit your Git config file:
+~/.gitconfig
+</p>
+
+<ul class="org-ul">
+<li>add aliases for common commands &amp; options
+</li>
+<li>add a global ignore file
+</li>
+<li>use external diff &amp; merge tools 
+</li>
+</ul>
+
+<p>
+See my <a href="https://github.com/jr0cket/dot-files-ubuntu/blob/master/.gitconfig">.gitconfig</a> file for examples 
+</p>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
 <h2>Creating a local repository</h2>
 <p>
-Version managed as objects in .git folder 
+Changes managed as unique data objects in .git folder 
 </p>
 <ul class="org-ul">
 <li class="fragment highlight-red">dont delete .git 
@@ -58,52 +115,322 @@ Version managed as objects in .git folder
 </pre>
 </div>
 </section>
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Git local workflow - overview</h2>
+
+<div class="figure">
+<p><img src="./images/git-local-workflow.png"  alt="git-local-workflow.png"/></p>
+</div>
+</section>
 
 </section>
 <section>
-<section id="sec-3" >
+<section id="sec-6" >
 
-<h2>Local Git  workflow</h2>
+<h2>Git local workflow - commands</h2>
+<p>
+Just need to get familiar with 5 commands to start with
+</p>
+
 <div class="org-src-container">
 
 <pre class="src src-bash">git status 
 
 git add
 
+git diff 
+
 git commit
+
+git log
 </pre>
 </div>
 </section>
+</section>
+<section>
+<section id="sec-7" >
 
+<h2>Git status</h2>
+<p>
+Whats going on, what has changes?
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">git status
+git status -sb
+</pre>
+</div>
+
+</section>
+<section id="sec-7-1" >
+
+<h3>Git Status example</h3>
+
+<div class="figure">
+<p><img src="./images/git-status-modified-untracked.png"  alt="git-status-modified-untracked.png"/></p>
+</div>
+
+</section>
+<section id="sec-7-2" >
+
+<h3>Git Status example</h3>
+
+<div class="figure">
+<p><img src="./images/git-status-staged-modified-untracked.png"  alt="git-status-staged-modified-untracked.png"/></p>
+</div>
+</section>
 
 </section>
 <section>
-<section id="sec-4" >
+<section id="sec-8" >
+
+<h2>Git add</h2>
+<p>
+Tell git which changes make up the next commit (version)
+</p>
+<ul class="org-ul">
+<li>refered to as staging or index
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">; adds everything
+git add .  
+
+git add filename.ext 
+
+git add my-class.java
+</pre>
+</div>
+
+</section>
+<section id="sec-8-1" >
+
+<h3>Working with Staging</h3>
+<p>
+Easy to add and remove changes 
+</p>
+<ul class="org-ul">
+<li>nothing has been committed as yet
+</li>
+<li>gives another level of comparison (diffs)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">;; updates files in staging 
+git add .  
+git add filename.ext 
+git add my-class.java
+
+git reset --HEAD 
+git reset --HEAD filename.ext
+git reset --HEAD my-class.java
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>Git diff</h2>
+<p>
+View changes in your files, compared to the last commit  
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">;; show changes made in the working copy 
+git diff 
+
+;; show changes made in staging
+git diff --cache
+</pre>
+</div>
+
+</section>
+<section id="sec-9-1" >
+
+<h3>Git diff - more specifically</h3>
+<p>
+Just show the words that have changed 
+</p>
+<ul class="org-ul">
+<li>use the option &#x2013;word-diff 
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">;; show changes made in the working copy 
+git diff --word-diff
+
+;; show changes made in staging
+git diff --cache --word-diff
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Git commit</h2>
+<p>
+Make a new commit (version) with everything in staging
+</p>
+<ul class="org-ul">
+<li>option -m specifies the commit message (not optinal)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">;; commit changes from staging
+git commit -m "useful commit message"
+
+;; commit changes from all tracked files 
+git commit -am "useful commit message"
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-11" >
 
 <h2>Git Log</h2>
+<p>
+See all the commits made
+</p>
+<ul class="org-ul">
+<li>dates of commit
+</li>
+<li>author of commit
+</li>
+<li>keep track of branches &amp; forks 
+</li>
+</ul>
+
+</section>
+<section id="sec-11-1" >
+
+<h3>Default log view is boring</h3>
 <div class="org-src-container">
 
-<pre class="src src-bash">git log 
+<pre class="src src-bash">git log
+</pre>
+</div>
 
-git log --oneline --graph --decorate
+
+<div class="figure">
+<p><img src="./image/git-log-default.png"  alt="git-log-default.png"/></p>
+</div>
+</section>
+<section id="sec-11-2" >
+
+<h3>Customise the output to see the history better</h3>
+<div class="org-src-container">
+
+<pre class="src src-bash">git log --oneline --graph --decorate
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/git-log-custom.png"  alt="git-log-custom.png"/></p>
+</div>
+</section>
+<section id="sec-11-3" >
+
+<h3>Drilling deeper into a commit</h3>
+<p>
+Show the code that is part of the commit 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">git show 9690af6
 </pre>
 </div>
 </section>
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-12" >
 
-<h2>Collaborating</h2>
+<h2>Collaborating with Github</h2>
+<p>
+Github == Social Coding 
+</p>
+
+<ul class="org-ul">
+<li>share your code with others
+</li>
+<li>keep a backup of your code (if your laptop dies)
+</li>
+</ul>
+
+</section>
+<section id="sec-12-1" >
+
+<h3>Create a Github account (free)</h3>
+<p>
+Sign up at: <a href="http://github.com">http://github.com</a> 
+</p>
+
+<p>
+Add a public key to identify yourself
+</p>
+<ul class="org-ul">
+<li>Github help shows you how <a href="https://help.github.com/articles/generating-ssh-keys">generate an SSH key</a>
+</li>
+</ul>
+</section>
+<section id="sec-12-2" >
+
+<h3>Github the big picture</h3>
+
+<div class="figure">
+<p><img src="./image/git-and-github-workflow.png"  alt="git-and-github-workflow.png"/></p>
+</div>
+
+</section>
+<section id="sec-12-3" >
+
+<h3>Github forking</h3>
+
+</section>
+<section id="sec-12-4" >
+
+<h3>Github pull requests</h3>
+<ul class="org-ul">
+<li>Commit your changes locally
+</li>
+<li>push changes to your fork
+</li>
+<li>click the pull reuest button on Github page 
+</li>
+</ul>
+
 <div class="org-src-container">
 
-<pre class="src src-bash">git push repository branch
+<pre class="src src-bash">git add .
+git commit -m "a new feature"
+git push my-fork branch
+
+;; Go to your repository on Github.com,
+;; press the pull request button, add a message
 </pre>
 </div>
 </section>
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-13" >
 
 <h2>Branching and Merging</h2>
 <div class="org-src-container">
@@ -115,7 +442,7 @@ git log --oneline --graph --decorate
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-14" >
 
 <h2>Moving things around</h2>
 <div class="org-src-container">
@@ -129,186 +456,13 @@ git log --oneline --graph --decorate
 
 </section>
 <section>
-<section id="sec-8" >
-
-<h2>Web-based Presentations</h2>
-<p class="fragment grow highlight-red">
-Try Reveal.js
-</p>
-
-<ul class="org-ul">
-<li class="fragment roll-in">Nice animations in your presentation
-</li>
-<li class="fragment roll-in">Only need a browser, no PowerPoint
-</li>
-<li class="fragment roll-in">Share presentation on the web
-</li>
-<li class="fragment roll-in">Deploy the file on your server (eg. Heroku)
-</li>
-</ul>
-</section>
-
-
-</section>
-<section>
-<section id="sec-9" >
-
-<h2>What is Reveal.js?</h2>
-<p>
-HTML5-based presentation framework, created by <i>Hakim El Hattab</i>.
-</p>
-
-<p>
-Write presentations in HTML, present it by Reveal.js.
-</p>
-
-<p>
-This page is a Reveal.js presentation. Check the
-HTML source codes.
-</p>
-</section>
-</section>
-<section>
-<section id="sec-10" >
-
-<h2>Don't know HTML?</h2>
-<p>
-Try Org-Reveal, an Emacs Orgmode extension.
-</p>
-
-<p>
-Export simple formatted Org text to ready-to-use Reveal.js
-presentations.
-</p>
-
-
-<div class="figure">
-<p><img src="./images/org-reveal.png"  alt="org-reveal.png"/></p>
-</div>
-
-<ul class="org-ul">
-<li class="fragment roll-in">One Org documents, multiple export format.
-</li>
-<li class="fragment roll-in">Now Org knows Reveal.js!
-</li>
-</ul>
-</section>
-
-
-</section>
-<section>
-<section id="sec-11" >
-
-<h2>Reveal.js is 2-D</h2>
-<p>
-Org-Reveal knows how to drill down into a subject.
-</p>
-
-<p>
-Press the "Down" key on the page or the down arrow
-</p>
-
-</section>
-<section id="sec-11-1" >
-
-<h3>Fragments in Reveal.js</h3>
-<ul class="org-ul">
-<li class="fragment highlight-blue">Create
-</li>
-<li class="fragment highlight-blue">Fragment
-</li>
-<li class="fragment highlight-blue">At Ease
-</li>
-</ul>
-
-<div class="org-src-container">
-<label class="org-src-name">The Org text source.</label>
-<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
-   * Create
-   * Fragment
-   * At Ease
-</pre>
-</div>
-</section>
-<section id="sec-11-2"  data-state="alert">
-
-<h3>Reveal.js Can Alert</h3>
-
-<p>
-Change slide style to wake up the sleepy audience.
-</p>
-
-<p>
-So do Org-Reveal.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-org"><span style="color: #D8FA3C;">** Reveal.js Can Alert</span>
-<span style="color: #FBDE2D;">   :PROPERTIES:</span>
-   <span style="color: #FBDE2D;">:reveal_data_state:</span> alert
-<span style="color: #FBDE2D;">   :END:</span>
-</pre>
-</div>
-</section>
-<section id="sec-11-3" >
-
-<h3>Paste Codes</h3>
-<p>
-Paste codes in your favorite Emacs style.
-</p>
-<div class="org-src-container">
-
-<pre class="src src-c++">cout &lt;&lt; <span style="color: #61CE3C;">"Hello world! --C++"</span>
-     &lt;&lt; endl;
-</pre>
-</div>
-
-<div class="org-src-container">
-
-<pre class="src src-lisp">(message 
- <span style="color: #61CE3C;">"Hello world! --LISP"</span>
-)
-</pre>
-</div>
-
-<div class="org-src-container">
-
-<pre class="src src-python"><span style="color: #FBDE2D;">print</span> <span style="color: #61CE3C;">"Hello world! --Python"</span>
-</pre>
-</div>
-</section>
-<section id="sec-11-4" >
-
-<h3>Display Math</h3>
-<p>
-Write equations in Org. Present equations in HTML5.
-</p>
-
-<p>
-\(\lim_{x \to \infty} \exp(-x) = 0\)
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-org">$\lim_{x \to \infty} \exp(-x) = 0$
-</pre>
-</div>
-</section>
-</section>
-<section>
-<section id="sec-12" >
-
-<h2>The Org Source</h2>
-<p>
-Get Org source text for this presentation <a href="http://nage-eda.org/home/yujie/index.org">here</a>.
-</p>
-</section>
-</section>
-<section>
-<section id="sec-13" >
+<section id="sec-15" >
 
 <h2>Get Reveal.js and Org-reveal</h2>
 <ul class="org-ul">
+<li>Emacs
+    <a href="http://www.gnu.org/software/emacs/">http://www.gnu.org/software/emacs/</a>
+</li>
 <li>Reveal.js on GitHub:<br/>
     <a href="https://github.com/hakimel/reveal.js">https://github.com/hakimel/reveal.js</a>
 </li>
