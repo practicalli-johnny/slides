@@ -220,6 +220,11 @@ Add a public key to identify yourself
 
 ** Github forking 
 
+1) View someone elses project on Github
+2) Fork the project to get your own copy
+3) Clone your fork and extend the project 
+
+
 ** Github pull requests
 
  - Commit your changes locally
@@ -235,6 +240,7 @@ Add a public key to identify yourself
   ;; press the pull request button, add a message
 #+END_SRC
  
+
 * Branching and Merging
 
 #+BEGIN_SRC bash 
