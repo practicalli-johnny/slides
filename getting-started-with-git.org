@@ -180,7 +180,7 @@ See all the commits made
   git log 
 #+END_SRC
 
-[[./image/git-log-default.png]]
+[[./images/git-log-default.png]]
 
 ** Customise the output to see the history better
 
