@@ -1,0 +1,139 @@
+#+Title: Even Developers can Present 
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1600
+#+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Even Developers can Present">
+
+* We Developers are very social 
+
+** No really we are !!
+
+In no way are we shy, awkward, introverted...
+
+** Well not when we are sufficiently motivated
+#+ATTR_REVEAL: :frag roll-in
+- so find some motivation to talk!
+  
+
+* Finding motivation 
+
+This is probably the hardest thing to do
+- if you are not motivated its easy to put it off
+
+** Think about what excites you (technically)
+
+ - What languages do you love?
+ - What frameworks do you worship?
+ - What tools would you trade your family for?
+ - What did you learn at work today?
+
+
+** What do you work on that you dont get paid for
+
+What would you like to get paid to do that you currently dont!
+
+** What do you talk to your friends about
+
+- what are they tired of you banging on about?
+
+Lots of other people will be interested in that
+
+** Share your ideas and stories at meetups
+
+See what topics you feel comfortable talking about at events
+
+** What ever interests you, some other developers out there will also find interesting 
+
+
+* Realise you have something to Say
+
+Developers want to hear experiences from other Developers
+
+** In the land of the blind...
+
+... the one eyed man is king
+
+ - We all have things we dont know much about
+ - We all have gaps in our knowledge and experience
+ - Software Development is too big to know everything
+
+** Most Developers will be interested in most of what you want to say 
+
+* Keep to the point
+
+** Start with a Lightning talk
+
+ - Talk about something specific within 5 minutes
+ - Realise you will over-run 5 minutes (everyone does) 
+ - Get some feedback on the content
+   - what did developers find interesting
+   - what do developers want to hear more about 
+
+** Have a basic structures
+
+You are telling a story, so there is a begining, middle and end 
+
+Begining
+ - tell people why the subject is interesting (context)
+
+Middle
+ -  the meat of the story, what happens, how does it happen
+
+End
+ - what was the point of the story, what should the audience do next
+
+
+
+
+
+
+* Little details
+
+Some tips to get you going
+
+** Just the bare essentials 
+
+Dont go crazy with slides / bullet-points
+ - just enough to support the story 
+
+** Mix up the content 
+
+Use a mixture of images and text  
+ - different stimuli keeps people engaged
+
+** Stay focused on what you are talking about
+
+Think about what you are going to say and why you are saying it
+
+ - everything else is irrelevant
+
+** Keep distracted while you wait to speak 
+ - play some music or find other distractions before you start
+ - start writing your presentation (advanced speakers only)
+
+** Say "Thank You" at the end 
+
+Pause afterwards so people know when to clap
+ - remember developers can be a shy bunch, so be patient.
+
+
+* Enjoy it, we are all human
+
+Developers are social and friendly
+ - especially to other developers 
+
+If all else fails, think of the Nike slogan
+
+* Just Do It 
+
+Thank you....
+
+(pause for applause)
+
