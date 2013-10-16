@@ -64,14 +64,19 @@ Or create a shared repo on Github & clone it
 
 [[./images/git-quickstart-guilde-v1.png]]
 
+** Learn more with Try Git
+
+[[http://try.github.io][try.github.io]]
+
+[[./images/git-try-git-website.png]]
+
 ** Hack away with confidence
 
 [[./images/hackathon-hands-coding-on-macs.jpg]]
 
-
 * How do you manage all the moving parts
 
-** Collaborating on your app with Github 
+* Collaborating on your app with Github 
  :PROPERTIES:
     :reveal_background: ./images/github-octocat.png
     :reveal_background_trans: slide
@@ -82,7 +87,11 @@ Or create a shared repo on Github & clone it
  - Using [[http://pages.github.com/][Github pages]] for docs / notes / designs
 
 
-** Build tools
+** Github workflow
+
+[[./images/git-and-github-workflow.png]]
+
+* Build tools
 :PROPERTIES:
     :reveal_background: ./images/build-tools-background.png
     :reveal_background_trans: slide
@@ -97,7 +106,14 @@ Gives consistency for creating, building and running apps
  - SBT for Scala
  - ...
 
-** Consistent deployment with Heroku 
+** Build tool demo
+
+Lets play with:
+ - Yeoman
+ - Grunt
+ - Angular
+
+* Consistent deployment with Heroku 
  :PROPERTIES:
     :reveal_background: ./images/heroku-logo.png
     :reveal_background_trans: slide
@@ -162,63 +178,4 @@ Show the judges what you are up to by tweeting the URL for you live app
  [[https://twitter.com/jr0cket][@jr0cket]]
 
  [[http://blog.jr0cket.co.uk][blog.jr0cket.co.uk]]
-
-
-* Slide with background image  
- :PROPERTIES:
-    :reveal_background: ./images/leiningen-slide-background.png
-    :reveal_background_trans: slide
-    :END:
-
-[[http://www.google.co.uk][hyperlink-text]]
-
-#+ATTR_REVEAL: :frag roll-in
-  - bulletpoint
-  - dont go crazy
-
-** Sub-slide - srolls vertically from slide above
-
-Some source code using hightlits.js 
-
-#+BEGIN_SRC clojure
-(def clojure-devs "love brackets")
-#+END_SRC
-
-* Slide with Colour - overriding the theme 
-:PROPERTIES:
-    :reveal_background: #770000
-    :reveal_background_trans: slide
-    :END:
-
-I love red.
-
-#+ATTR_REVEAL: :frag hightlight-red
-Hightliht text as a fragment of the slide 
-
- 
-
-** Fragments in Reveal.js
-
- Press the "Down" key on the page or the down arrow to trigger fragments
-
-#+ATTR_REVEAL: :frag highlight-blue
-   * Create
-   * Fragment
-   * At Ease
-
-** Fragment captions   
-#+CAPTION: The Org text source.
-#+BEGIN_SRC org
-#+ATTR_REVEAL: :frag
-   * Create
-   * Fragment
-   * At Ease
-#+END_SRC
-
-** Reveal.js Can Alert
-   :PROPERTIES:
-   :reveal_data_state: alert
-   :END:
-
-   Change slide style to wake up the sleepy audience.
 
