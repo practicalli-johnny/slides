@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>(Kickstart you Hack - with Git & Heroku)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="./css/reveal.min.css">
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme">
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">
+<meta name="description" content="Kickstart you Hack - with Git & Heroku">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Kickstart you Hack - with Git &amp; Heroku</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:john@jr0cket.co.uk">john@jr0cket.co.uk</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>What is the first thing you should do at a Hackathon?</h2>
+</section>
+<section id="sec-1-1" >
+
+<h3>Well maybe not quite the first thing</h3>
+<p>
+What do you do after you have:
+</p>
+<ul class="org-ul">
+<li>woken up
+</li>
+<li>found a team
+</li>
+<li>thought of an idea
+</li>
+<li>had a discusson about that idea&#x2026;
+</li>
+</ul>
+</section>
+<section id="sec-1-2"  data-background="./images/git-logo.png" data-background-transition="slide">
+
+<h3>Testing out your ideas</h3>
+
+<p>
+Git allows you to:
+</p>
+<ul class="org-ul">
+<li class="fragment roll-in">experiment with ideas quickly
+</li>
+<li class="fragment roll-in">use branching to experiment in code  
+</li>
+<li class="fragment roll-in">throw away code that is not wanted
+</li>
+<li class="fragment roll-in">go back to that great idea you had right at the start :)
+</li>
+</ul>
+
+</section>
+<section id="sec-1-3"  data-background="./images/git-logo.png" data-background-transition="slide">
+
+<h3>Create a Git repository</h3>
+
+<p>
+Create a local repository
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">git init
+</pre>
+</div>
+
+
+<p>
+Or create a shared repo on Github &amp; clone it
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">git clone git@github.com:/username/project
+</pre>
+</div>
+
+
+</section>
+<section id="sec-1-4"  data-background="./images/git-logo.png" data-background-transition="slide">
+
+<h3>Git Quickstart Guide</h3>
+
+
+<div class="figure">
+<p><img src="./images/git-quickstart-guilde-v1.png"  alt="git-quickstart-guilde-v1.png"/></p>
+</div>
+</section>
+<section id="sec-1-5" >
+
+<h3>Hack away with confidence</h3>
+
+<div class="figure">
+<p><img src="./images/hackathon-hands-coding-on-macs.jpg"  alt="hackathon-hands-coding-on-macs.jpg"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>How do you manage all the moving parts</h2>
+</section>
+<section id="sec-2-1"  data-background="./images/github-octocat.png" data-background-transition="slide">
+
+<h3>Collaborating on your app with Github</h3>
+
+<ul class="org-ul">
+<li>Sharing a repository for code
+</li>
+<li>Using Issues to define features &amp; work on bugs
+</li>
+<li>Using <a href="http://pages.github.com/">Github pages</a> for docs / notes / designs
+</li>
+</ul>
+
+</section>
+<section id="sec-2-2"  data-background="./images/build-tools-background.png" data-background-transition="slide">
+
+<h3>Build tools</h3>
+
+<p>
+Gives consistency for creating, building and running apps
+</p>
+
+<ul class="org-ul">
+<li>Grunt for JavaScript / Node
+</li>
+<li>Graddle / Ivy/ Maven / Ant for Java
+</li>
+<li>Leiningen for Clojure
+</li>
+<li>Rake &amp; Bundle for Ruby 
+</li>
+<li>SBT for Scala
+</li>
+<li>&#x2026;
+</li>
+</ul>
+</section>
+<section id="sec-2-3"  data-background="./images/heroku-logo.png" data-background-transition="slide">
+
+<h3>Consistent deployment with Heroku</h3>
+
+<ul class="org-ul">
+<li>Deploy using Git
+</li>
+<li>Provides a standard build &amp; deploy workflow
+</li>
+<li>Deploy as a team
+</li>
+</ul>
+</section>
+<section id="sec-2-4"  data-background="./images/heroku-logo.png" data-background-transition="slide">
+
+<h3>Heroku workflow</h3>
+
+
+<div class="figure">
+<p><img src="./images/heroku-developer-team-workflow-overview.png"  alt="heroku-developer-team-workflow-overview.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-3"  data-background="./images/heroku-logo.png" data-background-transition="slide">
+
+<h2>What is Heroku</h2>
+
+<ul class="org-ul">
+<li>Polyglot Language
+</li>
+<li>Polyglot framework
+</li>
+<li>Instantly scalable
+</li>
+<li>Platform as a service
+</li>
+<li>Aimed at developers
+</li>
+</ul>
+
+
+</section>
+<section id="sec-3-1"  data-background="./images/heroku-logo.png" data-background-transition="slide">
+
+<h3>Quick Demo</h3>
+
+<ul class="org-ul">
+<li>Create an app from scratch (using a build tool)
+</li>
+<li>Create a local git repository (git init)
+</li>
+<li>Commit project code to local repository (git commit -am "new project")
+</li>
+<li>Create an Heroku app (heroku create)
+</li>
+<li>Git Push code to Heroku (git push heroku master)
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/heroku-developer-workflow--create-push.png"  alt="heroku-developer-workflow--create-push.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>What is the last thing you do at a Hackathon?</h2>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Demo your app</h2>
+<p>
+Avoid trying to wire everything up at the last minute :)
+</p>
+
+<ul class="org-ul">
+<li>a consistent deployment helps you focus on a good demo 
+</li>
+</ul>
+
+</section>
+<section id="sec-5-1" >
+
+<h3>Tweet about your app</h3>
+<p>
+Show the judges what you are up to by tweeting the URL for you live app
+</p>
+<ul class="org-ul">
+<li>get feedback during the event 
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Thank you</h2>
+<p>
+<a href="https://twitter.com/jr0cket">@jr0cket</a>
+</p>
+
+<p>
+<a href="http://blog.jr0cket.co.uk">blog.jr0cket.co.uk</a>
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-7"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Slide with background image</h2>
+
+<p>
+<a href="http://www.google.co.uk">hyperlink-text</a>
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">bulletpoint
+</li>
+<li class="fragment roll-in">dont go crazy
+</li>
+</ul>
+
+</section>
+<section id="sec-7-1" >
+
+<h3>Sub-slide - srolls vertically from slide above</h3>
+<p>
+Some source code using hightlits.js 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-8"  data-background="#770000" data-background-transition="slide">
+
+<h2>Slide with Colour - overriding the theme</h2>
+
+<p>
+I love red.
+</p>
+
+<p class="fragment hightlight-red">
+Hightliht text as a fragment of the slide 
+</p>
+
+
+
+</section>
+<section id="sec-8-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<p>
+Press the "Down" key on the page or the down arrow to trigger fragments
+</p>
+
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+</section>
+<section id="sec-8-2" >
+
+<h3>Fragment captions</h3>
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-8-3"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: false,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1600, // slide width
+        			height: 900, // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        				{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        				{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        				{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        				{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        			]
+        		});
+</script>
+</body>
+</html>

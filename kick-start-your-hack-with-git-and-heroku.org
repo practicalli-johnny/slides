@@ -1,0 +1,224 @@
+#+Title: Kickstart you Hack - with Git & Heroku
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1600
+#+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Kickstart you Hack - with Git & Heroku">
+
+* What is the first thing you should do at a Hackathon?
+
+** Well maybe not quite the first thing
+
+What do you do after you have:
+- woken up
+- found a team
+- thought of an idea
+- had a discusson about that idea...
+
+** Testing out your ideas 
+:PROPERTIES:
+    :reveal_background: ./images/git-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+Git allows you to:
+#+ATTR_REVEAL: :frag roll-in
+- experiment with ideas quickly
+- use branching to experiment in code  
+- throw away code that is not wanted
+- go back to that great idea you had right at the start :)
+
+
+** Create a Git repository
+:PROPERTIES:
+    :reveal_background: ./images/git-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+Create a local repository
+
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+
+Or create a shared repo on Github & clone it
+
+#+BEGIN_SRC zsh 
+  git clone git@github.com:/username/project
+#+END_SRC
+
+
+
+** Git Quickstart Guide
+:PROPERTIES:
+    :reveal_background: ./images/git-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+[[./images/git-quickstart-guilde-v1.png]]
+
+** Hack away with confidence
+
+[[./images/hackathon-hands-coding-on-macs.jpg]]
+
+
+* How do you manage all the moving parts
+
+** Collaborating on your app with Github 
+ :PROPERTIES:
+    :reveal_background: ./images/github-octocat.png
+    :reveal_background_trans: slide
+    :END:
+
+ - Sharing a repository for code
+ - Using Issues to define features & work on bugs
+ - Using [[http://pages.github.com/][Github pages]] for docs / notes / designs
+
+
+** Build tools
+:PROPERTIES:
+    :reveal_background: ./images/build-tools-background.png
+    :reveal_background_trans: slide
+    :END:
+
+Gives consistency for creating, building and running apps
+
+ - Grunt for JavaScript / Node
+ - Graddle / Ivy/ Maven / Ant for Java
+ - Leiningen for Clojure
+ - Rake & Bundle for Ruby 
+ - SBT for Scala
+ - ...
+
+** Consistent deployment with Heroku 
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+ - Deploy using Git
+ - Provides a standard build & deploy workflow
+ - Deploy as a team
+
+** Heroku workflow 
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+[[./images/heroku-developer-team-workflow-overview.png]]
+
+
+* What is Heroku
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+ - Polyglot Language
+ - Polyglot framework
+ - Instantly scalable
+ - Platform as a service
+ - Aimed at developers
+
+
+** Quick Demo 
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-logo.png
+    :reveal_background_trans: slide
+    :END:
+
+ - Create an app from scratch (using a build tool)
+ - Create a local git repository (git init)
+ - Commit project code to local repository (git commit -am "new project")
+ - Create an Heroku app (heroku create)
+ - Git Push code to Heroku (git push heroku master)
+
+[[./images/heroku-developer-workflow--create-push.png]]
+
+
+* What is the last thing you do at a Hackathon?
+
+* Demo your app 
+
+Avoid trying to wire everything up at the last minute :)
+
+- a consistent deployment helps you focus on a good demo 
+
+** Tweet about your app
+
+Show the judges what you are up to by tweeting the URL for you live app
+- get feedback during the event 
+
+* Thank you
+
+ [[https://twitter.com/jr0cket][@jr0cket]]
+
+ [[http://blog.jr0cket.co.uk][blog.jr0cket.co.uk]]
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
