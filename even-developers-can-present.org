@@ -114,8 +114,19 @@ Think about what you are going to say and why you are saying it
 
  - everything else is irrelevant
 
+** Projectors are not your friends 
+
+Check your presentation on every projector you meet
+  - do it well before you start
+  - check all the tools you'll use 
+  - ensure colours of text can be seen
+  - check font size is big enough
+    - sand at the back of the room and look
+  - learn how to change font sizes quickly 
+
 ** Keep distracted while you wait to speak 
  - play some music or find other distractions before you start
+ - check you can change font sizes 
  - start writing your presentation (advanced speakers only)
 
 ** Say "Thank You" at the end 

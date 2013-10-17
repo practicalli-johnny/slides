@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><title>(Even Developers can Present)</title>
+<meta charset="utf-8"/>
+<title>(Even Developers can Present)</title>
 <meta name="author" content="(John Stevenson)"/>
-<link rel="stylesheet" href="./css/reveal.min.css">
-<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme">
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
 
-<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print">
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
 <meta name="description" content="Even Developers can Present">
 </head>
 <body>
@@ -236,15 +237,40 @@ Think about what you are going to say and why you are saying it
 </section>
 <section id="sec-5-4" >
 
+<h3>Projectors are not your friends</h3>
+<p>
+Check your presentation on every projector you meet
+</p>
+<ul class="org-ul">
+<li>do it well before you start
+</li>
+<li>check all the tools you'll use 
+</li>
+<li>ensure colours of text can be seen
+</li>
+<li>check font size is big enough
+<ul class="org-ul">
+<li>sand at the back of the room and look
+</li>
+</ul>
+</li>
+<li>learn how to change font sizes quickly 
+</li>
+</ul>
+</section>
+<section id="sec-5-5" >
+
 <h3>Keep distracted while you wait to speak</h3>
 <ul class="org-ul">
 <li>play some music or find other distractions before you start
+</li>
+<li>check you can change font sizes 
 </li>
 <li>start writing your presentation (advanced speakers only)
 </li>
 </ul>
 </section>
-<section id="sec-5-5" >
+<section id="sec-5-6" >
 
 <h3>Say "Thank You" at the end</h3>
 <p>
@@ -316,14 +342,15 @@ Thank you&#x2026;.
 
         			// Optional libraries used to extend on reveal.js
         			dependencies: [
-        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
-        				{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        				{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-        				{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-        				{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-        				{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
         				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
         				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
         			]
         		});
 </script>
