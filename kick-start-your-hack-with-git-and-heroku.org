@@ -77,15 +77,16 @@ Or create a shared repo on Github & clone it
 
 * How do you manage all the moving parts
 
-* Collaborating on your app with Github 
+* Collaborating on your app
  :PROPERTIES:
     :reveal_background: ./images/github-octocat.png
     :reveal_background_trans: slide
     :END:
 
- - Sharing a repository for code
- - Using Issues to define features & work on bugs
- - Using [[http://pages.github.com/][Github pages]] for docs / notes / designs
+Use Github to:
+ - Share a repository for code
+ - Use Issues to define features & work on bugs
+ - Use [[http://pages.github.com/][Github pages]] for docs / notes / designs
 
 
 ** Github workflow
@@ -133,25 +134,38 @@ Lets play with:
 [[./images/heroku-developer-team-workflow-overview.png]]
 
 
-* What is Heroku
+* What Heroku Provides
  :PROPERTIES:
     :reveal_background: ./images/heroku-logo.png
     :reveal_background_trans: slide
     :END:
 
- - Polyglot Language
- - Polyglot framework
- - Instantly scalable
- - Platform as a service
- - Aimed at developers
+#+ATTR_REVEAL: :frag highlight-red
+Helping Developers focus on their apps
 
+ - Heroku has support for 
+   - Polyglot Languages & frameworks
+   - Instantly scalability
+   - Consistent deployment
+   - Platform as a service
+
+
+** Extensive range of addons
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-logo.png
+    :reveal_background_trans: slide
+    :END:
+[[https://addons.heroku.com][
+addons.heroku.com]]
+
+[screenshot of addon website]
 
 ** Quick Demo 
  :PROPERTIES:
     :reveal_background: ./images/heroku-logo.png
     :reveal_background_trans: slide
     :END:
-
+#+ATTR_REVEAL: :frag highlight-green
  - Create an app from scratch (using a build tool)
  - Create a local git repository (git init)
  - Commit project code to local repository (git commit -am "new project")
@@ -175,6 +189,8 @@ Show the judges what you are up to by tweeting the URL for you live app
 - get feedback during the event 
 
 * Thank you
+
+Happy Hacking !!
 
  [[https://twitter.com/jr0cket][@jr0cket]]
 
