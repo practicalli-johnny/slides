@@ -21,7 +21,8 @@ What do you do after you have:
 - thought of an idea
 - had a discusson about that idea...
 
-** Testing out your ideas 
+
+* Testing out your ideas 
 :PROPERTIES:
     :reveal_background: ./images/git-logo.png
     :reveal_background_trans: slide
