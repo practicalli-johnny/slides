@@ -188,6 +188,12 @@ Avoid trying to wire everything up at the last minute :)
 Show the judges what you are up to by tweeting the URL for you live app
 - get feedback during the event 
 
+
+* Did the demo work?
+
+heroku open
+
+
 * Thank you
 
 Happy Hacking !!
