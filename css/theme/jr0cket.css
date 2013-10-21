@@ -36,7 +36,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "Ubuntu", ubuntu;
+  font-family: "Ubuntu", sans-serif;
   line-height: 1.0em;
   letter-spacing: -0.03em;
   text-transform: none;
@@ -44,6 +44,19 @@ body {
 
 .reveal h1 {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+
+.reveal h3 {
+  font-size: 2.11em;
+}
+
+.reveal p {
+  font-size: 1.4em;
+}
+
+.reveal li {
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
 
 
 /*********************************************
