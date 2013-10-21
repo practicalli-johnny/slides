@@ -1,5 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700);
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700);
+
 /**
  * Black theme for reveal.js.
  *
@@ -13,7 +14,7 @@ body {
   background-color: #111111; }
 
 .reveal {
-  font-family: "Ubuntu", ubuntu;
+  font-family: "Ubuntu", sans-serif;
   font-size: 30px;
   font-weight: 200;
   letter-spacing: -0.02em;
