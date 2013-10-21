@@ -3,8 +3,11 @@
 #+Email: john@jr0cket.co.uk
 
 #+OPTIONS: toc:nil num:nil
-#+OPTIONS: reveal_width:1600
-#+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
 #+OPTIONS: reveal_center:nil 
 #+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
 #+REVEAL_TRANS: linear
@@ -29,6 +32,11 @@ Some source code using hightlits.js
 
 #+BEGIN_SRC clojure
 (def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
 #+END_SRC
 
 * Slide with Colour - overriding the theme 
