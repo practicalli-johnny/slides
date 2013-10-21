@@ -11,7 +11,7 @@
 #+OPTIONS: reveal_center:nil 
 #+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
 #+REVEAL_TRANS: linear
-#+REVEAL_THEME: night 
+#+REVEAL_THEME: jr0cket
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Kickstart you Hack with Git, Built tools & Heroku">
 
 * What is the first thing you should do at a Hackathon?
@@ -59,10 +59,7 @@ Or create a shared repo on Github & clone it
 
 
 ** Git Quickstart Guide
-:PROPERTIES:
-    :reveal_background: ./images/git-background.png
-    :reveal_background_trans: slide
-    :END:
+
 [[./images/git-quickstart-guilde-v1.png]]
 
 ** Learn more with Try Git

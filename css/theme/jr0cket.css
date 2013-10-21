@@ -14,7 +14,7 @@ body {
 
 .reveal {
   font-family: "Ubuntu", ubuntu;
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 200;
   letter-spacing: -0.02em;
   color: #eeeeee; }
@@ -35,14 +35,29 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #eeeeee;
-  font-family: "Montserrat", Impact, sans-serif;
-  line-height: 2.0em;
+  font-family: "Ubuntu", ubuntu;
+  line-height: 1.0em;
   letter-spacing: -0.03em;
   text-transform: none;
   text-shadow: none; }
 
 .reveal h1 {
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2); }
+
+
+/*********************************************
+ * Code
+ *********************************************/
+.reveal pre {
+  margin: 0 60px 0 0;
+  font-family: "Ubuntu Mono", ubuntu;
+  font-size: 1.6em;
+  font-weight: 200;
+  letter-spacing: -0.02em;
+  color: #00cc00;
+}
+
+
 
 /*********************************************
  * LINKS
@@ -83,20 +98,6 @@ body {
   background: rgba(255, 255, 255, 0.2);
   border-color: #e7ad52;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
-
-/*
-* jr0cket style over-rides
-*/
-
-
-.reveal pre {
-  font-family: "Ubuntu Mono", ubuntu;
-  font-size: 48px;
-  font-weight: 200;
-  letter-spacing: -0.02em;
-  color: #00cc00;
-}
-
 
 /*********************************************
  * NAVIGATION CONTROLS
