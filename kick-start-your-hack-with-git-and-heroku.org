@@ -116,7 +116,7 @@ Lets play with:
 
 * Consistent deployment with Heroku 
  :PROPERTIES:
-    :reveal_background: ./images/heroku-logo.png
+    :reveal_background: ./images/heroku-background.png
     :reveal_background_trans: slide
     :END:
 
@@ -126,7 +126,7 @@ Lets play with:
 
 ** Heroku workflow 
  :PROPERTIES:
-    :reveal_background: ./images/heroku-logo.png
+    :reveal_background: ./images/heroku-background.png
     :reveal_background_trans: slide
     :END:
 
@@ -134,7 +134,7 @@ Lets play with:
 
 * What Heroku Provides
  :PROPERTIES:
-    :reveal_background: ./images/heroku-logo.png
+    :reveal_background: ./images/heroku-background.png
     :reveal_background_trans: slide
     :END:
 
@@ -150,17 +150,16 @@ Heroku has support for
 
 ** Extensive range of addons
  :PROPERTIES:
-    :reveal_background: ./images/heroku-logo.png
+    :reveal_background: ./images/heroku-background.png
     :reveal_background_trans: slide
     :END:
 [[https://addons.heroku.com][
 addons.heroku.com]]
 
-[screenshot of addon website]
 
 ** Quick Demo 
  :PROPERTIES:
-    :reveal_background: ./images/heroku-logo.png
+    :reveal_background: ./images/heroku-background.png
     :reveal_background_trans: slide
     :END:
 #+ATTR_REVEAL: :frag highlight-green
@@ -187,6 +186,11 @@ Show the judges what you are up to by tweeting the URL for you live app
 
 
 * Did the demo work?
+ :PROPERTIES:
+    :reveal_background: ./images/heroku-background.png
+    :reveal_background_trans: slide
+    :END:
+Open the URL in a browser, or use the command:
 
 #+BEGIN_SRC zsh 
 heroku open
