@@ -114,6 +114,15 @@ Lets play with:
  - Grunt
  - Angular
 
+#+BEGIN_SRC zsh 
+  # Create an app using Angularjs
+  yo angular 
+
+  # Build the website
+  grunt build 
+#+END_SRC
+
+
 * Consistent deployment with Heroku 
  :PROPERTIES:
     :reveal_background: ./images/heroku-background.png
@@ -163,7 +172,7 @@ addons.heroku.com]]
     :reveal_background_trans: slide
     :END:
 #+ATTR_REVEAL: :frag highlight-green
- 1. Create an app from scratch
+ 1. Create an app from scratch (done)
  2. Create a local git repository
  3. Commit project code to local repository 
  4. Create an Heroku app
