@@ -1,0 +1,827 @@
+#+Title: Clojure at Lightspeed
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Clojure at Lightspeed">
+
+
+* Press space to navigate through this 2-dimentional presentation
+
+** Abstract
+
+Light Table demonstrates a new breed of interactive coding tools, 
+based on Bret Victor's "Designing on Principle". 
+
+With Light Table, you can create Clojure & ClojureScript apps that run inside the development tool, 
+giving you the ultimate fast feedback. 
+
+This session will show a new way of developing that is fast, effective and fun.
+
+[[./images/jaxlondon-logo.png]]
+
+
+* What is LightTable
+
+A developer tool for Clojure development 
+
+[[http://www.kickstarter.com/projects/ibdknox/light-table][A kickstarter project]] 
+
+Inspired by Bret Victor's talk: [[http://vimeo.com/36579366][Inventing on Principle]]
+
+
+* Inventing on Principle 
+
+** Bret's principle 
+
+Bringing ideas into the world is one of the most important things to do 
+- ideas give meaning to peoples lives 
+
+[[./images/creating-ideas.png]]
+
+** Nurturing ideas by connecting to creations 
+Creators need to see the affect as soon as a change is made
+
+[[./images/creative-interaction.jpg]]
+
+** Ideas start small,
+need an environment where the creator can nurture and let them grow 
+** Find a guilding Principle
+
+Find something you believe is important, neccessary and right 
+
+http://worrydream.com/
+
+
+* Relating these principles to code
+Traditional coding approach:
+ - type in code and then compile & run and something comes out
+ - to fix bugs or add new ideas, you have to switch back to code
+ - loose connection too often with the thing you are making
+
+** Classic IDE's make your eyes jump around
+ 
+[[./images/eclipse-counterclockwise-clojure-project.png]]
+
+** Make changes as quickly as you think of them 
+- the tool help you understand where to make changes by interacting with your creation
+- you dont always have to scroll through code and interpret it to figure out where to make the change 
+
+[[./images/think_in_code.jpg]]
+
+** By interacting with your creation directly...
+
+... new ideas are triggered that dont come from parsing code 
+
+** Use your brain effectively 
+When you look at code you have to "play commputer"
+- you have to imagine in your head what each line of code does
+- you become the interpreter & runtime ...
+
+** Instead of trying to simulate code execution in our head... 
+
+... why not get the computer to do it.  That is what they are good at!
+
+** Find bugs as soon as you type them... 
+
+... instead of leaving it to the unit tests, compiler or person using the software!
+
+** Similar approaches
+
+[[http://seb.ly/][Seb.ly]] for Creative development 
+
+[[http://vimeo.com/36278748][CreativeJS for Designers]]
+
+
+** Constant status visualisation
+
+Using zsh to show current branch & change 
+
+[[./images/zsh-visualising-status-examples.png]]
+
+Showing namespaces in the REPL 
+
+[[./images/clojure-repl-custom-colour-text.png]]
+
+* Principles Driving LightTable
+
+ - never have to look for documentation
+ - files are not the best representation of code
+ - editors can be anywhere and show you anything
+ - trying is encouraged
+ - changes produce instantaneous results
+ - shine light on related pieces of code
+
+
+** Live Feedback 
+
+Inital concept idea:
+[[./images/lighttable-concept-live-eval.png]]
+ 
+#+REVEAL: split
+Early implementation: 
+[[./images/light-table-example.png]]
+
+
+** Responsive development 
+
+[[./images/lighttable-concept-game-example.png]]
+
+* Status of the LightTable project
+
+ - currently alpha version 0.5.15 
+ - No official release 
+ - features unfolding in discusson forum
+ - active community & issue tracker
+ - good initial docs, although many gaps
+   - Google for answers works well 
+
+** Multiple language support 
+
+  - Clojure & ClojureScript
+  - JavaScript
+  - Python
+
+** Why is LightTable worth a look 
+
+- easy to setup 
+- fast feedback
+- results embedded in the code
+- your app is side by side in the tool (webapps & graphics)
+- a great tool for learning a language 
+
+** Has LightTable met its original goals
+
+ - Not yet...
+ - Focused on a solid platform, so original goals still atainable 
+ - Time will tell if "the development tool" for Clojure
+
+
+* Getting LightTable
+
+Install latest 5.x version from http://www.lighttable.com/ 
+ - Linux 32bit / 64bit
+ - Mac OSX
+ - Windows 
+
+
+* LightTable Features 
+
+* Fast Feedback 
+
+See what your code does as you type it
+
+ - Evaluate code in place 
+ - Inline docs 
+ - Instarepl
+ - Embedded browser 
+
+
+* Quick demo - Evaluating code
+
+** Create a new project 
+#+BEGIN_SRC bash  
+lein new my-project 
+#+END_SRC
+
+[[./images/clojure-leiningen-new-project.png]] 
+
+** Open project in Lightable
+
+1. Run LightTable
+2. Open the workspace view
+   - Ctrl-Space toggle workspace
+3. Add the project folder
+4. Open the src/my-project/core.clj file
+   - Ctrl-o core.clj
+
+
+** Show the current Workspace
+[[./images/lighttable-workspace-key-combo.png]]
+
+** Add a project folder 
+
+[[./images/lighttable-workspace-folder-add.png]]
+
+** Open a file 
+
+Open a file from any folder added to the workspace 
+
+[[./images/lighttable-open-file.png]]
+
+** Connecting to a Clojure REPL
+Starts a new REPL using the project.clj definition
+
+[[./images/lighttable-connect-keyboard-combo.png]]
+
+#+REVEAL: split
+Evaluates all the code in the opened file
+
+[[./images/lighttable-connect-evaluated-code.png]]
+
+
+** Interact with Code 
+
+Type some Clojure expressions and evaluate with Ctrl-Enter 
+
+#+BEGIN_SRC clojure 
+(+ 1 2 3 4 5)
+(println "Hello LightTable")
+(def message "Give me fast feedback")
+(apply + '(1 2 3 4 5))
+#+END_SRC 
+
+#+REVEAL: split
+Evaluate a single expression with Ctrl + Enter 
+[[./images/lighttable-eval-simple-expression.png]]
+
+#+REVEAL: split
+
+Evaluate all the code with Ctrl + Shift + Enter 
+[[./images/lighttable-eval-simple-expressions.png]]
+
+
+** Evaluating further 
+
+Define a message string 
+
+#+BEGIN_SRC clojure 
+(def message "Give me fast feedback")
+
+(defn welcome-message 
+ "Send a persons a welcome message"
+ [name]
+ (str name ", " message)
+)
+
+(welcome message "JAX")
+#+END_SRC 
+
+** Inline Error messages
+See clearly where problems are...
+[[./images/lighttable-eval-error-message-inline-defn.png]]
+
+#+REVEAL: split
+... see when they are resolved
+[[./images/lighttable-eval-error-message-inline-defn-fixed.png]]
+
+** Define another function 
+
+Lets write a simple function, with docs too!
+
+#+BEGIN_SRC clojure 
+(defn multi-me 
+  "Multiple a number by itself"
+  [number]
+  (/ number number))
+
+(multi-me 5)
+#+END_SRC 
+
+** Evaluate the function - Ctrl + Enter
+
+- checks the function evaluates correctly
+- make the function available to use in the current namespace 
+
+[[./images/lighttable-eval-function-multi-me.png]]
+
+
+** Call the function - Ctrl + Enter 
+- see the result of calling the function with a parameter
+- change the parameter and use Ctrl + Enter to re-evaluate 
+
+[[./images/lighttable-eval-function-multi-me-call.png]]
+
+
+** Break the code
+What if we had typed divide instead of multiply...
+
+#+BEGIN_SRC clojure 
+(multi-me 0)
+#+END_SRC 
+
+[[./images/lighttable-eval-error-div-by-zero.png]]
+
+
+** Calling functions not yet evaluated
+
+Defined a function and trying to call it without evaluating it
+
+[[./images/lighttable-eval-call-function-not-evaluated.png]]
+
+#+REVEAL: split
+Evaluate the function then the call to that function 
+[[./images/lighttable-eval-order-of-eval.png]]
+
+
+** Hiding evaluation Results
+
+Simply right click on the result you want to hide and select "Remove result"
+
+[[./images/lighttable-eval-remove-result.png]]
+
+
+* If you can see what the code is doing, do you need unit tests ?
+#+ATTR_REVEAL: :frag roll-in
+[[./images/TDD-cycle.png]]
+
+#+ATTR_REVEAL: :frag roll-in
+Yes, unit tests are about more than testing code...
+
+
+* Inline docs 
+
+** Show the docs 
+Right click on a function name 
+ - Right click on doc to close 
+
+[[./images/lighttable-inline-docs-toggle-docs.png]]
+
+[[./images/lighttable-show-docs-map.png]]
+
+** Show docs for your own functions 
+
+[[./images/lighttable-inline-docs-high-score-example.png]]
+
+** Code moves out of the way 
+
+[show longer function with several lines of expressions, where does the documentation appear]
+[[./images/lighttable-inline-docs-larger-example.png]]
+
+
+** Hide the docs
+
+Right click and select Remove result 
+
+[[./images/lighttable-inline-docs-larger-example-remove.png]]
+
+** Toggle the docs 
+
+ Ctrl + Space Toggle documentation at cursor
+
+[[./images/lighttable-inline-docs-toggle-docs.png]]
+
+
+* Instarepl
+
+  Use Instarepl to evaluate your code as you type 
+
+ - Evaluation character by character 
+
+ - Re-evaluate when ever you change code 
+
+** Instarepl workflow - new idea 
+Advantages:
+ - no project required  
+ - no namespace definition required 
+ - quick way to test out code
+ - really easy way to start learning Clojure 
+
+
+** Create a new Instarepl 
+
+[[./images/lighttable-instarepl-open.png]]
+
+
+** Evauating code on the fly
+
+Example: Adding numbers together
+
+[[./images/lighttable-instarepl-live-addition-5.png]]
+
+#+REVEAL: split
+Re-evaluate as you add more numbers 
+
+[[./images/lighttable-instarepl-live-addition-10.png]]
+
+
+** Adding Instarepl to your current editor
+
+1. Open project in workspace 
+2. Open file(s) to work on
+3. Connect the file(s) to Instarepl
+
+
+
+** Multiple REPL sessions
+
+Choose which REPL session to connect to
+
+[[./images/lighttable-instarepl-multiple-repl-choice.png]]
+
+
+* Example: Learning Clojure Koans
+
+[[http://clojurekoans.com/][Clojure Koans]] are a practical way to learn the language
+
+- use LightTable Instarepl to solve the Koans
+
+** Clone the Koans from Github
+
+#+BEGIN_SRC zsh
+git clone https://github.com/functional-koans/clojure-koans.git
+#+END_SRC
+
+
+** Open the Koans folder in LightTable 
+1. Ctrl + Space toggle workspace
+2. Click on folder
+3. Select the Koans folder (containing project.clj)
+4. Open the first Koan (click on filename or Ctrl + o filename)
+5. Delete first line and trailing parentheses
+
+** Update the Clojure version
+
+LightTable needs to run Clojure 1.5.1 or greater
+- edit the project.clj file 
+
+[[./images/lighttable-instarepl-koans-project-clj-version-update.png]]
+
+
+#+REVEAL: split 
+If you dont update the Clojure version, you cannot run Instarepl
+
+[[./images/lighttable-instarepl-koans-cannot-connect.png]]
+
+** Make the current editor an Instarepl
+
+[[./images/lighttable-instarepl-koans-make-current-editor-instarepl.png]]
+
+** Koans are awaiting to be solved 
+Each challenge shows an errors
+
+[[./images/lighttable-instarepl-koans-to-be-solved.png]]
+
+
+** Solving the Koans
+[[./images/lighttable-instarepl-koans-being-solved.png]]
+
+#+REVEAL: split
+
+All the Koans are solved
+
+[[./images/lighttable-instarepl-koans-solved.png]]
+
+* Code Watches 
+
+Understanding what constructs are doing
+
+JavaScript interaction 
+
+
+* Embedded Browser 
+
+Interact with your application live 
+
+Works well with 
+- JavaScript
+- ClojureScrpt 
+
+** Browser
+
+[still to figure out properly]
+
+** Browser external (with script tag)
+
+[Link to threejs cube clip]
+
+
+* Interacting with Graphics 
+From the original LightTable concept:
+[[./images/lighttable-concept-live-clojurescript-game.png]]
+
+#+REVEAL: split
+Embedded graphics is yet to come to LightTable 
+
+* LightTable Basics 
+
+** Commands
+
+Ctrl-Space 
+
+Start typing the command you want
+LightTable pattern matches available Commands
+
+
+
+** Built in Docs
+
+** Workspace
+** Connections
+** Console output
+** Splitting the window
+** Moving tabs around
+
+** Searching for Docs 
+Open the language search 
+[[./images/lighttable-search-language-docs.png]]
+
+#+REVEAL: split 
+Search the Clojure language for map 
+[[./images/lighttable-search-language-docs-search-map.png]]
+
+** Toggle full screen 
+
+Ctrl + Space toggle fullscreen
+
+** Toggle Console
+Ctrl + Space toggle console 
+
+** Toggle Comments 
+Ctrl + Space toggle comment lines 
+
+** Toggle live mode 
+Ctrl + Space toggle live mode 
+
+** Changing Fonts
+
+** Changing Skin & Themes
+
+
+* LightTable terminology
+
+What is...
+
+Eval?
+Eval, short for evaluation, is the act of executing code inside of a running process. This means you modify the code that is currently executing without having to restart whatever you're doing.
+
+** REPL?
+Read-Eval-Print-Loop
+ - enter code, evaluate that code and immediately return the result.
+ - a great way to experiment and discover your language & libraries 
+ - allows you to evaluate code in a file to see what something does
+
+** Instarepl?
+An editor that evaluates as you type
+ - shows the result of an expression
+ - how all the variables in your code are filled in to get that result. This
+ - allows you to see data flow through your program
+ - a kind of real-time debugging. 
+ - Results are blue
+ - Variable values are purple
+
+** Client
+ - a process connected to Light Table that can be sent messages 
+ - messages generally relate to evaluating code in that process 
+   - but they don't have to. 
+
+ - eg. to eval Python code, a Python process runs which talks to Light Table over TCP and acts a client for us to send code to.
+
+** Workspace
+
+ - The group of files and folders that you are working with
+ - Workspaces are saved and created automatically
+ - access last 20 workspaces via "recent" button at top of the workspace tree
+
+** Behavior
+Light Table's functionality is defined by functions that respond to a set of triggers. 
+
+This combination of a function and the triggers that it reacts to is called a behavior. 
+
+Behaviors serve as the way to define what Light Table does in any number of situations and operate as a very powerful settings system. 
+Behaviors are not applied directly to objects, 
+but rather to "tags". These tags allow you to specify behavior for kinds of things at different levels of specificity. 
+
+For example, you can apply behavior to all editors by adding a behavior to the :editor tag or to only clojure editors by adding it to the :editor.clojure tag. 
+To modify behaviors, execute the Settings: User behaviors command.
+
+* Resources
+
+[[http://www.chris-granger.com/][Chris Grangers blog]]
+
+[[http://lighttable.com][LightTable.com]]
+
+[[https://github.com/Kodowa/Light-Table-Playground/issues][LightTable issue tracker]]
+
+[[http://blog.jr0cket.co.uk][blog.jr0cket.co.uk]]
+
+[[http://jr0cket.github.io][jr0cket.github.io]]
+
+Thank you.
+
+* WIP
+
+** Interacting with Graphics 
+
+Visualising Binary search tree algorithm
+Visualising different search algoritms 
+Drawing simple shapes and changing them 
+
+
+** Creating a project from inside lighttable 
+can you create a new project from within lighttable, using leiningen ?
+
+
+** Behaviours
+
+*** Showing the workspace on start up
+
+always display the workspace panel, in user.behaviors add this behavior to the :app section:
+
+:lt.objs.sidebar.workspace/workspace.open-on-start
+
+
+
+*** Run on start 
+run on start behavior lets you do all kinds of clever things
+
+It appears to follow the similar pattern to the other behaviour configs. Here's an example of one that worked for me:  
+
+{:+ {:app [(:lt.objs.app/run-on-init :toggle-console)]
+
+If you want more than one command to run you can pass in a vector of them:
+
+{:+ {:app [(:lt.objs.app/run-on-init [:toggle-console ....])]
+
+Note that I had to use auto-completion within the keymap bindings file to lookup the appropriate keyword for the command, so yeah it will be nice when some in-line auto-completion help gets added, but I imagine that will come.
+
+
+
+** Defining your own customisations
+
+
+Q: How do you select the current line, like ctrl+l in Sublime Text
+
+A: add it to your keymap:
+
+     :editor {"ctrl+l" [:editor.select-line]}
+
+Or you could use 'V' in vim mode or emacs ....
+
+
+
+** Tweakts 
+
+*** V0.5.16 onwards
+
+ADDED: Clojure mode can now color (comment ...) forms as comments. Use the `Clojure: Highlight comment forms as comments` behavior
+ADDED: `Instarepl: set start content` behavior, set it to "" to remove the intro. #827
+
+
+ADDED: `App: Run commands on start` behavior to let you run whatever when LT is opened. I.e. make full screen, toggle the workspace tree, etc.
+
+an example:
+
+{:+ {:app [(:lt.objs.app/run-on-init :toggle-console)]
+
+If you want more than one command to run you can pass in a vector of them:
+
+{:+ {:app [(:lt.objs.app/run-on-init [:toggle-console ....])]
+
+Note that I had to use auto-completion within the keymap bindings file to lookup the appropriate keyword for the command, so yeah it will be nice when some in-line auto-completion help gets added, but I imagine that will come.
+
+
+*** Display workspace panel at startup 
+always display the workspace panel, in user.behaviors add this behavior to the :app section:
+
+:lt.objs.sidebar.workspace/workspace.open-on-start
+
+
+*** Defining your own syntax highlihting 
+
+I was able to get the proper syntax highlighting for edn files by putting the following in my user.behaviors file:
+
+{:+ {:files [(:lt.objs.files/file-types [{:name "edn" :exts [:edn] :mime "text/x-clojurescript" :tags [:editor.clj]}])]}}
+
+
+*** Stop the spinny cubes from spinning
+
+ `Statusbar: reset working indicator` command
+
+
+*** Working with HTML5 video
+
+ for licensing reasons, node-webkit doesn't ship with the proprietary codecs. See this for how to add them:
+https://github.com/rogerwang/node-webkit/wiki/Support-mp3-and-h264-in-video-and-audio-tag
+
+
+ website featuring a video using simple html5 video tag:
+
+ <video width="640" height="360" id="blablaVideo" autoplay="true">
+    <source src="assets/blabla.mp4">
+ </video>
+
+
+
+*** Paredit fun
+Holy paredit commands Batman! I've added a few simple ones that can be composed into doing some neat things. For example with the select expression and clear selection commands you can format a parent expression, or eval it, or delete it, or ... Here's an example from user keymap:
+
+:editor {;;Eval the parent ( ... )
+         "alt-enter" [(:paredit.select.parent "(")
+                      :eval-editor-form
+                      :paredit.select.clear]
+         
+         ;;Select the parent expression, whether that's [], {}, or ()
+         "shift-alt-s" [:paredit.select.parent]
+         
+         ;;Format the parent ()
+         "alt-s" [(:paredit.select.parent "(")
+                  :smart-indent-selection
+                  :paredit.select.clear]
+         
+         ;;Slurp and Barf, with less ridiculous and more intuitive names
+         "alt-shift-." [:paredit.grow.right]
+         "alt-shift-," [:paredit.shrink.right]}
+
+
+ADDED: Basic paredit commands! `Paredit: Grow right`, `Paredit: Grow left`, `Paredit: Shrink right`, `Paredit: Shrink left`, `Paredit: Select expression`, `Paredit: Clear selection and return cursor`
+
+
+*** Misc
+
+Allow both {:- {:app ["key"]}} and {:- {:app {"key" [..]}}} for keymap removal
+
+*** Highlight line performance issues 
+I turned highlight-line off by default due to the performance issues it carries with it. To turn it back on open your user behaviors and add the :lt.objs.editor/highlight-current-line behavior to the :editor tag.
+
+
+*** connecting to remote repl - libs required
+
+To allow LT to connect to a remote repl, you have to add in the lighttable-ops middleware. A simple project.clj looks like this:
+
+(defproject lttest "0.1.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [lein-light-nrepl "0.0.1"]]
+  :repl-options {:nrepl-middleware [lighttable.nrepl.handler/lighttable-ops]})
+
+
+
+
+
+#########################################
+#########################################
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
+

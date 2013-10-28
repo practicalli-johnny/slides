@@ -1,0 +1,1649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Clojure at Lightspeed)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
+<meta name="description" content="Clojure at Lightspeed">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Clojure at Lightspeed</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:john@jr0cket.co.uk">john@jr0cket.co.uk</a></h2>
+<h2></h2></section>
+
+
+<section>
+<section id="sec-1" >
+
+<h2>Press space to navigate through this 2-dimentional presentation</h2>
+</section>
+<section id="sec-1-1" >
+
+<h3>Abstract</h3>
+<p>
+Light Table demonstrates a new breed of interactive coding tools, 
+based on Bret Victor's "Designing on Principle". 
+</p>
+
+<p>
+With Light Table, you can create Clojure &amp; ClojureScript apps that run inside the development tool, 
+giving you the ultimate fast feedback. 
+</p>
+
+<p>
+This session will show a new way of developing that is fast, effective and fun.
+</p>
+
+
+<div class="figure">
+<p><img src="./images/jaxlondon-logo.png"  alt="jaxlondon-logo.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>What is LightTable</h2>
+<p>
+A developer tool for Clojure development 
+</p>
+
+<p>
+<a href="http://www.kickstarter.com/projects/ibdknox/light-table">A kickstarter project</a> 
+</p>
+
+<p>
+Inspired by Bret Victor's talk: <a href="http://vimeo.com/36579366">Inventing on Principle</a>
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Inventing on Principle</h2>
+</section>
+<section id="sec-3-1" >
+
+<h3>Bret's principle</h3>
+<p>
+Bringing ideas into the world is one of the most important things to do 
+</p>
+<ul class="org-ul">
+<li>ideas give meaning to peoples lives 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/creating-ideas.png"  alt="creating-ideas.png"/></p>
+</div>
+</section>
+<section id="sec-3-2" >
+
+<h3>Nurturing ideas by connecting to creations</h3>
+<p>
+Creators need to see the affect as soon as a change is made
+</p>
+
+
+<div class="figure">
+<p><img src="./images/creative-interaction.jpg"  alt="creative-interaction.jpg"/></p>
+</div>
+</section>
+<section id="sec-3-3" >
+
+<h3>Ideas start small,</h3>
+<p>
+need an environment where the creator can nurture and let them grow 
+</p>
+
+</section>
+<section id="sec-3-4" >
+
+<h3>Find a guilding Principle</h3>
+<p>
+Find something you believe is important, neccessary and right 
+</p>
+
+<p>
+<a href="http://worrydream.com/">http://worrydream.com/</a>
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Relating these principles to code</h2>
+<p>
+Traditional coding approach:
+</p>
+<ul class="org-ul">
+<li>type in code and then compile &amp; run and something comes out
+</li>
+<li>to fix bugs or add new ideas, you have to switch back to code
+</li>
+<li>loose connection too often with the thing you are making
+</li>
+</ul>
+
+</section>
+<section id="sec-4-1" >
+
+<h3>Classic IDE's make your eyes jump around</h3>
+
+<div class="figure">
+<p><img src="./images/eclipse-counterclockwise-clojure-project.png"  alt="eclipse-counterclockwise-clojure-project.png"/></p>
+</div>
+</section>
+<section id="sec-4-2" >
+
+<h3>Make changes as quickly as you think of them</h3>
+<ul class="org-ul">
+<li>the tool help you understand where to make changes by interacting with your creation
+</li>
+<li>you dont always have to scroll through code and interpret it to figure out where to make the change 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/think_in_code.jpg"  alt="think_in_code.jpg"/></p>
+</div>
+</section>
+<section id="sec-4-3" >
+
+<h3>By interacting with your creation directly&#x2026;</h3>
+<p>
+&#x2026; new ideas are triggered that dont come from parsing code 
+</p>
+</section>
+<section id="sec-4-4" >
+
+<h3>Use your brain effectively</h3>
+<p>
+When you look at code you have to "play commputer"
+</p>
+<ul class="org-ul">
+<li>you have to imagine in your head what each line of code does
+</li>
+<li>you become the interpreter &amp; runtime &#x2026;
+</li>
+</ul>
+</section>
+<section id="sec-4-5" >
+
+<h3>Instead of trying to simulate code execution in our head&#x2026;</h3>
+<p>
+&#x2026; why not get the computer to do it.  That is what they are good at!
+</p>
+</section>
+<section id="sec-4-6" >
+
+<h3>Find bugs as soon as you type them&#x2026;</h3>
+<p>
+&#x2026; instead of leaving it to the unit tests, compiler or person using the software!
+</p>
+</section>
+<section id="sec-4-7" >
+
+<h3>Similar approaches</h3>
+<p>
+<a href="http://seb.ly/">Seb.ly</a> for Creative development 
+</p>
+
+<p>
+<a href="http://vimeo.com/36278748">CreativeJS for Designers</a>
+</p>
+
+</section>
+<section id="sec-4-8" >
+
+<h3>Constant status visualisation</h3>
+<p>
+Using zsh to show current branch &amp; change 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/zsh-visualising-status-examples.png"  alt="zsh-visualising-status-examples.png"/></p>
+</div>
+
+<p>
+Showing namespaces in the REPL 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/clojure-repl-custom-colour-text.png"  alt="clojure-repl-custom-colour-text.png"/></p>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Principles Driving LightTable</h2>
+<ul class="org-ul">
+<li>never have to look for documentation
+</li>
+<li>files are not the best representation of code
+</li>
+<li>editors can be anywhere and show you anything
+</li>
+<li>trying is encouraged
+</li>
+<li>changes produce instantaneous results
+</li>
+<li>shine light on related pieces of code
+</li>
+</ul>
+
+
+</section>
+<section id="sec-5-1" >
+
+<h3>Live Feedback</h3>
+<p>
+Inital concept idea:
+<img src="./images/lighttable-concept-live-eval.png"  alt="lighttable-concept-live-eval.png"/>
+</p>
+
+</section>
+<section>
+<p>
+Early implementation: 
+<img src="./images/light-table-example.png"  alt="light-table-example.png"/>
+</p>
+
+</section>
+<section id="sec-5-2" >
+
+<h3>Responsive development</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-concept-game-example.png"  alt="lighttable-concept-game-example.png"/></p>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Status of the LightTable project</h2>
+<ul class="org-ul">
+<li>currently alpha version 0.5.15 
+</li>
+<li>No official release 
+</li>
+<li>features unfolding in discusson forum
+</li>
+<li>active community &amp; issue tracker
+</li>
+<li>good initial docs, although many gaps
+<ul class="org-ul">
+<li>Google for answers works well 
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-6-1" >
+
+<h3>Multiple language support</h3>
+<ul class="org-ul">
+<li>Clojure &amp; ClojureScript
+</li>
+<li>JavaScript
+</li>
+<li>Python
+</li>
+</ul>
+</section>
+<section id="sec-6-2" >
+
+<h3>Why is LightTable worth a look</h3>
+<ul class="org-ul">
+<li>easy to setup 
+</li>
+<li>fast feedback
+</li>
+<li>results embedded in the code
+</li>
+<li>your app is side by side in the tool (webapps &amp; graphics)
+</li>
+<li>a great tool for learning a language 
+</li>
+</ul>
+</section>
+<section id="sec-6-3" >
+
+<h3>Has LightTable met its original goals</h3>
+<ul class="org-ul">
+<li>Not yet&#x2026;
+</li>
+<li>Focused on a solid platform, so original goals still atainable 
+</li>
+<li>Time will tell if "the development tool" for Clojure
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Getting LightTable</h2>
+<p>
+Install latest 5.x version from <a href="http://www.lighttable.com/">http://www.lighttable.com/</a> 
+</p>
+<ul class="org-ul">
+<li>Linux 32bit / 64bit
+</li>
+<li>Mac OSX
+</li>
+<li>Windows 
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-8" >
+
+<h2>LightTable Features</h2>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>Fast Feedback</h2>
+<p>
+See what your code does as you type it
+</p>
+
+<ul class="org-ul">
+<li>Evaluate code in place 
+</li>
+<li>Inline docs 
+</li>
+<li>Instarepl
+</li>
+<li>Embedded browser 
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Quick demo - Evaluating code</h2>
+</section>
+<section id="sec-10-1" >
+
+<h3>Create a new project</h3>
+<div class="org-src-container">
+
+<pre class="src src-bash">lein new my-project
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/clojure-leiningen-new-project.png"  alt="clojure-leiningen-new-project.png"/></p>
+</div> 
+</section>
+<section id="sec-10-2" >
+
+<h3>Open project in Lightable</h3>
+<ol class="org-ol">
+<li>Run LightTable
+</li>
+<li>Open the workspace view
+<ul class="org-ul">
+<li>Ctrl-Space toggle workspace
+</li>
+</ul>
+</li>
+<li>Add the project folder
+</li>
+<li>Open the src/my-project/core.clj file
+<ul class="org-ul">
+<li>Ctrl-o core.clj
+</li>
+</ul>
+</li>
+</ol>
+
+</section>
+<section id="sec-10-3" >
+
+<h3>Show the current Workspace</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-workspace-key-combo.png"  alt="lighttable-workspace-key-combo.png"/></p>
+</div>
+</section>
+<section id="sec-10-4" >
+
+<h3>Add a project folder</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-workspace-folder-add.png"  alt="lighttable-workspace-folder-add.png"/></p>
+</div>
+</section>
+<section id="sec-10-5" >
+
+<h3>Open a file</h3>
+<p>
+Open a file from any folder added to the workspace 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-open-file.png"  alt="lighttable-open-file.png"/></p>
+</div>
+</section>
+<section id="sec-10-6" >
+
+<h3>Connecting to a Clojure REPL</h3>
+<p>
+Starts a new REPL using the project.clj definition
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-connect-keyboard-combo.png"  alt="lighttable-connect-keyboard-combo.png"/></p>
+</div>
+
+</section>
+<section>
+<p>
+Evaluates all the code in the opened file
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-connect-evaluated-code.png"  alt="lighttable-connect-evaluated-code.png"/></p>
+</div>
+
+</section>
+<section id="sec-10-7" >
+
+<h3>Interact with Code</h3>
+<p>
+Type some Clojure expressions and evaluate with Ctrl-Enter 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #D8FA3C;">+</span> 1 2 3 4 5)
+(<span style="color: #D8FA3C;">println</span> <span style="color: #61CE3C;">"Hello LightTable"</span>)
+(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">message</span> <span style="color: #61CE3C;">"Give me fast feedback"</span>)
+(<span style="color: #D8FA3C;">apply</span> + '(1 2 3 4 5))
+</pre>
+</div>
+
+</section>
+<section>
+<p>
+Evaluate a single expression with Ctrl + Enter 
+<img src="./images/lighttable-eval-simple-expression.png"  alt="lighttable-eval-simple-expression.png"/>
+</p>
+
+</section>
+<section>
+
+<p>
+Evaluate all the code with Ctrl + Shift + Enter 
+<img src="./images/lighttable-eval-simple-expressions.png"  alt="lighttable-eval-simple-expressions.png"/>
+</p>
+
+</section>
+<section id="sec-10-8" >
+
+<h3>Evaluating further</h3>
+<p>
+Define a message string 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">message</span> <span style="color: #61CE3C;">"Give me fast feedback"</span>)
+
+(<span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">welcome-message</span> 
+ <span style="color: #61CE3C;">"Send a persons a welcome message"</span>
+ [name]
+ (<span style="color: #D8FA3C;">str</span> name <span style="color: #61CE3C;">", "</span> message)
+)
+
+(welcome message <span style="color: #61CE3C;">"JAX"</span>)
+</pre>
+</div>
+</section>
+<section id="sec-10-9" >
+
+<h3>Inline Error messages</h3>
+<p>
+See clearly where problems are&#x2026;
+<img src="./images/lighttable-eval-error-message-inline-defn.png"  alt="lighttable-eval-error-message-inline-defn.png"/>
+</p>
+
+</section>
+<section>
+<p>
+&#x2026; see when they are resolved
+<img src="./images/lighttable-eval-error-message-inline-defn-fixed.png"  alt="lighttable-eval-error-message-inline-defn-fixed.png"/>
+</p>
+</section>
+<section id="sec-10-10" >
+
+<h3>Define another function</h3>
+<p>
+Lets write a simple function, with docs too!
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">multi-me</span> 
+  <span style="color: #61CE3C;">"Multiple a number by itself"</span>
+  [number]
+  (<span style="color: #D8FA3C;">/</span> number number))
+
+(multi-me 5)
+</pre>
+</div>
+</section>
+<section id="sec-10-11" >
+
+<h3>Evaluate the function - Ctrl + Enter</h3>
+<ul class="org-ul">
+<li>checks the function evaluates correctly
+</li>
+<li>make the function available to use in the current namespace 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-eval-function-multi-me.png"  alt="lighttable-eval-function-multi-me.png"/></p>
+</div>
+
+</section>
+<section id="sec-10-12" >
+
+<h3>Call the function - Ctrl + Enter</h3>
+<ul class="org-ul">
+<li>see the result of calling the function with a parameter
+</li>
+<li>change the parameter and use Ctrl + Enter to re-evaluate 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-eval-function-multi-me-call.png"  alt="lighttable-eval-function-multi-me-call.png"/></p>
+</div>
+
+</section>
+<section id="sec-10-13" >
+
+<h3>Break the code</h3>
+<p>
+What if we had typed divide instead of multiply&#x2026;
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(multi-me 0)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-eval-error-div-by-zero.png"  alt="lighttable-eval-error-div-by-zero.png"/></p>
+</div>
+
+</section>
+<section id="sec-10-14" >
+
+<h3>Calling functions not yet evaluated</h3>
+<p>
+Defined a function and trying to call it without evaluating it
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-eval-call-function-not-evaluated.png"  alt="lighttable-eval-call-function-not-evaluated.png"/></p>
+</div>
+
+</section>
+<section>
+<p>
+Evaluate the function then the call to that function 
+<img src="./images/lighttable-eval-order-of-eval.png"  alt="lighttable-eval-order-of-eval.png"/>
+</p>
+
+</section>
+<section id="sec-10-15" >
+
+<h3>Hiding evaluation Results</h3>
+<p>
+Simply right click on the result you want to hide and select "Remove result"
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-eval-remove-result.png"  alt="lighttable-eval-remove-result.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-11" >
+
+<h2>If you can see what the code is doing, do you need unit tests ?</h2>
+
+<div class="figure fragment roll-in ">
+<p><img src="./images/TDD-cycle.png"  alt="TDD-cycle.png"/></p>
+</div>
+
+<p class="fragment roll-in">
+Yes, unit tests are about more than testing code&#x2026;
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-12" >
+
+<h2>Inline docs</h2>
+</section>
+<section id="sec-12-1" >
+
+<h3>Show the docs</h3>
+<p>
+Right click on a function name 
+</p>
+<ul class="org-ul">
+<li>Right click on doc to close 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-inline-docs-toggle-docs.png"  alt="lighttable-inline-docs-toggle-docs.png"/></p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-show-docs-map.png"  alt="lighttable-show-docs-map.png"/></p>
+</div>
+</section>
+<section id="sec-12-2" >
+
+<h3>Show docs for your own functions</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-inline-docs-high-score-example.png"  alt="lighttable-inline-docs-high-score-example.png"/></p>
+</div>
+</section>
+<section id="sec-12-3" >
+
+<h3>Code moves out of the way</h3>
+<p>
+[show longer function with several lines of expressions, where does the documentation appear]
+<img src="./images/lighttable-inline-docs-larger-example.png"  alt="lighttable-inline-docs-larger-example.png"/>
+</p>
+
+</section>
+<section id="sec-12-4" >
+
+<h3>Hide the docs</h3>
+<p>
+Right click and select Remove result 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-inline-docs-larger-example-remove.png"  alt="lighttable-inline-docs-larger-example-remove.png"/></p>
+</div>
+</section>
+<section id="sec-12-5" >
+
+<h3>Toggle the docs</h3>
+<p>
+Ctrl + Space Toggle documentation at cursor
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-inline-docs-toggle-docs.png"  alt="lighttable-inline-docs-toggle-docs.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-13" >
+
+<h2>Instarepl</h2>
+<p>
+Use Instarepl to evaluate your code as you type 
+</p>
+
+<ul class="org-ul">
+<li>Evaluation character by character 
+</li>
+
+<li>Re-evaluate when ever you change code 
+</li>
+</ul>
+
+</section>
+<section id="sec-13-1" >
+
+<h3>Instarepl workflow - new idea</h3>
+<p>
+Advantages:
+</p>
+<ul class="org-ul">
+<li>no project required  
+</li>
+<li>no namespace definition required 
+</li>
+<li>quick way to test out code
+</li>
+<li>really easy way to start learning Clojure 
+</li>
+</ul>
+
+</section>
+<section id="sec-13-2" >
+
+<h3>Create a new Instarepl</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-open.png"  alt="lighttable-instarepl-open.png"/></p>
+</div>
+
+</section>
+<section id="sec-13-3" >
+
+<h3>Evauating code on the fly</h3>
+<p>
+Example: Adding numbers together
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-live-addition-5.png"  alt="lighttable-instarepl-live-addition-5.png"/></p>
+</div>
+
+</section>
+<section>
+<p>
+Re-evaluate as you add more numbers 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-live-addition-10.png"  alt="lighttable-instarepl-live-addition-10.png"/></p>
+</div>
+
+</section>
+<section id="sec-13-4" >
+
+<h3>Adding Instarepl to your current editor</h3>
+<ol class="org-ol">
+<li>Open project in workspace 
+</li>
+<li>Open file(s) to work on
+</li>
+<li>Connect the file(s) to Instarepl
+</li>
+</ol>
+
+
+</section>
+<section id="sec-13-5" >
+
+<h3>Multiple REPL sessions</h3>
+<p>
+Choose which REPL session to connect to
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-multiple-repl-choice.png"  alt="lighttable-instarepl-multiple-repl-choice.png"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-14" >
+
+<h2>Example: Learning Clojure Koans</h2>
+<p>
+<a href="http://clojurekoans.com/">Clojure Koans</a> are a practical way to learn the language
+</p>
+
+<ul class="org-ul">
+<li>use LightTable Instarepl to solve the Koans
+</li>
+</ul>
+
+</section>
+<section id="sec-14-1" >
+
+<h3>Clone the Koans from Github</h3>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git clone https://github.com/functional-koans/clojure-koans.git
+</pre>
+</div>
+
+</section>
+<section id="sec-14-2" >
+
+<h3>Open the Koans folder in LightTable</h3>
+<ol class="org-ol">
+<li>Ctrl + Space toggle workspace
+</li>
+<li>Click on folder
+</li>
+<li>Select the Koans folder (containing project.clj)
+</li>
+<li>Open the first Koan (click on filename or Ctrl + o filename)
+</li>
+<li>Delete first line and trailing parentheses
+</li>
+</ol>
+</section>
+<section id="sec-14-3" >
+
+<h3>Update the Clojure version</h3>
+<p>
+LightTable needs to run Clojure 1.5.1 or greater
+</p>
+<ul class="org-ul">
+<li>edit the project.clj file 
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-project-clj-version-update.png"  alt="lighttable-instarepl-koans-project-clj-version-update.png"/></p>
+</div>
+
+
+</section>
+<section>
+<p>
+If you dont update the Clojure version, you cannot run Instarepl
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-cannot-connect.png"  alt="lighttable-instarepl-koans-cannot-connect.png"/></p>
+</div>
+</section>
+<section id="sec-14-4" >
+
+<h3>Make the current editor an Instarepl</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-make-current-editor-instarepl.png"  alt="lighttable-instarepl-koans-make-current-editor-instarepl.png"/></p>
+</div>
+</section>
+<section id="sec-14-5" >
+
+<h3>Koans are awaiting to be solved</h3>
+<p>
+Each challenge shows an errors
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-to-be-solved.png"  alt="lighttable-instarepl-koans-to-be-solved.png"/></p>
+</div>
+
+</section>
+<section id="sec-14-6" >
+
+<h3>Solving the Koans</h3>
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-being-solved.png"  alt="lighttable-instarepl-koans-being-solved.png"/></p>
+</div>
+
+</section>
+<section>
+
+<p>
+All the Koans are solved
+</p>
+
+
+<div class="figure">
+<p><img src="./images/lighttable-instarepl-koans-solved.png"  alt="lighttable-instarepl-koans-solved.png"/></p>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-15" >
+
+<h2>Code Watches</h2>
+<p>
+Understanding what constructs are doing
+</p>
+
+<p>
+JavaScript interaction 
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-16" >
+
+<h2>Embedded Browser</h2>
+<p>
+Interact with your application live 
+</p>
+
+<p>
+Works well with 
+</p>
+<ul class="org-ul">
+<li>JavaScript
+</li>
+<li>ClojureScrpt 
+</li>
+</ul>
+
+</section>
+<section id="sec-16-1" >
+
+<h3>Browser</h3>
+<p>
+[still to figure out properly]
+</p>
+</section>
+<section id="sec-16-2" >
+
+<h3>Browser external (with script tag)</h3>
+<p>
+[Link to threejs cube clip]
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-17" >
+
+<h2>Interacting with Graphics</h2>
+<p>
+From the original LightTable concept:
+<img src="./images/lighttable-concept-live-clojurescript-game.png"  alt="lighttable-concept-live-clojurescript-game.png"/>
+</p>
+
+</section>
+<section>
+<p>
+Embedded graphics is yet to come to LightTable 
+</p>
+</section>
+</section>
+<section>
+<section id="sec-18" >
+
+<h2>LightTable Basics</h2>
+</section>
+<section id="sec-18-1" >
+
+<h3>Commands</h3>
+<p>
+Ctrl-Space 
+</p>
+
+<p>
+Start typing the command you want
+LightTable pattern matches available Commands
+</p>
+
+
+</section>
+<section id="sec-18-2" >
+
+<h3>Built in Docs</h3>
+
+</section>
+<section id="sec-18-3" >
+
+<h3>Workspace</h3>
+</section>
+<section id="sec-18-4" >
+
+<h3>Connections</h3>
+</section>
+<section id="sec-18-5" >
+
+<h3>Console output</h3>
+</section>
+<section id="sec-18-6" >
+
+<h3>Splitting the window</h3>
+</section>
+<section id="sec-18-7" >
+
+<h3>Moving tabs around</h3>
+
+</section>
+<section id="sec-18-8" >
+
+<h3>Searching for Docs</h3>
+<p>
+Open the language search 
+<img src="./images/lighttable-search-language-docs.png"  alt="lighttable-search-language-docs.png"/>
+</p>
+
+</section>
+<section>
+<p>
+Search the Clojure language for map 
+<img src="./images/lighttable-search-language-docs-search-map.png"  alt="lighttable-search-language-docs-search-map.png"/>
+</p>
+</section>
+<section id="sec-18-9" >
+
+<h3>Toggle full screen</h3>
+<p>
+Ctrl + Space toggle fullscreen
+</p>
+</section>
+<section id="sec-18-10" >
+
+<h3>Toggle Console</h3>
+<p>
+Ctrl + Space toggle console 
+</p>
+</section>
+<section id="sec-18-11" >
+
+<h3>Toggle Comments</h3>
+<p>
+Ctrl + Space toggle comment lines 
+</p>
+</section>
+<section id="sec-18-12" >
+
+<h3>Toggle live mode</h3>
+<p>
+Ctrl + Space toggle live mode 
+</p>
+</section>
+<section id="sec-18-13" >
+
+<h3>Changing Fonts</h3>
+
+</section>
+<section id="sec-18-14" >
+
+<h3>Changing Skin &amp; Themes</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-19" >
+
+<h2>LightTable terminology</h2>
+<p>
+What is&#x2026;
+</p>
+
+<p>
+Eval?
+Eval, short for evaluation, is the act of executing code inside of a running process. This means you modify the code that is currently executing without having to restart whatever you're doing.
+</p>
+
+</section>
+<section id="sec-19-1" >
+
+<h3>REPL?</h3>
+<p>
+Read-Eval-Print-Loop
+</p>
+<ul class="org-ul">
+<li>enter code, evaluate that code and immediately return the result.
+</li>
+<li>a great way to experiment and discover your language &amp; libraries 
+</li>
+<li>allows you to evaluate code in a file to see what something does
+</li>
+</ul>
+</section>
+<section id="sec-19-2" >
+
+<h3>Instarepl?</h3>
+<p>
+An editor that evaluates as you type
+</p>
+<ul class="org-ul">
+<li>shows the result of an expression
+</li>
+<li>how all the variables in your code are filled in to get that result. This
+</li>
+<li>allows you to see data flow through your program
+</li>
+<li>a kind of real-time debugging. 
+</li>
+<li>Results are blue
+</li>
+<li>Variable values are purple
+</li>
+</ul>
+</section>
+<section id="sec-19-3" >
+
+<h3>Client</h3>
+<ul class="org-ul">
+<li>a process connected to Light Table that can be sent messages 
+</li>
+<li>messages generally relate to evaluating code in that process 
+<ul class="org-ul">
+<li>but they don't have to. 
+</li>
+</ul>
+</li>
+
+<li>eg. to eval Python code, a Python process runs which talks to Light Table over TCP and acts a client for us to send code to.
+</li>
+</ul>
+</section>
+<section id="sec-19-4" >
+
+<h3>Workspace</h3>
+<ul class="org-ul">
+<li>The group of files and folders that you are working with
+</li>
+<li>Workspaces are saved and created automatically
+</li>
+<li>access last 20 workspaces via "recent" button at top of the workspace tree
+</li>
+</ul>
+</section>
+<section id="sec-19-5" >
+
+<h3>Behavior</h3>
+<p>
+Light Table's functionality is defined by functions that respond to a set of triggers. 
+</p>
+
+<p>
+This combination of a function and the triggers that it reacts to is called a behavior. 
+</p>
+
+<p>
+Behaviors serve as the way to define what Light Table does in any number of situations and operate as a very powerful settings system. 
+Behaviors are not applied directly to objects, 
+but rather to "tags". These tags allow you to specify behavior for kinds of things at different levels of specificity. 
+</p>
+
+<p>
+For example, you can apply behavior to all editors by adding a behavior to the :editor tag or to only clojure editors by adding it to the :editor.clojure tag. 
+To modify behaviors, execute the Settings: User behaviors command.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-20" >
+
+<h2>Resources</h2>
+<p>
+<a href="http://www.chris-granger.com/">Chris Grangers blog</a>
+</p>
+
+<p>
+<a href="http://lighttable.com">LightTable.com</a>
+</p>
+
+<p>
+<a href="https://github.com/Kodowa/Light-Table-Playground/issues">LightTable issue tracker</a>
+</p>
+
+<p>
+<a href="http://blog.jr0cket.co.uk">blog.jr0cket.co.uk</a>
+</p>
+
+<p>
+<a href="http://jr0cket.github.io">jr0cket.github.io</a>
+</p>
+
+<p>
+Thank you.
+</p>
+</section>
+</section>
+<section>
+<section id="sec-21" >
+
+<h2>WIP</h2>
+</section>
+<section id="sec-21-1" >
+
+<h3>Interacting with Graphics</h3>
+<p>
+Visualising Binary search tree algorithm
+Visualising different search algoritms 
+Drawing simple shapes and changing them 
+</p>
+
+</section>
+<section id="sec-21-2" >
+
+<h3>Creating a project from inside lighttable</h3>
+<p>
+can you create a new project from within lighttable, using leiningen ?
+</p>
+
+</section>
+<section id="sec-21-3" >
+
+<h3>Behaviours</h3>
+</section>
+<section id="sec-21-3-1" >
+
+<h4>Showing the workspace on start up</h4>
+<p>
+always display the workspace panel, in user.behaviors add this behavior to the :app section:
+</p>
+
+<p>
+:lt.objs.sidebar.workspace/workspace.open-on-start
+</p>
+
+
+</section>
+<section id="sec-21-3-2" >
+
+<h4>Run on start</h4>
+<p>
+run on start behavior lets you do all kinds of clever things
+</p>
+
+<p>
+It appears to follow the similar pattern to the other behaviour configs. Here's an example of one that worked for me:  
+</p>
+
+<p>
+{:+ {:app [(:lt.objs.app/run-on-init :toggle-console)]
+</p>
+
+<p>
+If you want more than one command to run you can pass in a vector of them:
+</p>
+
+<p>
+{:+ {:app [(:lt.objs.app/run-on-init [:toggle-console &#x2026;.])]
+</p>
+
+<p>
+Note that I had to use auto-completion within the keymap bindings file to lookup the appropriate keyword for the command, so yeah it will be nice when some in-line auto-completion help gets added, but I imagine that will come.
+</p>
+
+
+</section>
+<section id="sec-21-4" >
+
+<h3>Defining your own customisations</h3>
+<p>
+Q: How do you select the current line, like ctrl+l in Sublime Text
+</p>
+
+<p>
+A: add it to your keymap:
+</p>
+
+<p>
+:editor {"ctrl+l" [:editor.select-line]}
+</p>
+
+<p>
+Or you could use 'V' in vim mode or emacs &#x2026;.
+</p>
+
+
+</section>
+<section id="sec-21-5" >
+
+<h3>Tweakts</h3>
+</section>
+<section id="sec-21-5-1" >
+
+<h4>V0.5.16 onwards</h4>
+<p>
+ADDED: Clojure mode can now color (comment &#x2026;) forms as comments. Use the `Clojure: Highlight comment forms as comments` behavior
+ADDED: `Instarepl: set start content` behavior, set it to "" to remove the intro. #827
+</p>
+
+
+<p>
+ADDED: `App: Run commands on start` behavior to let you run whatever when LT is opened. I.e. make full screen, toggle the workspace tree, etc.
+</p>
+
+<p>
+an example:
+</p>
+
+<p>
+{:+ {:app [(:lt.objs.app/run-on-init :toggle-console)]
+</p>
+
+<p>
+If you want more than one command to run you can pass in a vector of them:
+</p>
+
+<p>
+{:+ {:app [(:lt.objs.app/run-on-init [:toggle-console &#x2026;.])]
+</p>
+
+<p>
+Note that I had to use auto-completion within the keymap bindings file to lookup the appropriate keyword for the command, so yeah it will be nice when some in-line auto-completion help gets added, but I imagine that will come.
+</p>
+
+</section>
+<section id="sec-21-5-2" >
+
+<h4>Display workspace panel at startup</h4>
+<p>
+always display the workspace panel, in user.behaviors add this behavior to the :app section:
+</p>
+
+<p>
+:lt.objs.sidebar.workspace/workspace.open-on-start
+</p>
+
+</section>
+<section id="sec-21-5-3" >
+
+<h4>Defining your own syntax highlihting</h4>
+<p>
+I was able to get the proper syntax highlighting for edn files by putting the following in my user.behaviors file:
+</p>
+
+<p>
+{:+ {:files [(:lt.objs.files/file-types [{:name "edn" :exts [:edn] :mime "text/x-clojurescript" :tags [:editor.clj]}])]}}
+</p>
+
+</section>
+<section id="sec-21-5-4" >
+
+<h4>Stop the spinny cubes from spinning</h4>
+<p>
+`Statusbar: reset working indicator` command
+</p>
+
+</section>
+<section id="sec-21-5-5" >
+
+<h4>Working with HTML5 video</h4>
+<p>
+for licensing reasons, node-webkit doesn't ship with the proprietary codecs. See this for how to add them:
+<a href="https://github.com/rogerwang/node-webkit/wiki/Support-mp3-and-h264-in-video-and-audio-tag">https://github.com/rogerwang/node-webkit/wiki/Support-mp3-and-h264-in-video-and-audio-tag</a>
+</p>
+
+
+<p>
+website featuring a video using simple html5 video tag:
+</p>
+
+<p>
+&lt;video width="640" height="360" id="blablaVideo" autoplay="true"&gt;
+   &lt;source src="assets/blabla.mp4"&gt;
+&lt;/video&gt;
+</p>
+
+
+</section>
+<section id="sec-21-5-6" >
+
+<h4>Paredit fun</h4>
+<p>
+Holy paredit commands Batman! I've added a few simple ones that can be composed into doing some neat things. For example with the select expression and clear selection commands you can format a parent expression, or eval it, or delete it, or &#x2026; Here's an example from user keymap:
+</p>
+
+<p>
+:editor {;;Eval the parent ( &#x2026; )
+         "alt-enter" [(:paredit.select.parent "(")
+</p>
+<p>
+:eval-editor-form
+</p>
+<p>
+:paredit.select.clear]
+</p>
+
+<p>
+;;Select the parent expression, whether that's [], {}, or ()
+"shift-alt-s" [:paredit.select.parent]
+</p>
+
+<p>
+;;Format the parent ()
+"alt-s" [(:paredit.select.parent "(")
+</p>
+<p>
+:smart-indent-selection
+</p>
+<p>
+:paredit.select.clear]
+</p>
+
+<p>
+;;Slurp and Barf, with less ridiculous and more intuitive names
+"alt-shift-." [:paredit.grow.right]
+"alt-shift-," [:paredit.shrink.right]}
+</p>
+
+
+<p>
+ADDED: Basic paredit commands! `Paredit: Grow right`, `Paredit: Grow left`, `Paredit: Shrink right`, `Paredit: Shrink left`, `Paredit: Select expression`, `Paredit: Clear selection and return cursor`
+</p>
+
+</section>
+<section id="sec-21-5-7" >
+
+<h4>Misc</h4>
+<p>
+Allow both {:- {:app ["key"]}} and {:- {:app {"key" [..]}}} for keymap removal
+</p>
+</section>
+<section id="sec-21-5-8" >
+
+<h4>Highlight line performance issues</h4>
+<p>
+I turned highlight-line off by default due to the performance issues it carries with it. To turn it back on open your user behaviors and add the :lt.objs.editor/highlight-current-line behavior to the :editor tag.
+</p>
+
+</section>
+<section id="sec-21-5-9" >
+
+<h4>connecting to remote repl - libs required</h4>
+<p>
+To allow LT to connect to a remote repl, you have to add in the lighttable-ops middleware. A simple project.clj looks like this:
+</p>
+
+<p>
+(defproject lttest "0.1.0-SNAPSHOT"
+</p>
+<p>
+:description "FIXME: write description"
+</p>
+<p>
+:dependencies [[org.clojure/clojure "1.5.1"]
+               [lein-light-nrepl "0.0.1"]]
+</p>
+<p>
+:repl-options {:nrepl-middleware [lighttable.nrepl.handler/lighttable-ops]})
+</p>
+
+
+
+
+
+<p>
+#########################################
+#########################################
+</p>
+</section>
+</section>
+<section>
+<section id="sec-22"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Slide with background image</h2>
+
+<p>
+<a href="http://www.google.co.uk">hyperlink-text</a>
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">bulletpoint
+</li>
+<li class="fragment roll-in">dont go crazy
+</li>
+</ul>
+
+</section>
+<section id="sec-22-1" >
+
+<h3>Sub-slide - srolls vertically from slide above</h3>
+<p>
+Some source code using hightlits.js 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-23" >
+
+<h2>Slied with code</h2>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git init
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-24"  data-background="#770000" data-background-transition="slide">
+
+<h2>Slide with Colour - overriding the theme</h2>
+
+<p>
+I love red.
+</p>
+
+<p class="fragment hightlight-red">
+Hightliht text as a fragment of the slide 
+</p>
+
+
+
+</section>
+<section id="sec-24-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<p>
+Press the "Down" key on the page or the down arrow to trigger fragments
+</p>
+
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+</section>
+<section id="sec-24-2" >
+
+<h3>Fragment captions</h3>
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-24-3"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: false,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1200, // slide width
+        			height: 800, // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>
