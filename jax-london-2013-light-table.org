@@ -38,7 +38,6 @@ A developer tool for Clojure development
 
 Inspired by Bret Victor's talk: [[http://vimeo.com/36579366][Inventing on Principle]]
 
-
 * Inventing on Principle 
 
 ** Bret's principle 
@@ -61,7 +60,6 @@ Find something you believe is important, neccessary and right
 
 http://worrydream.com/
 
-
 * Relating these principles to code
 Traditional coding approach:
  - type in code and then compile & run and something comes out
@@ -73,8 +71,7 @@ Traditional coding approach:
 [[./images/eclipse-counterclockwise-clojure-project.png]]
 
 ** Make changes as quickly as you think of them 
-- the tool help you understand where to make changes by interacting with your creation
-- you dont always have to scroll through code and interpret it to figure out where to make the change 
+- understand where to  make changes by interacting with your creation
 
 [[./images/think_in_code.jpg]]
 
@@ -87,22 +84,17 @@ When you look at code you have to "play commputer"
 - you have to imagine in your head what each line of code does
 - you become the interpreter & runtime ...
 
-** Instead of trying to simulate code execution in our head... 
-
-... why not get the computer to do it.  That is what they are good at!
-
 ** Find bugs as soon as you type them... 
 
 ... instead of leaving it to the unit tests, compiler or person using the software!
 
-** Similar approaches
+* Similar approaches
 
 [[http://seb.ly/][Seb.ly]] for Creative development 
 
 [[http://vimeo.com/36278748][CreativeJS for Designers]]
 
-
-** Constant status visualisation
+** Command Line feedback
 
 Using zsh to show current branch & change 
 
@@ -138,11 +130,9 @@ Early implementation:
 
 * Status of the LightTable project
 
- - currently alpha version 0.5.15 
- - No official release 
- - features unfolding in discusson forum
+ - currently alpha version 0.5.17 (unless there has been an update) 
  - active community & issue tracker
- - good initial docs, although many gaps
+ - good initial docs, although brief and many gaps
    - Google for answers works well 
 
 ** Multiple language support 
@@ -165,7 +155,6 @@ Early implementation:
  - Focused on a solid platform, so original goals still atainable 
  - Time will tell if "the development tool" for Clojure
 
-
 * Getting LightTable
 
 Install latest 5.x version from http://www.lighttable.com/ 
@@ -173,9 +162,7 @@ Install latest 5.x version from http://www.lighttable.com/
  - Mac OSX
  - Windows 
 
-
 * LightTable Features 
-
 * Fast Feedback 
 
 See what your code does as you type it
@@ -470,6 +457,32 @@ Each challenge shows an errors
 All the Koans are solved
 
 [[./images/lighttable-instarepl-koans-solved.png]]
+
+
+* Connecting to your own projects
+
+** lein-light leiningen plugin 
+use your own projects as the context for the Instarepl
+
+** Install lein-light
+
+In your ~/.lein/profiles.clj
+#+BEGIN_SRC clojure 
+{:user {:plugins [[lein-light "0.0.4"]]}}
+#+END_SRC
+
+** Connecting to the REPL 
+
+#+BEGIN_SRC zsh 
+cd my-project 
+lein light
+#+END_SRC
+
+Ctrl-Space Add Connection 
+
+Select Clojure (remote nREPL)
+
+
 
 * Code Watches 
 
@@ -822,6 +835,4 @@ Hightliht text as a fragment of the slide
    :reveal_data_state: alert
    :END:
 
-   Change slide style to wake up the sleepy audience.
-
-
+   Change slide style to wake up the
