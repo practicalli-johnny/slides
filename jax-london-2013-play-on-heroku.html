@@ -374,6 +374,12 @@ Every deployment shows your Slug size
 <pre class="src src-zsh">heroku run bash
 </pre>
 </div>
+
+
+<div class="figure">
+<p><img src="./images/heroku-toolbelt-run-bash-explore.png"  alt="heroku-toolbelt-run-bash-explore.png"/></p>
+</div>
+
 </section>
 <section id="sec-7-3" >
 
@@ -513,15 +519,16 @@ Deployments indentified via Git commit hash
 <section id="sec-8-6" >
 
 <h3>Manage differences with Environment Variables</h3>
-<p>
-heroku config:add DB<sub>URL</sub>=http//heroku.postgres.com/3574354358904ufddf0jv
-</p>
-
+<pre class="example">
+heroku config:add DB_URL=
+  http//heroku.postgres.com/3574354358904ufddf0jv
+</pre>
 
 
 <div class="figure">
 <p><img src="./images/heroku-toolbelt-info-simple.png"  alt="heroku-toolbelt-info-simple.png"/></p>
 </div>
+
 </section>
 <section id="sec-8-7" >
 
@@ -594,18 +601,17 @@ heroku rollback v20
 <div class="figure">
 <p><img src="./images/heroku-release-rollback-then-new-deployment.png"  alt="heroku-release-rollback-then-new-deployment.png"/></p>
 </div>
+</section>
+<section id="sec-9-3" >
 
-<p>
-#+REVEAL split
-</p>
-
+<h3>Deployments &amp; Rollbacks on Heroku dashboard</h3>
 
 <div class="figure">
 <p><img src="./images/heroku-dashboard-activity-rollback.png"  alt="heroku-dashboard-activity-rollback.png"/></p>
 </div>
 
 </section>
-<section id="sec-9-3" >
+<section id="sec-9-4" >
 
 <h3>Interacting with Production clones</h3>
 <p>
@@ -665,51 +671,18 @@ Distinct processes allow you to scale parts of your app
 </section>
 <section id="sec-10-3" >
 
-<h3>Heroku scales processes</h3>
-
-<div class="figure">
-<p><img src="./images/heroku-scaling-app-via-website-scalled.png"  alt="heroku-scaling-app-via-website-scalled.png"/></p>
-</div>
-</section>
-<section id="sec-10-4" >
-
-<h3>Heroku scaling multiple processes</h3>
-
-<div class="figure">
-<p><img src="./images/heroku-dashboard-resources-scaling-node-example.png"  alt="heroku-dashboard-resources-scaling-node-example.png"/></p>
-</div>
-
-</section>
-<section id="sec-10-5" >
-
-<h3>Managed proceses</h3>
+<h3>Process types</h3>
 <p>
-Managed processes run automatically when the OS starts 
+Process type defines how a process runs
 </p>
 <ul class="org-ul">
-<li>restarted if the system crashes or dies
+<li>web: process listens to http/s
+</li>
+<li>can define background or batch processes 
 </li>
 </ul>
-
-<p>
-Web apps can have multiple entry points defined as process types 
-</p>
-
-<p>
-For Java, your process types might look like this:
-</p>
-
-<p>
-Process type        Command
-web                java $JAVA<sub>OPTS</sub> -jar web/target/dependency/webapp-runner.jar &#x2013;port $PORT web/target/*.war
-worker                sh worker/target/bin/worker
-</p>
-
-
-
-
 </section>
-<section id="sec-10-6" >
+<section id="sec-10-4" >
 
 <h3>Define multiple process types with Procfile</h3>
 <div class="org-src-container">
@@ -723,31 +696,52 @@ tweetscan:    bundle exec ruby tweetscan.rb
 cron:         bundle exec clockwork clock.rb
 </pre>
 </div>
+</section>
+<section id="sec-10-5" >
 
+<h3>Java app proceses example</h3>
+<p>
+Define the main web process and a background worker
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">Process type    Command
+web             java $JAVA_OPTS 
+                  -jar web/target/dependency/webapp-runner.jar 
+                  --port $PORT web/target/*.war
+worker          sh worker/target/bin/worker
+</pre>
+</div>
+</section>
+<section id="sec-10-6" >
+
+<h3>Heroku scales processes</h3>
+
+<div class="figure">
+<p><img src="./images/heroku-scaling-app-via-website-scalled.png"  alt="heroku-scaling-app-via-website-scalled.png"/></p>
+</div>
 </section>
 <section id="sec-10-7" >
 
-<h3>Process Model</h3>
+<h3>Heroku scaling multiple processes</h3>
+
+<div class="figure">
+<p><img src="./images/heroku-dashboard-resources-scaling-node-example.png"  alt="heroku-dashboard-resources-scaling-node-example.png"/></p>
+</div>
+</section>
+<section id="sec-10-8" >
+
+<h3>Scaling processes via the toolbelt</h3>
 <p>
 Then scale up dynos independently for each process type:
 </p>
 
-<p>
+<pre class="example">
 $ heroku scale web=4 worker=2 urgentworker=2 tweetscan=1 cron=1
-Scaling processes&#x2026; done
-</p>
+Scaling processes... done
+</pre>
 
-</section>
-<section id="sec-10-8" >
-
-<h3>Process types and Dynos</h3>
-<p>
-A process type is the prototype from which one or more dynos are instantiated. This is similar to the way a class is the prototype from which one or more objects are instantiated in object-oriented programming.
-</p>
-
-<p>
-Billing is done by dyno hours, the clock time for which your collective dyno processes have been on (scale &gt; 0)
-</p>
 
 </section>
 <section id="sec-10-9" >
@@ -761,7 +755,11 @@ Foreman is part of the Heroku toolbelt
 </li>
 </ul>
 
+<div class="org-src-container">
 
+<pre class="src src-zsh">foreman start
+</pre>
+</div>
 
 </section>
 <section id="sec-10-10" >
@@ -869,19 +867,23 @@ Consider using Amazon S3 Bucket online storage.
 <section id="sec-13" >
 
 <h2>Demo time</h2>
-<p>
-Web process using Play
-</p>
+</section>
+<section id="sec-13-1" >
 
+<h3>Web app using Play</h3>
+
+</section>
+<section id="sec-13-2" >
+
+<h3>Queue processing</h3>
 <p>
-Queue processing 
 have play put something on a queue and this process takes it off the queue and puts it into the database.
 </p>
 
+</section>
+<section id="sec-13-3" >
 
-<p>
-Simple java app as the background process
-</p>
+<h3>Simple java app as the background process</h3>
 <ul class="org-ul">
 <li>just printing to the standard out / log every minute 
 </li>
@@ -914,11 +916,6 @@ Simple java app as the background process
 <section id="sec-16" >
 
 <h2>Postgres setup</h2>
-<p>
-Driver
-Configs
-</p>
-
 <p>
 Add PostgreSQL JDBC driver to application dependencies 
 </p>
@@ -1048,36 +1045,16 @@ apt.postgresql.org
 
 <h2>Heroku resources</h2>
 <p>
-<a href="https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku">https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/7/15/logging-on-heroku">https://blog.heroku.com/archives/2013/7/15/logging-on-heroku</a>
-<a href="https://blog.heroku.com/archives/2013/7/22/oauth-for-platform-api-in-public-beta">https://blog.heroku.com/archives/2013/7/22/oauth-for-platform-api-in-public-beta</a>
-<a href="https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks">https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/4/26/introducing_production_check">https://blog.heroku.com/archives/2013/4/26/introducing_production_check</a>
-<a href="https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku">https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku</a>
-<a href="https://blog.heroku.com/archives/2013/7/8/addons_production_apps">https://blog.heroku.com/archives/2013/7/8/addons_production_apps</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku">https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku</a>
-<a href="https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works">https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta">https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/6/27/heroku-fork">https://blog.heroku.com/archives/2013/6/27/heroku-fork</a>
-</p>
-
-<p>
-<a href="https://blog.heroku.com/archives/2013/3/19/log2viz">https://blog.heroku.com/archives/2013/3/19/log2viz</a>
+<a href="https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku">Building apps efficiently on Heroku</a>
+<a href="https://blog.heroku.com/archives/2013/7/15/logging-on-heroku">Logging on Heroku</a>
+<a href="https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks">Releases and rollbacks</a>
+<a href="https://blog.heroku.com/archives/2013/4/26/introducing_production_check">Introducting production check</a>
+<a href="https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku">Running production apps on Heroku</a>
+<a href="https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku">Optomising production apps on Heroku - video &amp; slides</a>
+<a href="https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works">Introducing how Heroku works</a>
+<a href="https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta">Heroku Public beta</a>
+<a href="https://blog.heroku.com/archives/2013/6/27/heroku-fork">Heroku Fork</a>
+<a href="https://blog.heroku.com/archives/2013/3/19/log2viz">Log2Viz</a>
 </p>
 </section>
 
@@ -1288,11 +1265,11 @@ heroku logs &#x2013;tail
 
 <p>
 <a href="http://www.playframework.com/">Play Framework</a>
-<a href="http://www.heroku.com">Heroku</a> and <a href="http://postgres.heroku.com">Heroku Postres</a> 
+<a href="http://www.heroku.com">Heroku</a> and <a href="http://postgres.heroku.com">Heroku Postres</a>
 </p>
 
 <p>
-12Factor.net 
+<a href="http://12Factor.net">12factor.net</a> 
 </p>
 </section>
 

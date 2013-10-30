@@ -177,6 +177,9 @@ Every deployment shows your Slug size
   heroku run bash  
 #+END_SRC
 
+[[./images/heroku-toolbelt-run-bash-explore.png]]
+
+
 ** Check your repo for binary files 
 
  - git is not efficient at storing binary files 
@@ -253,10 +256,13 @@ git log --oneline --graph --decorate
 
 ** Manage differences with Environment Variables
 
-heroku config:add DB_URL=http//heroku.postgres.com/3574354358904ufddf0jv
-
+#+BEGIN_SRC
+heroku config:add DB_URL=
+  http//heroku.postgres.com/3574354358904ufddf0jv
+#+END_SRC
 
 [[./images/heroku-toolbelt-info-simple.png]]
+
 
 ** Throw away environments
 
@@ -293,7 +299,7 @@ heroku rollback v20
 
 [[./images/heroku-release-rollback-then-new-deployment.png]]
 
-#+REVEAL split
+** Deployments & Rollbacks on Heroku dashboard 
 
 [[./images/heroku-dashboard-activity-rollback.png]]
 
@@ -326,31 +332,11 @@ Distinct processes allow you to scale parts of your app
  - each process needs to scale at different levels  
 
 
-** Heroku scales processes 
+** Process types
 
-[[./images/heroku-scaling-app-via-website-scalled.png]]
-
-** Heroku scaling multiple processes 
-
-[[./images/heroku-dashboard-resources-scaling-node-example.png]]
-
-
-** Managed proceses
-
-Managed processes run automatically when the OS starts 
- - restarted if the system crashes or dies
-
-Web apps can have multiple entry points defined as process types 
-
-For Java, your process types might look like this:
-
-Process type	Command
-web	        java $JAVA_OPTS -jar web/target/dependency/webapp-runner.jar --port $PORT web/target/*.war
-worker	        sh worker/target/bin/worker
-
-
-
-
+Process type defines how a process runs
+- web: process listens to http/s
+- can define background or batch processes 
 
 ** Define multiple process types with Procfile
 
@@ -364,20 +350,34 @@ tweetscan:    bundle exec ruby tweetscan.rb
 cron:         bundle exec clockwork clock.rb
 #+END_SRC
 
+** Java app proceses example 
+Define the main web process and a background worker
 
-** Process Model
+#+BEGIN_SRC zsh 
+Process type	Command
+web	        java $JAVA_OPTS 
+                  -jar web/target/dependency/webapp-runner.jar 
+                  --port $PORT web/target/*.war
+worker	        sh worker/target/bin/worker
+#+END_SRC
+
+** Heroku scales processes 
+
+[[./images/heroku-scaling-app-via-website-scalled.png]]
+
+** Heroku scaling multiple processes 
+
+[[./images/heroku-dashboard-resources-scaling-node-example.png]]
+
+** Scaling processes via the toolbelt
 
 Then scale up dynos independently for each process type:
 
+#+BEGIN_SRC
 $ heroku scale web=4 worker=2 urgentworker=2 tweetscan=1 cron=1
 Scaling processes... done
+#+END_SRC
 
-
-** Process types and Dynos
-
-A process type is the prototype from which one or more dynos are instantiated. This is similar to the way a class is the prototype from which one or more objects are instantiated in object-oriented programming.
-
-Billing is done by dyno hours, the clock time for which your collective dyno processes have been on (scale > 0)
 
 
 ** Running locally with Foreman
@@ -385,7 +385,9 @@ Billing is done by dyno hours, the clock time for which your collective dyno pro
 Foreman is part of the Heroku toolbelt 
 - runs the commands defined in the Procfile on your development machine
 
-
+#+BEGIN_SRC zsh 
+foreman start 
+#+END_SRC
 
 
 ** Scenario
@@ -435,13 +437,13 @@ Consider using Amazon S3 Bucket online storage.
 
 * Demo time
 
-Web process using Play
+** Web app using Play
 
-Queue processing 
+** Queue processing 
 have play put something on a queue and this process takes it off the queue and puts it into the database.
 
 
-Simple java app as the background process
+** Simple java app as the background process
  - just printing to the standard out / log every minute 
 
 
@@ -454,9 +456,6 @@ Simple java app as the background process
 - using postgres, tools to manage, migrating data 
 
 * Postgres setup 
-
-Driver
-Configs
 
 Add PostgreSQL JDBC driver to application dependencies 
  - edit project/Build.scala
@@ -524,24 +523,16 @@ http://www.pgmodeler.com.br/
 
 * Heroku resources
 
-https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku
-
-https://blog.heroku.com/archives/2013/7/15/logging-on-heroku
-https://blog.heroku.com/archives/2013/7/22/oauth-for-platform-api-in-public-beta
-https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks
-
-https://blog.heroku.com/archives/2013/4/26/introducing_production_check
-https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku
-https://blog.heroku.com/archives/2013/7/8/addons_production_apps
-
-https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku
-https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works
-
-https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta
-
-https://blog.heroku.com/archives/2013/6/27/heroku-fork
-
-https://blog.heroku.com/archives/2013/3/19/log2viz
+[[https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku][Building apps efficiently on Heroku]]
+[[https://blog.heroku.com/archives/2013/7/15/logging-on-heroku][Logging on Heroku]]
+[[https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks][Releases and rollbacks]]
+[[https://blog.heroku.com/archives/2013/4/26/introducing_production_check][Introducting production check]]
+[[https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku][Running production apps on Heroku]]
+[[https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku][Optomising production apps on Heroku - video & slides]]
+[[https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works][Introducing how Heroku works]]
+[[https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta][Heroku Public beta]]
+[[https://blog.heroku.com/archives/2013/6/27/heroku-fork][Heroku Fork]]
+[[https://blog.heroku.com/archives/2013/3/19/log2viz][Log2Viz]]
 
 
 * Building scalable apps - 12 Factors
@@ -649,9 +640,9 @@ heroku logs --tail
 [[http://jr0cket.github.com][Workshop: Play Java on Heroku]]
 
 [[http://www.playframework.com/][Play Framework]]
-[[http://www.heroku.com][Heroku]] and [[http://postgres.heroku.com][Heroku Postres]] 
+[[http://www.heroku.com][Heroku]] and [[http://postgres.heroku.com][Heroku Postres]]
 
-12Factor.net 
+[[http://12Factor.net][12factor.net]] 
 
 
 * WIP 
