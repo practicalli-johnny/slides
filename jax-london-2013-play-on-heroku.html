@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Play in the Cloud with Heroku)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
+<meta name="description" content="Play in the Cloud with Heroku">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Play in the Cloud with Heroku</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:@jr0cket">@jr0cket</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>Abstract</h2>
+<p>
+The Play 2 framework is an amazing platform for JVM developers to build upon
+</p>
+
+<ul class="org-ul">
+<li>how easy is it to deploy as a scalable application?
+</li>
+<li>How do you create a development workflow around your play 2 app?
+</li>
+<li>how to maintain identically configured dev, test, staging &amp; production environments?
+</li>
+</ul>
+
+</section>
+<section>
+<p>
+This session will show you how to use Heroku, a platform as a service to 
+</p>
+<ul class="org-ul">
+<li>deploy your Play 2 app live in a matter of seconds,
+</li>
+<li>whist maintaining consistent environments,
+</li>
+<li>providing instant rollbacks,
+</li>
+<li>as well as a unified logging
+</li>
+<li>and a simple approach to scaling.
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>What is your interest ?</h2>
+<ul class="org-ul">
+<li>Play Framework 
+</li>
+<li>Heroku 
+</li>
+<li>Both combined 
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Play Overview</h2>
+</section>
+<section id="sec-3-1" >
+
+<h3>Play 2 is&#x2026;</h3>
+<p>
+Play Framework is the High Velocity Web Framework for Java and Scala
+</p>
+
+<ul class="org-ul">
+<li>lightweight (minimal resource consumption)
+</li>
+<li>stateless 
+</li>
+<li>RESTful architecture
+</li>
+<li>AKKA framework
+</li>
+<li>convention over configuration 
+</li>
+<li>designed for asynchronous programming
+</li>
+<li>written in Scala (version 2.x onwards) 
+</li>
+<li>project automation with Simple Build Tool (SBT)
+</li>
+<li>open source project
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2" >
+
+<h3>New stuff with Play 2</h3>
+<p>
+<a href="http://www.playframework.com/documentation/2.1.0/Highlights">Play2 Hightlights</a>
+</p>
+<ul class="org-ul">
+<li>Netty  (apache-licensed NIO-based application server) 
+</li>
+<li>no Java EE session per connection
+</li>
+<li>Persistence layer ORMs (Anorm for Scala, Ebean for Java), 
+</li>
+<li>a templating engine based in Scala
+</li>
+<li>Integrated unit testing: JUnit &amp; Selenium support included in the core
+</li>
+<li>SBT as build tool
+</li>
+<li>LESS &amp; CoffeeScript
+</li>
+<li>Google Clojure compiler 
+</li>
+<li>Dependency Injection for Controllers
+</li>
+</ul>
+
+</section>
+<section>
+<p>
+Scala 2.10 new language features: 
+</p>
+<ul class="org-ul">
+<li>Futures and Promises API 
+<ul class="org-ul">
+<li>non-blocking, asynchronous composition of services 
+</li>
+<li>allows server to handle more requests as it only creates threads when needed
+</li>
+<li>similar behavoir achieved with Java when using the Play Functional APIs 
+</li>
+</ul>
+</li>
+</ul>
+<p>
+Modular Routing making large projects easier to manage
+</p>
+</section>
+<section id="sec-3-3" >
+
+<h3>Actors and Akka</h3>
+<p>
+One of the most powerful and hardest to understand features in the Play framework 
+</p>
+
+<ul class="org-ul">
+<li>Akka Actors are incredibly useful for creating highly scalable and concurrent applications. 
+</li>
+
+<li>Future and type safe declaration of Promise blocks. 
+</li>
+
+<li>asynchronously run multiple processes 
+</li>
+</ul>
+</section>
+<section id="sec-3-4" >
+
+<h3>EBean</h3>
+<p>
+Ebean is an open source Java Object Relational Mapping tool
+</p>
+<ul class="org-ul">
+<li>uses JPA Annotations (@entity, @OneToMany &#x2026;) for mapping
+</li>
+<li>provides a simple API for fetching and saving object graphs.
+</li>
+</ul>
+</section>
+<section id="sec-3-5" >
+
+<h3>Scalable apps with play</h3>
+<ul class="org-ul">
+<li>leverage Play!'s modularity
+</li>
+<li>keeping your app modular
+</li>
+<li>maintain statelessness as much as possilbe
+</li>
+<li>RESTful apps can handle more traffic by stacking instances
+<ul class="org-ul">
+<li>need to manage database load of course 
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Challenges using Play on the Cloud</h2>
+<ul class="org-ul">
+<li>consistent deployment workflow
+</li>
+<li>maintaining identical environments 
+</li>
+<li>understanding how your app performs
+</li>
+<li>choosing a Cloud service you can trust 
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Constraints around the JVM</h2>
+<p>
+Java apps are traditionally very big, and monolithic
+</p>
+<ul class="org-ul">
+<li class="fragment roll-in">great if you want to sell big servers
+</li>
+<li class="fragment roll-in">not good if you want to scale effectively 
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Developer workflow with Heroku</h2>
+
+<div class="figure">
+<p><img src="./images/heroku-developer-workflow-overview.png"  alt="heroku-developer-workflow-overview.png"/></p>
+</div>
+
+</section>
+<section id="sec-6-1" >
+
+<h3>Manage your project with Git</h3>
+
+<div class="figure">
+<p><img src="./images/git-local-workflow.png"  alt="git-local-workflow.png"/></p>
+</div>
+</section>
+<section id="sec-6-2" >
+
+<h3>Creating an Heroku app</h3>
+<p>
+In the root of your Git managed project 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/heroku-developer-workflow--create.png"  alt="heroku-developer-workflow--create.png"/></p>
+</div>
+
+<p>
+This creates a Git remote repository and links it with your local one
+</p>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git remote -v 
+heroku  git@heroku.com:repo.git (fetch)
+heroku  git@heroku.com:repo.git (push)
+</pre>
+</div>
+
+</section>
+<section id="sec-6-3" >
+
+<h3>Deploying your code</h3>
+<p>
+Push your local commits to Heroku 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git push heroku master
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/heroku-developer-workflow--push.png"  alt="heroku-developer-workflow--push.png"/></p>
+</div>
+</section>
+<section id="sec-6-4" >
+
+<h3>Cancelling a deployment</h3>
+<p>
+Interrupt the build process by pressing Ctrl + c
+</p>
+<ul class="org-ul">
+<li>before the build process completes 
+</li>
+</ul>
+</section>
+<section id="sec-6-5" >
+
+<h3>Pushing Branches</h3>
+<p>
+Only a push to the Heroku master branch will trigger a deployment 
+</p>
+<ul class="org-ul">
+<li>merge to master before pushing
+</li>
+<li>push your local branch to a remote master:
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">git push heroku yourbranch:master
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Constraints on deploying from Git</h2>
+<p>
+Very large repositories (over 600MB) are not recommended
+</p>
+<ul class="org-ul">
+<li>may cause timeouts and slow pushes 
+</li>
+</ul>
+
+<p>
+Show your repository size:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku apps:info
+</pre>
+</div>
+
+</section>
+<section id="sec-7-1" >
+
+<h3>Heroku build cache</h3>
+<p>
+The build cache is stored inside your repository, 
+</p>
+<ul class="org-ul">
+<li>remote repo will be bigger than local
+</li>
+</ul>
+</section>
+<section id="sec-7-2" >
+
+<h3>Watch you Slug size</h3>
+<p>
+Every deployment shows your Slug size
+</p>
+
+<ul class="org-ul">
+<li>examine what is taking up space in your app
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku run bash
+</pre>
+</div>
+</section>
+<section id="sec-7-3" >
+
+<h3>Check your repo for binary files</h3>
+<ul class="org-ul">
+<li>git is not efficient at storing binary files 
+</li>
+<li>avoid constantly-changing development logs 
+</li>
+</ul>
+</section>
+<section id="sec-7-4" >
+
+<h3>Removing files committed by accident</h3>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git filter-branch
+</pre>
+</div>
+<p>
+After running that you will have to push with the &#x2013;force option
+</p>
+<ul class="org-ul">
+<li>requires coordination among your team.
+</li>
+</ul>
+</section>
+<section id="sec-7-5" >
+
+<h3>Forcing a redeploy</h3>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git push -f heroku master
+</pre>
+</div>
+
+<p>
+Heroku uses Git as a transport so using the force flag is a reasonable practice
+</p>
+<ul class="org-ul">
+<li>but discuss with the team before doing this
+</li>
+</ul>
+</section>
+<section id="sec-7-6" >
+
+<h3>Review the deployment process</h3>
+<p>
+Fork the <a href="https://github.com/heroku/heroku-buildpack-scala">Play 2.x buildpack</a> and tweak if neccessary 
+</p>
+</section>
+</section>
+<section>
+<section id="sec-8" >
+
+<h2>Maintaining multiple Environments</h2>
+</section>
+<section id="sec-8-1" >
+
+<h3>Create as many environments as needed</h3>
+<p>
+Drive all your deploys from the same source 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku create my-app-test
+heroku create my-app-qa
+heroku create my-app-staging
+...
+</pre>
+</div>
+
+</section>
+<section id="sec-8-2" >
+
+<h3>Manage deployment with Git log</h3>
+<p>
+Deployments indentified via Git commit hash 
+</p>
+
+<p>
+git log &#x2013;oneline &#x2013;graph &#x2013;decorate 
+</p>
+</section>
+<section id="sec-8-3" >
+
+<h3>Manage differences with Environment Variables</h3>
+<p>
+heroku config:add DB<sub>URL</sub>=http//heroku.postgres.com/3574354358904ufddf0jv
+</p>
+</section>
+<section id="sec-8-4" >
+
+<h3>Throw away environments</h3>
+<p>
+As an environment is quick to spin up you can throw them away when you dont need them
+</p>
+<ul class="org-ul">
+<li>you still have the code in Git 
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>Managing you app when things go wrong</h2>
+<p>
+What are the things that could go wrong
+</p>
+<ul class="org-ul">
+<li>Operating System problems
+</li>
+<li>Application Memory leaks 
+</li>
+<li>Committing bugs / regressions 
+</li>
+<li>Security patches 
+</li>
+<li>Pressing the wrong button!
+</li>
+</ul>
+
+</section>
+<section id="sec-9-1" >
+
+<h3>Heroku Manages the system</h3>
+<p>
+Heroku manage the system for you:
+</p>
+
+<ul class="org-ul">
+<li>re-starting run-away app processes automatically
+</li>
+<li>recycling apps every 24 hours
+</li>
+<li>OS patching
+</li>
+<li>ensuring OS running efficiently
+</li>
+</ul>
+
+</section>
+<section id="sec-9-2" >
+
+<h3>Rollbacks to manage bugs</h3>
+<p>
+Whilst you find the root cause, roll back quickly to a known good version
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku releases
+heroku rollback v21
+</pre>
+</div>
+
+
+</section>
+<section id="sec-9-3" >
+
+<h3>Interacting with Production clones</h3>
+<p>
+Explore an exact copy of your environment without risk
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku run bash
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Scaling Apps</h2>
+<p>
+Scaling resources is easy - although expensive !
+</p>
+
+<p>
+Scaling software is hard. 
+</p>
+
+</section>
+<section id="sec-10-1" >
+
+<h3>Stateless approach</h3>
+<p>
+A stateless approach is more scalable
+</p>
+<ul class="org-ul">
+<li>minimise the need for locking
+</li>
+<li>reduces contention
+</li>
+</ul>
+</section>
+<section id="sec-10-2" >
+
+<h3>Modular design</h3>
+<p>
+Distinct processes allow you to scale parts of your app
+</p>
+<ul class="org-ul">
+<li>each process needs to scale at different levels  
+</li>
+</ul>
+
+</section>
+<section id="sec-10-3" >
+
+<h3>Heroku scales processes</h3>
+
+</section>
+<section id="sec-10-4" >
+
+<h3>Managed proceses</h3>
+<p>
+Managed processes run automatically when the OS starts 
+</p>
+<ul class="org-ul">
+<li>restarted if the system crashes or dies
+</li>
+</ul>
+
+<p>
+Web apps can have multiple entry points defined as process types 
+</p>
+
+<p>
+For Java, your process types might look like this:
+</p>
+
+<p>
+Process type        Command
+web                java $JAVA<sub>OPTS</sub> -jar web/target/dependency/webapp-runner.jar &#x2013;port $PORT web/target/*.war
+worker                sh worker/target/bin/worker
+</p>
+
+
+
+
+</section>
+<section id="sec-10-5" >
+
+<h3>Define multiple process types with Procfile</h3>
+<div class="org-src-container">
+
+<pre class="src src-zsh">$ cd myapp/
+$ cat Procfile
+web:          bundle exec rails server mongrel -p $PORT
+worker:       bundle exec rake resque:work QUEUE=*
+urgentworker: bundle exec rake resque:work QUEUE=urgent
+tweetscan:    bundle exec ruby tweetscan.rb
+cron:         bundle exec clockwork clock.rb
+</pre>
+</div>
+
+</section>
+<section id="sec-10-6" >
+
+<h3>Process Model</h3>
+<p>
+Then scale up dynos independently for each process type:
+</p>
+
+<p>
+$ heroku scale web=4 worker=2 urgentworker=2 tweetscan=1 cron=1
+Scaling processes&#x2026; done
+</p>
+
+</section>
+<section id="sec-10-7" >
+
+<h3>Process types and Dynos</h3>
+<p>
+A process type is the prototype from which one or more dynos are instantiated. This is similar to the way a class is the prototype from which one or more objects are instantiated in object-oriented programming.
+</p>
+
+<p>
+Billing is done by dyno hours, the clock time for which your collective dyno processes have been on (scale &gt; 0)
+</p>
+
+</section>
+<section id="sec-10-8" >
+
+<h3>Running locally with Foreman</h3>
+<p>
+Foreman is part of the Heroku toolbelt 
+</p>
+<ul class="org-ul">
+<li>runs the commands defined in the Procfile on your development machine
+</li>
+</ul>
+
+
+
+</section>
+<section id="sec-10-9" >
+
+<h3>Scenario</h3>
+<p>
+I have an Heroku app with 
+</p>
+
+<p>
+5 web processes
+2 queue processor
+1 low priority background task 
+</p>
+
+<p>
+If I scale up my dyno, what to I get&#x2026;?
+</p>
+</section>
+
+
+</section>
+<section>
+<section id="sec-11" >
+
+<h2>Understanding your app performance</h2>
+</section>
+<section id="sec-11-1" >
+
+<h3>Monitoring your apps</h3>
+<p>
+If you can understand the performce of a single instance of your app, you have a baseline to see how it scales
+</p>
+<ul class="org-ul">
+<li>need to understand performance through every part
+</li>
+</ul>
+</section>
+<section id="sec-11-2" >
+
+<h3>New Relic</h3>
+
+<div class="figure">
+<p><img src="./images/heroku-monitoring-addon-new-relic.png"  alt="heroku-monitoring-addon-new-relic.png"/></p>
+</div>
+</section>
+<section id="sec-11-3" >
+
+<h3>Load testing</h3>
+
+</section>
+<section id="sec-11-4" >
+
+<h3>Load testing plugin</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-12" >
+
+<h2>Enhancing Scalability</h2>
+</section>
+<section id="sec-12-1" >
+
+<h3>Managing static assets</h3>
+<p>
+Use a CDN for static assets
+</p>
+<ul class="org-ul">
+<li>much more efficient for any kind of deployment
+</li>
+<li>better performance on any cloud platform 
+</li>
+</ul>
+</section>
+<section id="sec-12-2" >
+
+<h3>Managing images</h3>
+<p>
+Consider using Amazon S3 Bucket online storage. 
+</p>
+<ul class="org-ul">
+<li>CDN for images in S3 bucket ??  Check Heroku addons
+</li>
+</ul>
+</section>
+<section id="sec-12-3" >
+
+<h3>Using a cache</h3>
+</section>
+<section id="sec-12-4" >
+
+<h3>Redis</h3>
+</section>
+<section id="sec-12-5" >
+
+<h3>Memcache</h3>
+</section>
+<section id="sec-12-6" >
+
+<h3>Using CDN</h3>
+</section>
+</section>
+<section>
+<section id="sec-13" >
+
+<h2>Demo time</h2>
+<p>
+Web process using Play
+</p>
+
+<p>
+Queue processing 
+have play put something on a queue and this process takes it off the queue and puts it into the database.
+</p>
+
+
+<p>
+Simple java app as the background process
+</p>
+<ul class="org-ul">
+<li>just printing to the standard out / log every minute 
+</li>
+</ul>
+</section>
+
+
+
+</section>
+<section>
+<section id="sec-14" >
+
+<h2>Specific tips and tricks</h2>
+</section>
+<section id="sec-14-1" >
+
+<h3>Databases</h3>
+<ul class="org-ul">
+<li>not using H2 for production (obvious one)
+</li>
+<li>using postgres, tools to manage, migrating data 
+</li>
+</ul>
+</section>
+<section id="sec-14-2" >
+
+<h3>Postgres setup</h3>
+<p>
+Driver
+Configs
+</p>
+
+</section>
+<section id="sec-14-3" >
+
+<h3>Mixed databases ?</h3>
+<p>
+Do you use H2 in dev and Postres in production?
+Do you have to set up Postgres on your own machine?
+</p>
+
+</section>
+<section id="sec-14-4" >
+
+<h3>Setting up Postgres on Heroku as a dev database</h3>
+<p>
+Can run Postgres without a specific app 
+</p>
+<ul class="org-ul">
+<li>connect to it like any other remote db
+</li>
+</ul>
+</section>
+<section id="sec-14-5" >
+
+<h3>Tools for your Postgres database</h3>
+</section>
+<section id="sec-14-5-1" >
+
+<h4>pgadmin3</h4>
+<p>
+sudo apt-get install pgadmin3 
+</p>
+
+<p>
+depends on postgresql-client
+</p>
+
+<p>
+Newer versions can be found at:
+apt.postgresql.org
+</p>
+</section>
+<section id="sec-14-5-2" >
+
+<h4>pgModeller</h4>
+<p>
+<a href="http://www.pgmodeler.com.br/">http://www.pgmodeler.com.br/</a>
+</p>
+
+</section>
+<section id="sec-14-6" >
+
+<h3>Production or developer mode</h3>
+<ul class="org-ul">
+<li>Play runs in production mode when deployed to Heroku 
+</li>
+</ul>
+<p>
+&#x2013; how to change this [TODO]
+</p>
+</section>
+</section>
+<section>
+<section id="sec-15" >
+
+<h2>Collaborate on projects with Github</h2>
+<ul class="org-ul">
+<li>keep Heroku for deployment or only push master branches 
+</li>
+<li>github has more features for collaboration
+</li>
+<li>can add github repo to Heroku app so you can see activity
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-16" >
+
+<h2>Pipelines for automated deployment</h2>
+<ul class="org-ul">
+<li>configure your git repo to deploy to heroku on pushes 
+</li>
+</ul>
+</section>
+
+
+</section>
+<section>
+<section id="sec-17" >
+
+<h2>Alternatives to Play</h2>
+</section>
+<section id="sec-17-1" >
+
+<h3>Spark micro-framework</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-18" >
+
+<h2>Heroku resources</h2>
+<p>
+<a href="https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku">https://blog.heroku.com/archives/2013/6/12/building_apps_efficiently_on_heroku</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/7/15/logging-on-heroku">https://blog.heroku.com/archives/2013/7/15/logging-on-heroku</a>
+<a href="https://blog.heroku.com/archives/2013/7/22/oauth-for-platform-api-in-public-beta">https://blog.heroku.com/archives/2013/7/22/oauth-for-platform-api-in-public-beta</a>
+<a href="https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks">https://blog.heroku.com/archives/2013/7/25/releases-and-rollbacks</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/4/26/introducing_production_check">https://blog.heroku.com/archives/2013/4/26/introducing_production_check</a>
+<a href="https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku">https://blog.heroku.com/archives/2013/7/11/running-production-apps-on-heroku</a>
+<a href="https://blog.heroku.com/archives/2013/7/8/addons_production_apps">https://blog.heroku.com/archives/2013/7/8/addons_production_apps</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku">https://blog.heroku.com/archives/2013/8/1/video_and_slides_optimizing_production_apps_on_heroku</a>
+<a href="https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works">https://blog.heroku.com/archives/2013/7/16/introducing-how-heroku-works</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta">https://blog.heroku.com/archives/2013/7/10/heroku-pipelines-beta</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/6/27/heroku-fork">https://blog.heroku.com/archives/2013/6/27/heroku-fork</a>
+</p>
+
+<p>
+<a href="https://blog.heroku.com/archives/2013/3/19/log2viz">https://blog.heroku.com/archives/2013/3/19/log2viz</a>
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-19" >
+
+<h2>Building scalable apps - 12 Factors</h2>
+<p>
+<a href="http://12factor.net">12factor.net</a>
+</p>
+
+
+</section>
+<section id="sec-19-1" >
+
+<h3>One codebase, multiple environments</h3>
+<ul class="org-ul">
+<li>Version controlled source code
+</li>
+<li>Pushed securely and consistently to environments
+</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./images/heroku-codebase-deploys.png"  alt="heroku-codebase-deploys.png"/></p>
+</div>
+
+</section>
+<section id="sec-19-2" >
+
+<h3>Explicitly declare &amp; isolate dependencies</h3>
+<ul class="org-ul">
+<li>Use build automation tools to manage dependencies
+</li>
+<li>Consistency of builds 
+</li>
+</ul>
+</section>
+<section id="sec-19-3" >
+
+<h3>Store configuration in each environment</h3>
+<p>
+Database connections, security tokens, etc.
+</p>
+
+<ul class="org-ul">
+<li>avoids adding config into your codebase
+</li>
+<li>prevents wrong environment from being changed
+</li>
+<li>more secure way of managing sensitive config data
+</li>
+</ul>
+</section>
+<section id="sec-19-4" >
+
+<h3>All services are attached resources</h3>
+<p>
+Databases, message queues, cache, local services, 3rd party services
+</p>
+
+
+<div class="figure">
+<p><img src="./images/heroku-attached-resources.png"  alt="heroku-attached-resources.png"/></p>
+</div>
+
+</section>
+<section id="sec-19-5" >
+
+<h3>Development workflow</h3>
+<p>
+Applications should be
+</p>
+<ul class="org-ul">
+<li>self-contained
+</li>
+<li>self-describing 
+</li>
+<li>independent entities. 
+</li>
+</ul>
+
+<p>
+Declaratively define dependencies
+</p>
+<ul class="org-ul">
+<li>no reliance on existing system packages 
+</li>
+<li>no dependencies defined in source code 
+</li>
+</ul>
+
+<p>
+Use of build automation tools 
+</p>
+
+<p>
+Use of environment variables 
+</p>
+
+<p>
+heroku config:set CLI    
+</p>
+
+<p>
+define external dependencies without modifying the app's source code.
+</p>
+<ul class="org-ul">
+<li>database connections and security access 
+</li>
+</ul>
+
+<p>
+run your app  in the same way locally as your app does in production
+</p>
+
+</section>
+<section id="sec-19-6" >
+
+<h3>Runtime</h3>
+<p>
+Stateless environment 
+</p>
+<ul class="org-ul">
+<li>ephemeral filesystem which ensures a stateless runtime
+</li>
+</ul>
+
+<p>
+fast process startup/shutdown
+</p>
+
+<p>
+the process model
+</p>
+<ul class="org-ul">
+<li>running your app as one or more lightweight processes,
+</li>
+</ul>
+
+<p>
+Avoid a monolithic executable, 
+ granularly scale the app to match a diverse workload
+ a sort of in-app horizontal scaling.
+</p>
+
+<p>
+The Procfile, your app’s process manifest, 
+informs the runtime of your app’s unique composition and tools like Foreman (locally) 
+and the Heroku dyno manager (remotely on Heroku) manage its execution.
+</p>
+
+</section>
+<section id="sec-19-7" >
+
+<h3>Management - App interaction</h3>
+<p>
+execute user-initiated tasks against the app 
+</p>
+<ul class="org-ul">
+<li>database migration
+</li>
+<li>interacting with app via REPL
+</li>
+</ul>
+
+<p>
+Heroku allows you to provision a one-off dyno, an isolated copy 
+</p>
+
+<p>
+heroku run bash  
+</p>
+</section>
+<section id="sec-19-8" >
+
+<h3>Management - Monitoring</h3>
+<p>
+see the app's runtime log output
+</p>
+
+<p>
+heroku logs &#x2013;tail 
+</p>
+
+
+
+</section>
+<section id="sec-19-9" >
+
+<h3>Dynos</h3>
+
+<div class="figure">
+<p><img src="./images/heroku-dynos-scale-diversity.jpg"  alt="heroku-dynos-scale-diversity.jpg"/></p>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-20" >
+
+<h2>Thank you</h2>
+<p>
+<a href="http://jr0cket.github.com">Workshop: Play Java on Heroku</a>
+</p>
+
+<p>
+<a href="http://www.playframework.com/">Play Framework</a>
+<a href="http://www.heroku.com">Heroku</a> and <a href="http://postgres.heroku.com">Heroku Postres</a> 
+</p>
+
+<p>
+12Factor.net 
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-21" >
+
+<h2>WIP</h2>
+</section>
+</section>
+<section>
+<section id="sec-22" >
+
+<h2>Heroku Scalability</h2>
+<ul class="org-ul">
+<li>HTTP stack fully supports HTTP 1.1
+</li>
+<li>long polling
+</li>
+<li>chunked responses
+</li>
+<li>async multi-connection webservers
+</li>
+<li>isolation
+</li>
+<li>erosion-resistance (seemless patching)
+</li>
+</ul>
+</section>
+
+
+
+
+
+</section>
+<section>
+<section id="sec-23"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Slide with background image</h2>
+
+<p>
+<a href="http://www.google.co.uk">hyperlink-text</a>
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">bulletpoint
+</li>
+<li class="fragment roll-in">dont go crazy
+</li>
+</ul>
+
+</section>
+<section id="sec-23-1" >
+
+<h3>Sub-slide - srolls vertically from slide above</h3>
+<p>
+Some source code using hightlits.js 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-24" >
+
+<h2>Slied with code</h2>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git init
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-25"  data-background="#770000" data-background-transition="slide">
+
+<h2>Slide with Colour - overriding the theme</h2>
+
+<p>
+I love red.
+</p>
+
+<p class="fragment hightlight-red">
+Hightliht text as a fragment of the slide 
+</p>
+
+
+
+</section>
+<section id="sec-25-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<p>
+Press the "Down" key on the page or the down arrow to trigger fragments
+</p>
+
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+</section>
+<section id="sec-25-2" >
+
+<h3>Fragment captions</h3>
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-25-3"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: false,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1200, // slide width
+        			height: 800, // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>
