@@ -50,7 +50,7 @@ Bringing ideas into the world is one of the most important things to do
 ** Nurturing ideas by connecting to creations 
 Creators need to see the affect as soon as a change is made
 
-[[./images/creative-interaction.jpg]]
+[[./images/inventing-on-principle-interact-bounce-trace-adjust.png]]
 
 ** Ideas start small,
 need an environment where the creator can nurture and let them grow 
@@ -60,25 +60,26 @@ Find something you believe is important, neccessary and right
 
 http://worrydream.com/
 
-* Relating these principles to code
-Traditional coding approach:
- - type in code and then compile & run and something comes out
- - to fix bugs or add new ideas, you have to switch back to code
- - loose connection too often with the thing you are making
-
+* Traditional coding approach
+Has not evolved much since punch cards & teletypes  
+#+ATTR_REVEAL: :frag highlight-red
+ - code > compile > run > result
+ - switch between results and code
+ - constantly loosing connection with the app you are creating
+ 
 ** Classic IDE's make your eyes jump around
  
 [[./images/eclipse-counterclockwise-clojure-project.png]]
 
+* Applying these principles to software development
 ** Make changes as quickly as you think of them 
-- understand where to  make changes by interacting with your creation
+-- understand the possibilities by interacting with your creation
+ 
+-[[./images/think_in_code.jpg]]
 
-[[./images/think_in_code.jpg]]
+** Interacting with your creation directly...
 
-** By interacting with your creation directly...
-
-... new ideas are triggered that dont come from parsing code 
-
+... more ideas flow when you have to parsing less code 
 ** Use your brain effectively 
 When you look at code you have to "play commputer"
 - you have to imagine in your head what each line of code does
@@ -132,7 +133,7 @@ Early implementation:
 
  - currently alpha version 0.5.17 (unless there has been an update) 
  - active community & issue tracker
- - good initial docs, although brief and many gaps
+ - limited documentation
    - Google for answers works well 
 
 ** Multiple language support 
@@ -166,7 +167,7 @@ Install latest 5.x version from http://www.lighttable.com/
 * Fast Feedback 
 
 See what your code does as you type it
-
+#+ATTR_REVEAL: :frag highlight-blue
  - Evaluate code in place 
  - Inline docs 
  - Instarepl
@@ -215,6 +216,11 @@ Evaluates all the code in the opened file
 
 [[./images/lighttable-connect-evaluated-code.png]]
 
+** Show REPL connections
+See what connections you have open
+ - reset and disconnect connections 
+
+[[./images/lighttable-connections-show.png]]
 
 ** Interact with Code 
 
@@ -235,7 +241,6 @@ Evaluate a single expression with Ctrl + Enter
 
 Evaluate all the code with Ctrl + Shift + Enter 
 [[./images/lighttable-eval-simple-expressions.png]]
-
 
 ** Evaluating further 
 
@@ -333,6 +338,7 @@ Right click on a function name
 
 [[./images/lighttable-inline-docs-toggle-docs.png]]
 
+#+REVEAL: split
 [[./images/lighttable-show-docs-map.png]]
 
 ** Show docs for your own functions 
@@ -343,7 +349,6 @@ Right click on a function name
 
 [show longer function with several lines of expressions, where does the documentation appear]
 [[./images/lighttable-inline-docs-larger-example.png]]
-
 
 ** Hide the docs
 
@@ -492,6 +497,15 @@ JavaScript interaction
 
 
 * Embedded Browser 
+
+* Driving Browser with node app 
+
+Create a node application 
+Add any depenencies
+Start the node web app
+Open browser tab in LT
+Open main .js file in LT
+Edit main .js file and see change reflected in the browser
 
 Interact with your application live 
 
@@ -836,3 +850,18 @@ Hightliht text as a fragment of the slide
    :END:
 
    Change slide style to wake up the
+
+
+Presentation demo 
+file:///home/jr0cket/projects/presentations/slides/jax-london-2013-light-table.html  
+
+Simple node 
+
+http://localhost:5000/
+
+
+3d example 
+http://threejs.org/examples/webgl_buffergeometry_particles.html
+
+http://threejs.org/examples/#webgl_buffergeometry_particles
+
