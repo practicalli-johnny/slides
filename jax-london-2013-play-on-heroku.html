@@ -440,33 +440,90 @@ Drive all your deploys from the same source
 
 <div class="org-src-container">
 
-<pre class="src src-zsh">heroku create my-app-test
-heroku create my-app-qa
-heroku create my-app-staging
+<pre class="src src-zsh">heroku create my-app-test --remote test
+heroku create my-app-qa --remote qa
+heroku create my-app-staging --staging
 ...
+</pre>
+</div>
+</section>
+<section id="sec-8-2" >
+
+<h3>Use Git remote to see your environments</h3>
+<p>
+List all the remote Git repositories attached to your local repository
+</p>
+<ul class="org-ul">
+<li>shows the Heroku repositories you can push to 
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git remote -v
+</pre>
+</div>
+</section>
+<section id="sec-8-3" >
+
+<h3>Add Heroku apps to your local repository</h3>
+<p>
+If you need to manually add an Heroku app, just add the remote repository 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">git remote add repo-alias git@heroku.com:/app-name.git
+</pre>
+</div>
+
+
+</section>
+<section id="sec-8-4" >
+
+<h3>Managing multiple environments with Heroku toolbelt</h3>
+<p>
+Specify the app name using the &#x2013;app option
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku logs --app my-app-test
 </pre>
 </div>
 
 </section>
-<section id="sec-8-2" >
+<section id="sec-8-5" >
 
 <h3>Manage deployment with Git log</h3>
 <p>
 Deployments indentified via Git commit hash 
 </p>
 
-<p>
-git log &#x2013;oneline &#x2013;graph &#x2013;decorate 
-</p>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git log --oneline --graph --decorate
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png"  alt="git-log-commit-graph-decorate-oneline-abbrev-commit.png"/></p>
+</div>
 </section>
-<section id="sec-8-3" >
+<section id="sec-8-6" >
 
 <h3>Manage differences with Environment Variables</h3>
 <p>
 heroku config:add DB<sub>URL</sub>=http//heroku.postgres.com/3574354358904ufddf0jv
 </p>
+
+
+
+<div class="figure">
+<p><img src="./images/heroku-toolbelt-info-simple.png"  alt="heroku-toolbelt-info-simple.png"/></p>
+</div>
 </section>
-<section id="sec-8-4" >
+<section id="sec-8-7" >
 
 <h3>Throw away environments</h3>
 <p>
@@ -529,10 +586,23 @@ Whilst you find the root cause, roll back quickly to a known good version
 <div class="org-src-container">
 
 <pre class="src src-zsh">heroku releases
-heroku rollback v21
+heroku rollback v20
 </pre>
 </div>
 
+
+<div class="figure">
+<p><img src="./images/heroku-release-rollback-then-new-deployment.png"  alt="heroku-release-rollback-then-new-deployment.png"/></p>
+</div>
+
+<p>
+#+REVEAL split
+</p>
+
+
+<div class="figure">
+<p><img src="./images/heroku-dashboard-activity-rollback.png"  alt="heroku-dashboard-activity-rollback.png"/></p>
+</div>
 
 </section>
 <section id="sec-9-3" >
@@ -546,6 +616,11 @@ Explore an exact copy of your environment without risk
 
 <pre class="src src-zsh">heroku run bash
 </pre>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/heroku-toolbelt-run-bash-explore.png"  alt="heroku-toolbelt-run-bash-explore.png"/></p>
 </div>
 </section>
 
@@ -592,8 +667,20 @@ Distinct processes allow you to scale parts of your app
 
 <h3>Heroku scales processes</h3>
 
+<div class="figure">
+<p><img src="./images/heroku-scaling-app-via-website-scalled.png"  alt="heroku-scaling-app-via-website-scalled.png"/></p>
+</div>
 </section>
 <section id="sec-10-4" >
+
+<h3>Heroku scaling multiple processes</h3>
+
+<div class="figure">
+<p><img src="./images/heroku-dashboard-resources-scaling-node-example.png"  alt="heroku-dashboard-resources-scaling-node-example.png"/></p>
+</div>
+
+</section>
+<section id="sec-10-5" >
 
 <h3>Managed proceses</h3>
 <p>
@@ -622,7 +709,7 @@ worker                sh worker/target/bin/worker
 
 
 </section>
-<section id="sec-10-5" >
+<section id="sec-10-6" >
 
 <h3>Define multiple process types with Procfile</h3>
 <div class="org-src-container">
@@ -638,7 +725,7 @@ cron:         bundle exec clockwork clock.rb
 </div>
 
 </section>
-<section id="sec-10-6" >
+<section id="sec-10-7" >
 
 <h3>Process Model</h3>
 <p>
@@ -651,7 +738,7 @@ Scaling processes&#x2026; done
 </p>
 
 </section>
-<section id="sec-10-7" >
+<section id="sec-10-8" >
 
 <h3>Process types and Dynos</h3>
 <p>
@@ -663,7 +750,7 @@ Billing is done by dyno hours, the clock time for which your collective dyno pro
 </p>
 
 </section>
-<section id="sec-10-8" >
+<section id="sec-10-9" >
 
 <h3>Running locally with Foreman</h3>
 <p>
@@ -677,7 +764,7 @@ Foreman is part of the Heroku toolbelt
 
 
 </section>
-<section id="sec-10-9" >
+<section id="sec-10-10" >
 
 <h3>Scenario</h3>
 <p>
@@ -809,9 +896,12 @@ Simple java app as the background process
 
 <h2>Specific tips and tricks</h2>
 </section>
-<section id="sec-14-1" >
 
-<h3>Databases</h3>
+</section>
+<section>
+<section id="sec-15" >
+
+<h2>Databases</h2>
 <ul class="org-ul">
 <li>not using H2 for production (obvious one)
 </li>
@@ -819,16 +909,44 @@ Simple java app as the background process
 </li>
 </ul>
 </section>
-<section id="sec-14-2" >
+</section>
+<section>
+<section id="sec-16" >
 
-<h3>Postgres setup</h3>
+<h2>Postgres setup</h2>
 <p>
 Driver
 Configs
 </p>
 
+<p>
+Add PostgreSQL JDBC driver to application dependencies 
+</p>
+<ul class="org-ul">
+<li>edit project/Build.scala
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">"postgresql" % "postgresql" % "9.1-901-1.jdbc4"
+</pre>
+</div>
+
 </section>
-<section id="sec-14-3" >
+<section id="sec-16-1" >
+
+<h3>Update the Procfile</h3>
+<div class="org-src-container">
+
+<pre class="src src-zsh">web: target/start -Dhttp.port=${PORT} ${JAVA_OPTS} 
+  -DapplyEvolutions.default=true 
+  -Ddb.default.driver=org.postgresql.Driver 
+  -Ddb.default.url=${DATABASE_URL}
+</pre>
+</div>
+</section>
+<section id="sec-16-2" >
 
 <h3>Mixed databases ?</h3>
 <p>
@@ -837,7 +955,7 @@ Do you have to set up Postgres on your own machine?
 </p>
 
 </section>
-<section id="sec-14-4" >
+<section id="sec-16-3" >
 
 <h3>Setting up Postgres on Heroku as a dev database</h3>
 <p>
@@ -848,11 +966,11 @@ Can run Postgres without a specific app
 </li>
 </ul>
 </section>
-<section id="sec-14-5" >
+<section id="sec-16-4" >
 
 <h3>Tools for your Postgres database</h3>
 </section>
-<section id="sec-14-5-1" >
+<section id="sec-16-4-1" >
 
 <h4>pgadmin3</h4>
 <p>
@@ -868,7 +986,7 @@ Newer versions can be found at:
 apt.postgresql.org
 </p>
 </section>
-<section id="sec-14-5-2" >
+<section id="sec-16-4-2" >
 
 <h4>pgModeller</h4>
 <p>
@@ -876,7 +994,7 @@ apt.postgresql.org
 </p>
 
 </section>
-<section id="sec-14-6" >
+<section id="sec-16-5" >
 
 <h3>Production or developer mode</h3>
 <ul class="org-ul">
@@ -889,7 +1007,7 @@ apt.postgresql.org
 </section>
 </section>
 <section>
-<section id="sec-15" >
+<section id="sec-17" >
 
 <h2>Collaborate on projects with Github</h2>
 <ul class="org-ul">
@@ -903,7 +1021,7 @@ apt.postgresql.org
 </section>
 </section>
 <section>
-<section id="sec-16" >
+<section id="sec-18" >
 
 <h2>Pipelines for automated deployment</h2>
 <ul class="org-ul">
@@ -915,18 +1033,18 @@ apt.postgresql.org
 
 </section>
 <section>
-<section id="sec-17" >
+<section id="sec-19" >
 
 <h2>Alternatives to Play</h2>
 </section>
-<section id="sec-17-1" >
+<section id="sec-19-1" >
 
 <h3>Spark micro-framework</h3>
 </section>
 
 </section>
 <section>
-<section id="sec-18" >
+<section id="sec-20" >
 
 <h2>Heroku resources</h2>
 <p>
@@ -965,7 +1083,7 @@ apt.postgresql.org
 
 </section>
 <section>
-<section id="sec-19" >
+<section id="sec-21" >
 
 <h2>Building scalable apps - 12 Factors</h2>
 <p>
@@ -974,7 +1092,7 @@ apt.postgresql.org
 
 
 </section>
-<section id="sec-19-1" >
+<section id="sec-21-1" >
 
 <h3>One codebase, multiple environments</h3>
 <ul class="org-ul">
@@ -990,7 +1108,7 @@ apt.postgresql.org
 </div>
 
 </section>
-<section id="sec-19-2" >
+<section id="sec-21-2" >
 
 <h3>Explicitly declare &amp; isolate dependencies</h3>
 <ul class="org-ul">
@@ -1000,7 +1118,7 @@ apt.postgresql.org
 </li>
 </ul>
 </section>
-<section id="sec-19-3" >
+<section id="sec-21-3" >
 
 <h3>Store configuration in each environment</h3>
 <p>
@@ -1016,7 +1134,7 @@ Database connections, security tokens, etc.
 </li>
 </ul>
 </section>
-<section id="sec-19-4" >
+<section id="sec-21-4" >
 
 <h3>All services are attached resources</h3>
 <p>
@@ -1029,7 +1147,7 @@ Databases, message queues, cache, local services, 3rd party services
 </div>
 
 </section>
-<section id="sec-19-5" >
+<section id="sec-21-5" >
 
 <h3>Development workflow</h3>
 <p>
@@ -1079,7 +1197,7 @@ run your app  in the same way locally as your app does in production
 </p>
 
 </section>
-<section id="sec-19-6" >
+<section id="sec-21-6" >
 
 <h3>Runtime</h3>
 <p>
@@ -1115,7 +1233,7 @@ and the Heroku dyno manager (remotely on Heroku) manage its execution.
 </p>
 
 </section>
-<section id="sec-19-7" >
+<section id="sec-21-7" >
 
 <h3>Management - App interaction</h3>
 <p>
@@ -1136,7 +1254,7 @@ Heroku allows you to provision a one-off dyno, an isolated copy
 heroku run bash  
 </p>
 </section>
-<section id="sec-19-8" >
+<section id="sec-21-8" >
 
 <h3>Management - Monitoring</h3>
 <p>
@@ -1150,7 +1268,7 @@ heroku logs &#x2013;tail
 
 
 </section>
-<section id="sec-19-9" >
+<section id="sec-21-9" >
 
 <h3>Dynos</h3>
 
@@ -1161,7 +1279,7 @@ heroku logs &#x2013;tail
 
 </section>
 <section>
-<section id="sec-20" >
+<section id="sec-22" >
 
 <h2>Thank you</h2>
 <p>
@@ -1180,13 +1298,13 @@ heroku logs &#x2013;tail
 
 </section>
 <section>
-<section id="sec-21" >
+<section id="sec-23" >
 
 <h2>WIP</h2>
 </section>
 </section>
 <section>
-<section id="sec-22" >
+<section id="sec-24" >
 
 <h2>Heroku Scalability</h2>
 <ul class="org-ul">
@@ -1211,7 +1329,7 @@ heroku logs &#x2013;tail
 
 </section>
 <section>
-<section id="sec-23"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+<section id="sec-25"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
 
 <h2>Slide with background image</h2>
 
@@ -1227,7 +1345,7 @@ heroku logs &#x2013;tail
 </ul>
 
 </section>
-<section id="sec-23-1" >
+<section id="sec-25-1" >
 
 <h3>Sub-slide - srolls vertically from slide above</h3>
 <p>
@@ -1242,7 +1360,7 @@ Some source code using hightlits.js
 </section>
 </section>
 <section>
-<section id="sec-24" >
+<section id="sec-26" >
 
 <h2>Slied with code</h2>
 <div class="org-src-container">
@@ -1253,7 +1371,7 @@ Some source code using hightlits.js
 </section>
 </section>
 <section>
-<section id="sec-25"  data-background="#770000" data-background-transition="slide">
+<section id="sec-27"  data-background="#770000" data-background-transition="slide">
 
 <h2>Slide with Colour - overriding the theme</h2>
 
@@ -1268,7 +1386,7 @@ Hightliht text as a fragment of the slide
 
 
 </section>
-<section id="sec-25-1" >
+<section id="sec-27-1" >
 
 <h3>Fragments in Reveal.js</h3>
 <p>
@@ -1284,7 +1402,7 @@ Press the "Down" key on the page or the down arrow to trigger fragments
 </li>
 </ul>
 </section>
-<section id="sec-25-2" >
+<section id="sec-27-2" >
 
 <h3>Fragment captions</h3>
 <div class="org-src-container">
@@ -1296,13 +1414,20 @@ Press the "Down" key on the page or the down arrow to trigger fragments
 </pre>
 </div>
 </section>
-<section id="sec-25-3"  data-state="alert">
+<section id="sec-27-3"  data-state="alert">
 
 <h3>Reveal.js Can Alert</h3>
 
 <p>
 Change slide style to wake up the sleepy audience.
 </p>
+
+
+
+
+<div class="figure">
+<p><img src="./images/play-help.png"  alt="play-help.png"/></p>
+</div>
 </section>
 </section>
 </div>

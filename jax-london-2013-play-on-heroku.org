@@ -209,21 +209,54 @@ Fork the [[https://github.com/heroku/heroku-buildpack-scala][Play 2.x buildpack]
 Drive all your deploys from the same source 
 
 #+BEGIN_SRC zsh 
-heroku create my-app-test
-heroku create my-app-qa
-heroku create my-app-staging
+heroku create my-app-test --remote test
+heroku create my-app-qa --remote qa
+heroku create my-app-staging --staging
 ...
+#+END_SRC
+
+** Use Git remote to see your environments
+
+List all the remote Git repositories attached to your local repository
+- shows the Heroku repositories you can push to 
+#+BEGIN_SRC zsh
+git remote -v 
+#+END_SRC
+
+** Add Heroku apps to your local repository
+
+If you need to manually add an Heroku app, just add the remote repository 
+
+#+BEGIN_SRC zsh
+git remote add repo-alias git@heroku.com:/app-name.git  
+#+END_SRC
+
+
+
+** Managing multiple environments with Heroku toolbelt
+
+Specify the app name using the --app option
+
+#+BEGIN_SRC zsh 
+heroku logs --app my-app-test
 #+END_SRC
 
 
 ** Manage deployment with Git log 
 Deployments indentified via Git commit hash 
 
+#+BEGIN_SRC zsh 
 git log --oneline --graph --decorate 
+#+END_SRC
+
+[[./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png]]
 
 ** Manage differences with Environment Variables
 
 heroku config:add DB_URL=http//heroku.postgres.com/3574354358904ufddf0jv
+
+
+[[./images/heroku-toolbelt-info-simple.png]]
 
 ** Throw away environments
 
@@ -255,9 +288,14 @@ Whilst you find the root cause, roll back quickly to a known good version
 
 #+BEGIN_SRC zsh 
 heroku releases
-heroku rollback v21 
+heroku rollback v20 
 #+END_SRC
 
+[[./images/heroku-release-rollback-then-new-deployment.png]]
+
+#+REVEAL split
+
+[[./images/heroku-dashboard-activity-rollback.png]]
 
 
 ** Interacting with Production clones
@@ -266,6 +304,8 @@ Explore an exact copy of your environment without risk
 #+BEGIN_SRC zsh 
 heroku run bash 
 #+END_SRC
+
+[[./images/heroku-toolbelt-run-bash-explore.png]]
 
 
 * Scaling Apps
@@ -287,6 +327,13 @@ Distinct processes allow you to scale parts of your app
 
 
 ** Heroku scales processes 
+
+[[./images/heroku-scaling-app-via-website-scalled.png]]
+
+** Heroku scaling multiple processes 
+
+[[./images/heroku-dashboard-resources-scaling-node-example.png]]
+
 
 ** Managed proceses
 
@@ -402,15 +449,30 @@ Simple java app as the background process
 
 * Specific tips and tricks 
 
-** Databases  
+* Databases  
 - not using H2 for production (obvious one)
 - using postgres, tools to manage, migrating data 
 
-** Postgres setup 
+* Postgres setup 
 
 Driver
 Configs
 
+Add PostgreSQL JDBC driver to application dependencies 
+ - edit project/Build.scala
+
+#+BEGIN_SRC zsh
+"postgresql" % "postgresql" % "9.1-901-1.jdbc4"
+#+END_SRC
+
+** Update the Procfile 
+
+#+BEGIN_SRC zsh
+web: target/start -Dhttp.port=${PORT} ${JAVA_OPTS} 
+  -DapplyEvolutions.default=true 
+  -Ddb.default.driver=org.postgresql.Driver 
+  -Ddb.default.url=${DATABASE_URL}
+#+END_SRC
 
 ** Mixed databases ?
 
@@ -669,4 +731,8 @@ Hightliht text as a fragment of the slide
    :END:
 
    Change slide style to wake up the sleepy audience.
+
+
+
+[[./images/play-help.png]]
 
