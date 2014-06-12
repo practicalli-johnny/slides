@@ -63,9 +63,9 @@ body {
  * Code
  *********************************************/
 .reveal pre {
-  margin: 0 60px 0 0;
+  text-align: center
   font-family: "Ubuntu Mono", ubuntu;
-  font-size: 1.6em;
+  font-size: 1.2em;
   font-weight: 200;
   letter-spacing: -0.02em;
   color: #00cc00;
