@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(A taste of Clojure at Lightspeed)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
+<meta name="description" content="Title">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>A taste of Clojure at Lightspeed</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:@jr0cket">@jr0cket</a></h2>
+<h2></h2></section>
+
+
+<section>
+<section id="sec-1" >
+
+<h2>Overview of Clojure</h2>
+<p>
+A modern dialect of LISP 
+</p>
+
+<p>
+Functional paradigm
+</p>
+
+<p>
+Dynamic typing 
+</p>
+
+<p>
+Created to run on the Java Virtual Machine
+</p>
+<ul class="org-ul">
+<li>everything is bytecode in the end 
+</li>
+</ul>
+
+</section>
+<section id="sec-1-1" >
+
+<h3>Functional programming</h3>
+<p>
+A relatively pure approach 
+</p>
+<ul class="org-ul">
+<li>encourages minimum state change
+</li>
+</ul>
+
+<p>
+Everything is an expression (data &amp; functions)
+</p>
+
+<p>
+Everything is a data structure (a list)
+</p>
+
+<p>
+Uses prefix notation  
+</p>
+
+<p>
+Organise expressions in namespaces (like Java packages)
+</p>
+</section>
+<section id="sec-1-2" >
+
+<h3>Runs on the Java Virtual Machine</h3>
+<p>
+Clojure is compiled into bytecode before running
+</p>
+</section>
+<section id="sec-1-3" >
+
+<h3>Runs on other environments</h3>
+<p>
+ClojureScript in the browser
+</p>
+
+<p>
+Clojure on Microsoft CLR
+</p>
+</section>
+
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Getting Started with Clojure</h2>
+</section>
+<section id="sec-2-1" >
+
+<h3>Install a Java development kit</h3>
+<p>
+Use OpenJDK or Oracle Java Standard Edition
+</p>
+
+<p>
+Check its installed using the command: 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">javac -version
+</pre>
+</div>
+
+</section>
+<section id="sec-2-2" >
+
+<h3>Install Leiningen</h3>
+<p>
+Leiningen is a build automation tool for Clojure
+</p>
+<ul class="org-ul">
+<li>think maven without the pain
+</li>
+</ul>
+
+
+<p>
+Download the install script from <a href="http://leiningen.org">leiningen.org</a> 
+</p>
+
+<p>
+Check leiningen is working with the command:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">lein help
+</pre>
+</div>
+
+
+</section>
+<section id="sec-2-3" >
+
+<h3>Clojure installed via build tools</h3>
+<p>
+Clojure is a jar file
+</p>
+
+<p>
+Use leiningen to pull it into your projects as a dependency
+</p>
+<ul class="org-ul">
+<li>or maven if you like that sort of thing
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Learning Clojure with the REPL</h2>
+</section>
+<section id="sec-3-1" >
+
+<h3>A REPL for learning / experimenting</h3>
+<p>
+Clojure has a run time environment called the REPL
+</p>
+
+<ul class="org-ul">
+<li>use to evaluate expressions instantly
+</li>
+<li>load in code from files and test functions 
+</li>
+<li>add data &amp; behaviour without affecting projects or libraries 
+</li>
+<li>REPL driven development 
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2" >
+
+<h3>Start a REPL</h3>
+<p>
+Use Leiningen to start a new REPL:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">lein repl
+</pre>
+</div>
+</section>
+<section id="sec-3-3" >
+
+<h3>Enter expressions</h3>
+<p>
+Start with some simple expressions
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #D8FA3C;">+</span> 1 2 3 4)
+
+(<span style="color: #D8FA3C;">str</span> <span style="color: #61CE3C;">"Hello"</span> <span style="color: #61CE3C;">", "</span> <span style="color: #61CE3C;">"Clojure World"</span>)
+
+(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">map-of-me</span> 
+     {<span style="color: #4c83ff;">:name</span> <span style="color: #61CE3C;">"John"</span> <span style="color: #4c83ff;">:surname</span> <span style="color: #61CE3C;">"Stevenson"</span> 
+      <span style="color: #4c83ff;">:age</span> 21 
+      <span style="color: #4c83ff;">:honesty-rating</span> <span style="color: #61CE3C;">"poor"</span> 
+      <span style="color: #4c83ff;">:fav-authors</span> [<span style="color: #61CE3C;">"Douglas Adams"</span> <span style="color: #61CE3C;">"Terry Pratchett"</span>]}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Creating your first Clojure app</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>Create your app with Leiningen</h3>
+<div class="org-src-container">
+
+<pre class="src src-bash">lein new my-app
+lein new template my-app
+</pre>
+</div>
+</section>
+<section id="sec-4-2" >
+
+<h3>Version your app with Git</h3>
+<p>
+Version a clojure project as with any other language.
+</p>
+
+<p>
+Don't version control external libraries, Leiningen takes care of that for you.
+</p>
+
+<p>
+Github has a <a href="https://github.com/github/gitignore/blob/master/Leiningen.gitignore">gitignore file for Clojure with Leiningen</a>
+</p>
+</section>
+<section id="sec-4-3" >
+
+<h3>Create a Clojure app on Heroku</h3>
+<ul class="org-ul">
+<li>Leiningen can use a template for an Heroku project
+</li>
+<li>connects your local repo to Heroku
+</li>
+<li>creates a unique URL for your app
+</li>
+</ul>
+<p>
+&#x2013; you can specify your own unique name
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">lein new heroku my-scalable-webapp
+heroku create unique-subdomain-name
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Running your Clojure app</h2>
+<p>
+Use Leiningen to run your app 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">lein run
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Use Leiningen to run a REPL, then load in your app
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">lein repl
+(use 'namespace.name)
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Run as a Java jar file
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">java -jar my-app.jar 
+&lt;or use maven, gradle, etc.&gt;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-6"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Slide with background image</h2>
+
+<p>
+<a href="http://www.google.co.uk">hyperlink-text</a>
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">bulletpoint
+</li>
+<li class="fragment roll-in">dont go crazy
+</li>
+</ul>
+
+</section>
+<section id="sec-6-1" >
+
+<h3>Sub-slide - srolls vertically from slide above</h3>
+<p>
+Some source code using hightlits.js 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Slide with code</h2>
+<div class="org-src-container">
+
+<pre class="src src-bash">git init
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-8"  data-background="#770000" data-background-transition="slide">
+
+<h2>Slide with Colour - overriding the theme</h2>
+
+<p>
+I love red.
+</p>
+
+<p class="fragment hightlight-red">
+Hightliht text as a fragment of the slide 
+</p>
+
+
+
+</section>
+<section id="sec-8-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<p>
+Press the "Down" key on the page or the down arrow to trigger fragments
+</p>
+
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+</section>
+<section id="sec-8-2" >
+
+<h3>Fragment captions</h3>
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-8-3"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: false,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1200, // slide width
+        			height: 800, // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>

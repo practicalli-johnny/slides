@@ -1,0 +1,231 @@
+#+Title: A taste of Clojure at Lightspeed
+#+Author: John Stevenson
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+
+* Overview of Clojure 
+
+A modern dialect of LISP 
+
+Functional paradigm
+
+Dynamic typing 
+
+Created to run on the Java Virtual Machine
+- everything is bytecode in the end 
+
+** Functional programming
+A relatively pure approach 
+- encourages minimum state change
+
+Everything is an expression (data & functions)
+
+Everything is a data structure (a list)
+
+Uses prefix notation  
+
+Organise expressions in namespaces (like Java packages)
+
+** Runs on the Java Virtual Machine
+Clojure is compiled into bytecode before running
+
+** Runs on other environments
+
+ClojureScript in the browser
+
+Clojure on Microsoft CLR
+
+
+
+* Getting Started with Clojure
+** Install a Java development kit
+
+Use OpenJDK or Oracle Java Standard Edition
+
+Check its installed using the command: 
+
+#+BEGIN_SRC bash 
+    javac -version 
+#+END_SRC
+
+
+** Install Leiningen 
+
+Leiningen is a build automation tool for Clojure
+- think maven without the pain
+
+
+Download the install script from [[http://leiningen.org][leiningen.org]] 
+
+Check leiningen is working with the command:
+
+#+BEGIN_SRC bash 
+    lein help 
+#+END_SRC
+
+
+
+** Clojure installed via build tools
+Clojure is a jar file
+
+Use leiningen to pull it into your projects as a dependency
+- or maven if you like that sort of thing
+
+
+* Learning Clojure with the REPL
+
+** A REPL for learning / experimenting
+Clojure has a run time environment called the REPL
+
+- use to evaluate expressions instantly
+- load in code from files and test functions 
+- add data & behaviour without affecting projects or libraries 
+- REPL driven development 
+
+
+** Start a REPL
+Use Leiningen to start a new REPL:
+
+#+BEGIN_SRC bash 
+    lein repl 
+#+END_SRC
+
+** Enter expressions 
+Start with some simple expressions
+
+#+BEGIN_SRC clojure
+(+ 1 2 3 4)
+
+(str "Hello" ", " "Clojure World")
+
+(def map-of-me 
+     {:name "John" :surname "Stevenson" 
+      :age 21 
+      :honesty-rating "poor" 
+      :fav-authors ["Douglas Adams" "Terry Pratchett"]}
+#+END_SRC
+
+* Creating your first Clojure app
+** Create your app with Leiningen 
+
+#+BEGIN_SRC bash 
+    lein new my-app
+    lein new template my-app
+#+END_SRC
+ 
+** Version your app with Git
+
+Version a clojure project as with any other language.
+
+Don't version control external libraries, Leiningen takes care of that for you.
+
+Github has a [[https://github.com/github/gitignore/blob/master/Leiningen.gitignore][gitignore file for Clojure with Leiningen]]
+
+** Create a Clojure app on Heroku
+- Leiningen can use a template for an Heroku project
+- connects your local repo to Heroku
+- creates a unique URL for your app
+-- you can specify your own unique name
+
+#+BEGIN_SRC bash 
+    lein new heroku my-scalable-webapp
+    heroku create unique-subdomain-name
+#+END_SRC
+
+* Running your Clojure app 
+
+Use Leiningen to run your app 
+
+#+BEGIN_SRC bash 
+   lein run 
+#+END_SRC 
+
+- Use Leiningen to run a REPL, then load in your app
+
+#+BEGIN_SRC bash 
+    lein repl
+    (use 'namespace.name)
+#+END_SRC 
+
+- Run as a Java jar file
+
+#+BEGIN_SRC bash 
+    java -jar my-app.jar 
+    <or use maven, gradle, etc.>
+#+END_SRC 
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slide with code 
+#+BEGIN_SRC bash
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
