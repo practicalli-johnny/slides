@@ -15,7 +15,7 @@ body {
 
 .reveal {
   font-family: "Ubuntu", sans-serif;
-  font-size: 30px;
+  font-size: 42px;
   font-weight: 200;
   letter-spacing: -0.02em;
   color: #eeeeee; }
@@ -91,9 +91,14 @@ body {
   text-shadow: none;
   border: none; }
 
-.reveal .roll span:after {
+.reveal .roll {
+  overflow: visible;
+}
+
+.reveal .roll span:after { 
   color: #fff;
-  background: #d08a1d; }
+  background: #d08a1d;
+  padding: 0 0.12em; }
 
 /*********************************************
  * IMAGES
