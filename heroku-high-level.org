@@ -1,0 +1,133 @@
+#+Title: Heroku
+#+Author: Its all about the Apps
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Heroku - deploy your apps easily in the Cloud">
+
+
+* What is Heroku 
+
+A place to run & scale your apps on the Internet
+
+* Why would I be interested in it
+#+ATTR_REVEAL: :frag roll-in
+- You cant run your apps from your laptop
+- You probably dont have funding to hire an operations team
+- You do want to focus on building something your customers love
+
+* So how can Heroku help 
+
+Heroku works in the way developers want
+- providing resources on demand to support your development needs
+- using tools developers are familiar with (Git)
+
+* Time for a very simple demo
+#+ATTR_REVEAL: :frag roll-in
+1) I built an app on my laptop
+2) Put the code in version control
+3) Create a space for the app on Heroku
+4) Deployed the app
+5) Made some changes to the code
+6) Deployed a new version of the app
+
+* Continuous Deployment
+
+Heroku helps you change you app as your business needs it
+- IT is not the bottleneck
+
+* Consistent Environments
+
+Your bugs are all your own, not from the environment
+
+* Supports virtually every language
+
+Ruby, NodeJS, Java, Python are main supported language
+- over 50 other languages have been deployed to Heroku
+
+* Easy & Fast to Scale
+
+If you can use your mouse, you can scale your apps (up & down)
+- scaling happens almost instantly
+
+Quickly handle a big spike in customer traffic
+- avoid loosing customers because of success
+
+
+* Thank you 
+Resources
+- [[https://www.heroku.com][www.heroku.com]]
+
+* Intentionally left blank
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
