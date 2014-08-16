@@ -1,6 +1,6 @@
 #+Title: Title
 #+Author: John Stevenson
-#+Email: john@jr0cket.co.uk
+#+Email: @jr0cket
 
 #+OPTIONS: toc:nil num:nil
 #+OPTIONS: reveal_width:1200
