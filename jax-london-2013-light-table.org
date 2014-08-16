@@ -17,6 +17,8 @@
 
 * Press space to navigate through this 2-dimentional presentation
 
+Or use the arrow keys and follow the navigation paths indicated in the bottom right corner
+
 ** Abstract
 
 Light Table demonstrates a new breed of interactive coding tools, 
@@ -131,15 +133,14 @@ Early implementation:
 
 * Status of the LightTable project
 
- - currently alpha version 0.5.17 (unless there has been an update) 
- - active community & issue tracker
- - limited documentation
-   - Google for answers works well 
+ - now an [[http://www.lighttable.com/2014/01/07/light-table-is-open-source/][open source project]] on [[https://github.com/LightTable/LightTable][Github]]
+ - active community & issue tracker via Github project
+ - good documentation
 
 ** Multiple language support 
 
   - Clojure & ClojureScript
-  - JavaScript
+  - JavaScript, HTML, CSS
   - Python
 
 ** Why is LightTable worth a look 
