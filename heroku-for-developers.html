@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Heroku Overview for Developers)</title>
+<meta name="author" content="(John Stevenson)"/>
+<link rel="stylesheet" href="./css/reveal.min.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+<link rel="stylesheet" href="./css/print/pdf.css" type="text/css" media="print"/>
+<meta name="description" content="Heroku Overview for Developers">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Heroku Overview for Developers</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:jr0cket">jr0cket</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>Lets start with a demo</h2>
+<ul class="org-ul">
+<li>Heroku Button - <a href="https://github.com/heroku/node-js-sample">Node.js heroku sample app</a>
+</li>
+<li>Heroku Button - <a href="https://github.com/jr0cket/budget-app-clj">Clojure Budget app with Luminus</a>
+</li>
+<li>Heroku Button - <a href="https://github.com/heroku/ruby-rails-sample">Ruby Rails app</a>
+</li>
+<li><a href="https://github.com/heroku/ruby-getting-started">Ruby app and Postgres Database</a>
+</li>
+<li>Node.js simple site (command line)
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Overview of Heroku</h2>
+</section>
+<section id="sec-2-1" >
+
+<h3>Platform as a Service (PaaS)</h3>
+<p>
+Highly scalable deployment platform
+</p>
+<ul class="org-ul">
+<li>developers to focus on their apps
+</li>
+<li><a href="https://addons.heroku.com">add-on services</a> to help build your apps
+</li>
+<li><a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a> team as a service
+</li>
+</ul>
+</section>
+<section id="sec-2-2" >
+
+<h3>Developer focused</h3>
+<p>
+Use Git to securely transfer code to Heroku
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">git push heroku master
+</pre>
+</div>
+
+<a href="./images/heroku-developer-workflow--push.png"><img src="./images/heroku-developer-workflow--push.png" alt="heroku-developer-workflow--push.png" /></a>
+
+<p>
+<a href="http://jr0cket.co.uk/developer-guides/heroku-deployment-process-simplified.png">Heroku deployment process (simplified)</a>
+</p>
+</section>
+<section id="sec-2-3" >
+
+<h3>Flexible Language support</h3>
+<img src="./images/heroku-languages-supported.png" alt="heroku-languages-supported.png" />
+
+<p>
+Ruby, Node.js, Python &amp; Java 
+</p>
+<ul class="org-ul">
+<li><a href="https://devcenter.heroku.com/articles/third-party-buildpacks">community</a> buildpacks for everything else
+</li>
+<li>fork / create your own buildpacks
+</li>
+</ul>
+</section>
+<section id="sec-2-4" >
+
+<h3>Scalable platform</h3>
+<p>
+Scale your apps "instantly"
+</p>
+
+<a href="./images/heroku-dashboard-resources-scaling-node-example.png"><img src="./images/heroku-dashboard-resources-scaling-node-example.png" alt="heroku-dashboard-resources-scaling-node-example.png" /></a>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Who uses Heroku</h2>
+<p>
+Startups who need to find the right idea
+</p>
+<ul class="org-ul">
+<li><a href="http://success.heroku.com/levelup">LevelUp</a> Huricane proof payments
+</li>
+</ul>
+
+<p>
+Enterprises that need to innovate
+</p>
+<ul class="org-ul">
+<li><a href="http://toyota.fr">Toyota France</a>
+</li>
+</ul>
+
+<p>
+<a href="https://success.heroku.com">success.heroku.com</a>
+</p>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Getting Started</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>Create a free account</h3>
+<p>
+<a href="https://www.heroku.com">www.heroku.com</a>
+</p>
+</section>
+<section id="sec-4-2" >
+
+<h3>Install Heroku Toolbelt</h3>
+<p>
+toolbelt.heroku.com
+</p>
+
+<p>
+Securely identify yourself with Heroku
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">heroku login
+</pre>
+</div>
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Creating your first app</h2>
+</section>
+<section id="sec-5-1" >
+
+<h3>Create your app</h3>
+<ul class="org-ul">
+<li>using what ever language you like
+</li>
+</ul>
+
+</section>
+<section id="sec-5-2" >
+
+<h3>Version your app with Git</h3>
+<div class="org-src-container">
+
+<pre class="src src-bash">git init 
+git add .
+git commit -m "meaningful message"
+</pre>
+</div>
+
+<a href="./images/git-local-workflow.png"><img src="./images/git-local-workflow.png" alt="git-local-workflow.png" /></a>
+</section>
+<section id="sec-5-3" >
+
+<h3>Create an app on Heroku</h3>
+<p>
+Connects your local Git repository to Heroku
+Creates a unique URL for your app
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">heroku create
+heroku create unique-name
+heroku create --region eu|us
+</pre>
+</div>
+
+<a href="./images/heroku-developer-workflow--create.png"><img src="./images/heroku-developer-workflow--create.png" alt="heroku-developer-workflow--create.png" /></a>
+</section>
+<section id="sec-5-4" >
+
+<h3>Heroku Dashboard in detail</h3>
+
+
+</section>
+<section id="sec-5-5" >
+
+<h3>Heroku Toolbelt in detail</h3>
+
+
+</section>
+<section id="sec-5-6" >
+
+<h3>Collaborating with Heroku</h3>
+
+
+
+</section>
+<section id="sec-5-7" >
+
+<h3>Developer worlflow with Heroku</h3>
+<a href="./images/heroku-developer-team-workflow-overview.png"><img src="./images/heroku-developer-team-workflow-overview.png" alt="heroku-developer-team-workflow-overview.png" /></a>
+
+
+
+</section>
+<section id="sec-5-8" >
+
+<h3>Developer worlflow with Github and Heroku</h3>
+<a href="http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png"><img src="http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png" alt="heroku-developer-team-workflow-with-github.png" /></a>
+</section>
+
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Running your app</h2>
+</section>
+<section id="sec-6-1" >
+
+<h3>Procfile</h3>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Scaling your apps</h2>
+</section>
+<section id="sec-7-1" >
+
+<h3>web &amp; other process types</h3>
+</section>
+<section id="sec-7-2" >
+
+<h3>Scaling a process</h3>
+</section>
+<section id="sec-7-3" >
+
+<h3>seperating out different processes</h3>
+</section>
+<section id="sec-7-4" >
+
+<h3>Example Node app with multiple process</h3>
+</section>
+<section id="sec-7-5" >
+
+<h3>Auto Scaling</h3>
+<ul class="org-ul">
+<li>no replacement for measuring the performance of your code 
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-8" >
+
+<h2>Environment Variables</h2>
+</section>
+
+</section>
+<section>
+<section id="sec-9" >
+
+<h2>Working with Addon services</h2>
+</section>
+
+</section>
+<section>
+<section id="sec-10" >
+
+<h2>Postgres</h2>
+</section>
+
+</section>
+<section>
+<section id="sec-11" >
+
+<h2>Maintaining your app on Heroku</h2>
+</section>
+<section id="sec-11-1" >
+
+<h3>Logging</h3>
+</section>
+<section id="sec-11-2" >
+
+<h3>Longer term Logging</h3>
+</section>
+<section id="sec-11-3" >
+
+<h3>Performance metrics</h3>
+</section>
+
+
+</section>
+<section>
+<section id="sec-12" >
+
+<h2>Heroku Connect</h2>
+<p>
+Syncronise customer data with Salesforce 
+</p>
+
+<a href="./images/heroku-connect-activity-example.png"><img src="./images/heroku-connect-activity-example.png" alt="heroku-connect-activity-example.png" /></a>
+</section>
+</section>
+<section>
+<section id="sec-13"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+
+<h2>Slide with background image</h2>
+
+<p>
+<a href="http://www.google.co.uk">hyperlink-text</a>
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">bulletpoint
+</li>
+<li class="fragment roll-in">dont go crazy
+</li>
+</ul>
+
+</section>
+<section id="sec-13-1" >
+
+<h3>Sub-slide - srolls vertically from slide above</h3>
+<p>
+Some source code using hightlits.js 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-14" >
+
+<h2>Slied with code</h2>
+<div class="org-src-container">
+
+<pre class="src src-zsh">git init
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-15"  data-background="#770000" data-background-transition="slide">
+
+<h2>Slide with Colour - overriding the theme</h2>
+
+<p>
+I love red.
+</p>
+
+<p class="fragment hightlight-red">
+Hightliht text as a fragment of the slide 
+</p>
+
+
+
+</section>
+<section id="sec-15-1" >
+
+<h3>Fragments in Reveal.js</h3>
+<p>
+Press the "Down" key on the page or the down arrow to trigger fragments
+</p>
+
+<ul class="org-ul">
+<li class="fragment highlight-blue">Create
+</li>
+<li class="fragment highlight-blue">Fragment
+</li>
+<li class="fragment highlight-blue">At Ease
+</li>
+</ul>
+</section>
+<section id="sec-15-2" >
+
+<h3>Fragment captions</h3>
+<div class="org-src-container">
+<label class="org-src-name">The Org text source.</label>
+<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
+   * Create
+   * Fragment
+   * At Ease
+</pre>
+</div>
+</section>
+<section id="sec-15-3"  data-state="alert">
+
+<h3>Reveal.js Can Alert</h3>
+
+<p>
+Change slide style to wake up the sleepy audience.
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: true,
+        			center: false,
+        			rollingLinks: true,
+        			keyboard: true,
+        			overview: true,
+        			width: 1920, // slide width
+        			height: 1080, // slide height
+        			margin: 0.10, // slide margin
+        			minScale: 0.50, // slide minimum scaling factor
+        			maxScale: 2.50, // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>
