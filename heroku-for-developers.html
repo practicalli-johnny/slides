@@ -46,11 +46,13 @@
 <section id="sec-2-1" >
 
 <h3>Platform as a Service (PaaS)</h3>
+<a href="./images/heroku-overview-concept.png"><img src="./images/heroku-overview-concept.png" alt="heroku-overview-concept.png" /></a>
+
 <p>
 Highly scalable deployment platform
 </p>
 <ul class="org-ul">
-<li>developers to focus on their apps
+<li>developers can focus on their apps
 </li>
 <li><a href="https://addons.heroku.com">add-on services</a> to help build your apps
 </li>
@@ -91,6 +93,7 @@ Ruby, Node.js, Python &amp; Java
 <li>fork / create your own buildpacks
 </li>
 </ul>
+
 </section>
 <section id="sec-2-4" >
 
@@ -101,6 +104,11 @@ Scale your apps "instantly"
 
 <a href="./images/heroku-dashboard-resources-scaling-node-example.png"><img src="./images/heroku-dashboard-resources-scaling-node-example.png" alt="heroku-dashboard-resources-scaling-node-example.png" /></a>
 </section>
+<section id="sec-2-5" >
+
+<h3>Continuous Deployment</h3>
+</section>
+
 </section>
 <section>
 <section id="sec-3" >
@@ -119,6 +127,8 @@ Enterprises that need to innovate
 </p>
 <ul class="org-ul">
 <li><a href="http://toyota.fr">Toyota France</a>
+</li>
+<li><a href="http://www.o2.co.uk/apps/match-day">02 Match Day</a> : O2 Labs
 </li>
 </ul>
 
@@ -161,16 +171,15 @@ Securely identify yourself with Heroku
 <section>
 <section id="sec-5" >
 
-<h2>Creating your first app</h2>
+<h2>Developing your first app on Heroku</h2>
 </section>
 <section id="sec-5-1" >
 
-<h3>Create your app</h3>
+<h3>Start developing your app</h3>
 <ul class="org-ul">
 <li>using what ever language you like
 </li>
 </ul>
-
 </section>
 <section id="sec-5-2" >
 
@@ -205,32 +214,81 @@ heroku create --region eu|us
 </section>
 <section id="sec-5-4" >
 
-<h3>Heroku Dashboard in detail</h3>
+<h3>Deploy your app</h3>
+<p>
+Push your committed code to Heroku securely
+</p>
 
+<div class="org-src-container">
 
+<pre class="src src-bash">git push heroku master
+</pre>
+</div>
+
+<a href="./images/heroku-developer-workflow--push.png"><img src="./images/heroku-developer-workflow--push.png" alt="heroku-developer-workflow--push.png" /></a>
+
+<p>
+<a href="http://jr0cket.co.uk/developer-guides/heroku-deployment-process-simplified.png">Heroku deployment process (simplified)</a>
+</p>
 </section>
 <section id="sec-5-5" >
 
-<h3>Heroku Toolbelt in detail</h3>
-
-
+<h3>Continuous Deployment</h3>
+<a href="./images/heroku-continuous-delivery.png"><img src="./images/heroku-continuous-delivery.png" alt="heroku-continuous-delivery.png" /></a>
 </section>
 <section id="sec-5-6" >
 
-<h3>Collaborating with Heroku</h3>
+<h3>Tracable Deployment</h3>
+<p>
+Git version numbers used to label each Heroku deployment
+</p>
+<ul class="org-ul">
+<li>trace which version is deployed using Git log
+</li>
+</ul>
 
-
+<a href="./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png"><img src="./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png" alt="git-log-commit-graph-decorate-oneline-abbrev-commit.png" /></a>
 
 </section>
 <section id="sec-5-7" >
 
+<h3>Dashboard Activity trail</h3>
+<p>
+Audit trail of activity for your app deployment
+</p>
+
+<a href="./images/heroku-dashboard-activity-first-deployment.png"><img src="./images/heroku-dashboard-activity-first-deployment.png" alt="heroku-dashboard-activity-first-deployment.png" /></a>
+</section>
+<section id="sec-5-8" >
+
+<h3>Heroku Dashboard in detail</h3>
+<a href="./images/heroku-dashboard-overview-example.png"><img src="./images/heroku-dashboard-overview-example.png" alt="heroku-dashboard-overview-example.png" /></a>
+</section>
+<section id="sec-5-9" >
+
+<h3>Collaborating with Heroku</h3>
+<p>
+Allow other developers to deploy new versions 
+</p>
+
+<a href="./images/heroku-dashboard-access-example.png"><img src="./images/heroku-dashboard-access-example.png" alt="heroku-dashboard-access-example.png" /></a>
+</section>
+<section id="sec-5-10" >
+
+<h3>Collaborating with Heroku Orgs</h3>
+<p>
+Support collaboration across a company and its partners
+</p>
+
+<img src="./images/heroku-dashboard-org-access.png" alt="heroku-dashboard-org-access.png" />
+</section>
+<section id="sec-5-11" >
+
 <h3>Developer worlflow with Heroku</h3>
 <a href="./images/heroku-developer-team-workflow-overview.png"><img src="./images/heroku-developer-team-workflow-overview.png" alt="heroku-developer-team-workflow-overview.png" /></a>
 
-
-
 </section>
-<section id="sec-5-8" >
+<section id="sec-5-12" >
 
 <h3>Developer worlflow with Github and Heroku</h3>
 <a href="http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png"><img src="http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png" alt="heroku-developer-team-workflow-with-github.png" /></a>
@@ -240,188 +298,228 @@ heroku create --region eu|us
 <section>
 <section id="sec-6" >
 
-<h2>Running your app</h2>
+<h2>Running and Scaling your app</h2>
+<a href="./images/heroku-scalability-concept.png"><img src="./images/heroku-scalability-concept.png" alt="heroku-scalability-concept.png" /></a>
+
 </section>
 <section id="sec-6-1" >
 
-<h3>Procfile</h3>
+<h3>Defining Processes</h3>
+<p>
+<a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> defines all the different processes in your app 
+</p>
+
+<p>
+<a href="https://devcenter.heroku.com/articles/process-model">Heroku Process Model</a>
+</p>
+</section>
+<section id="sec-6-2" >
+
+<h3>Web &amp; other process types</h3>
+<p>
+web: listens on http/https
+</p>
+
+<p>
+worker: one off process jobs
+</p>
+
+<p>
+call processes other than web anything you like
+</p>
+</section>
+<section id="sec-6-3" >
+
+<h3>Scaling a process</h3>
+<a href="./images/heroku-scalability-concept.png"><img src="./images/heroku-scalability-concept.png" alt="heroku-scalability-concept.png" /></a>
+
+<p>
+Scale a process up or down, instantly
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">heroku ps:scale web=4
+heroku ps:scale worker=2
+</pre>
+</div>
+</section>
+<section id="sec-6-4" >
+
+<h3>Example Node app with multiple process</h3>
+<a href="./images/heroku-dashboard-scaling-processes-node-example.png"><img src="./images/heroku-dashboard-scaling-processes-node-example.png" alt="heroku-dashboard-scaling-processes-node-example.png" /></a>
+</section>
+<section id="sec-6-5" >
+
+<h3>Auto Scaling</h3>
+<p>
+Services available in the <a href="https://addons.heroku.com">Heroku addons</a> marketplace
+</p>
+<ul class="org-ul">
+<li>analyse the performance of your code first though
+</li>
+</ul>
+</section>
+<section id="sec-6-6" >
+
+<h3>Guiding Principles</h3>
+<p>
+<a href="http://12factor.net">12factor.net</a>
+</p>
 </section>
 </section>
 <section>
 <section id="sec-7" >
 
-<h2>Scaling your apps</h2>
+<h2>Managing Apps</h2>
 </section>
 <section id="sec-7-1" >
 
-<h3>web &amp; other process types</h3>
+<h3>Consistent Environments</h3>
+<p>
+Dev, Test, QA, Staging, Production all from same codebase
+</p>
+<ul class="org-ul">
+<li>automated creation of environments
+</li>
+<li>automated deployment
+</li>
+<li>minimises errors
+</li>
+<li>repeatable process
+</li>
+</ul>
 </section>
 <section id="sec-7-2" >
 
-<h3>Scaling a process</h3>
+<h3>Environment Variables</h3>
+<p>
+Manage differences in environments easily
+Avoid hard coding configuration 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku config
+</pre>
+</div>
 </section>
 <section id="sec-7-3" >
 
-<h3>seperating out different processes</h3>
+<h3>Heroku Logs</h3>
+<p>
+<a href="https://devcenter.heroku.com/articles/logging">Heroku logplex</a>: all your logs in one stream 
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku logs --tail
+heroku logs --source app | ps | heroku
+</pre>
+</div>
 </section>
 <section id="sec-7-4" >
 
-<h3>Example Node app with multiple process</h3>
+<h3>Longer term Logging</h3>
+<p>
+<a href="https://addons.heroku.com">Heroku Addons</a>
+</p>
+<ul class="org-ul">
+<li>Logly
+</li>
+<li>Papertrail
+</li>
+</ul>
 </section>
 <section id="sec-7-5" >
 
-<h3>Auto Scaling</h3>
-<ul class="org-ul">
-<li>no replacement for measuring the performance of your code 
-</li>
-</ul>
+<h3>Releases</h3>
+<p>
+Every Git Push is a Release
+Every Environment Variable change is a Release
+Every Addon service is a Release
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku releases
+heroku releases:info v42
+</pre>
+</div>
+</section>
+<section id="sec-7-6" >
+
+<h3>Rollbacks</h3>
+<p>
+Instantly roll back to a previous version
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-zsh">heroku releases:rollback
+heroku releases:rollback v42
+</pre>
+</div>
+</section>
+<section id="sec-7-7" >
+
+<h3>Accessing the server, safely</h3>
+<p>
+Spin up a copy of your app and access via secure shell
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-bash">heroku run bash 
+heroku run bundle ...
+</pre>
+</div>
+
+<a href="./images/heroku-toolbelt-run-bash-explore.png"><img src="./images/heroku-toolbelt-run-bash-explore.png" alt="heroku-toolbelt-run-bash-explore.png" /></a>
+</section>
+<section id="sec-7-8" >
+
+<h3>Performance metrics</h3>
+<p>
+Heroku Metrics
+New Relic 
+</p>
 </section>
 
 </section>
 <section>
 <section id="sec-8" >
 
-<h2>Environment Variables</h2>
-</section>
+<h2>Working with Addon services</h2>
+<p>
+Datastores and services to support your apps
+</p>
 
+<p>
+<a href="https://addons.heroku.com">addons.heroku.com</a>
+</p>
+</section>
 </section>
 <section>
 <section id="sec-9" >
 
-<h2>Working with Addon services</h2>
+<h2>Postgres</h2>
+<p>
+Database on demand 
+</p>
+
+<p>
+<a href="https://www.heroku.com/postgres">www.heroku.com/postgres</a>
+</p>
 </section>
 
 </section>
 <section>
 <section id="sec-10" >
 
-<h2>Postgres</h2>
-</section>
-
-</section>
-<section>
-<section id="sec-11" >
-
-<h2>Maintaining your app on Heroku</h2>
-</section>
-<section id="sec-11-1" >
-
-<h3>Logging</h3>
-</section>
-<section id="sec-11-2" >
-
-<h3>Longer term Logging</h3>
-</section>
-<section id="sec-11-3" >
-
-<h3>Performance metrics</h3>
-</section>
-
-
-</section>
-<section>
-<section id="sec-12" >
-
-<h2>Heroku Connect</h2>
+<h2>Thank you</h2>
 <p>
-Syncronise customer data with Salesforce 
-</p>
-
-<a href="./images/heroku-connect-activity-example.png"><img src="./images/heroku-connect-activity-example.png" alt="heroku-connect-activity-example.png" /></a>
-</section>
-</section>
-<section>
-<section id="sec-13"  data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
-
-<h2>Slide with background image</h2>
-
-<p>
-<a href="http://www.google.co.uk">hyperlink-text</a>
-</p>
-
-<ul class="org-ul">
-<li class="fragment roll-in">bulletpoint
-</li>
-<li class="fragment roll-in">dont go crazy
-</li>
-</ul>
-
-</section>
-<section id="sec-13-1" >
-
-<h3>Sub-slide - srolls vertically from slide above</h3>
-<p>
-Some source code using hightlits.js 
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #ff1493;">clojure-devs</span> <span style="color: #61CE3C;">"love brackets"</span>)
-</pre>
-</div>
-</section>
-</section>
-<section>
-<section id="sec-14" >
-
-<h2>Slied with code</h2>
-<div class="org-src-container">
-
-<pre class="src src-zsh">git init
-</pre>
-</div>
-</section>
-</section>
-<section>
-<section id="sec-15"  data-background="#770000" data-background-transition="slide">
-
-<h2>Slide with Colour - overriding the theme</h2>
-
-<p>
-I love red.
-</p>
-
-<p class="fragment hightlight-red">
-Hightliht text as a fragment of the slide 
-</p>
-
-
-
-</section>
-<section id="sec-15-1" >
-
-<h3>Fragments in Reveal.js</h3>
-<p>
-Press the "Down" key on the page or the down arrow to trigger fragments
-</p>
-
-<ul class="org-ul">
-<li class="fragment highlight-blue">Create
-</li>
-<li class="fragment highlight-blue">Fragment
-</li>
-<li class="fragment highlight-blue">At Ease
-</li>
-</ul>
-</section>
-<section id="sec-15-2" >
-
-<h3>Fragment captions</h3>
-<div class="org-src-container">
-<label class="org-src-name">The Org text source.</label>
-<pre class="src src-org"><span style="color: #8B8989; font-style: italic;">#+ATTR_REVEAL: :frag</span>
-   * Create
-   * Fragment
-   * At Ease
-</pre>
-</div>
-</section>
-<section id="sec-15-3"  data-state="alert">
-
-<h3>Reveal.js Can Alert</h3>
-
-<p>
-Change slide style to wake up the sleepy audience.
+<a href="https://www.heroku.com">www.heroku.com</a>
 </p>
 </section>
 </section>

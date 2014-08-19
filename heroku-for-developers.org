@@ -23,8 +23,10 @@
 
 * Overview of Heroku 
 ** Platform as a Service (PaaS)
+[[file:./images/heroku-overview-concept.png][file:./images/heroku-overview-concept.png]]
+
 Highly scalable deployment platform
-- developers to focus on their apps
+- developers can focus on their apps
 - [[https://addons.heroku.com][add-on services]] to help build your apps
 - [[http://en.wikipedia.org/wiki/DevOps][DevOps]] team as a service
 
@@ -46,11 +48,13 @@ git push heroku master
 Ruby, Node.js, Python & Java 
 - [[https://devcenter.heroku.com/articles/third-party-buildpacks][community]] buildpacks for everything else
 - fork / create your own buildpacks
-
 ** Scalable platform
 Scale your apps "instantly"
 
 [[file:./images/heroku-dashboard-resources-scaling-node-example.png][file:./images/heroku-dashboard-resources-scaling-node-example.png]]
+
+** Continuous Deployment
+
 
 * Who uses Heroku 
 
@@ -59,6 +63,7 @@ Startups who need to find the right idea
 
 Enterprises that need to innovate
 - [[http://toyota.fr][Toyota France]]
+- [[http://www.o2.co.uk/apps/match-day][02 Match Day]] : O2 Labs
 
 [[https://success.heroku.com][success.heroku.com]]
 
@@ -78,10 +83,9 @@ heroku login
 #+END_SRC
 
 
-* Creating your first app
-** Create your app
+* Developing your first app on Heroku
+** Start developing your app
 - using what ever language you like
-
  
 ** Version your app with Git
 
@@ -105,116 +109,169 @@ heroku create --region eu|us
 
 [[file:./images/heroku-developer-workflow--create.png][file:./images/heroku-developer-workflow--create.png]]
 
+** Deploy your app
+Push your committed code to Heroku securely
+
+#+BEGIN_SRC bash 
+git push heroku master
+#+END_SRC
+
+[[file:./images/heroku-developer-workflow--push.png][file:./images/heroku-developer-workflow--push.png]]
+
+[[http://jr0cket.co.uk/developer-guides/heroku-deployment-process-simplified.png][Heroku deployment process (simplified)]]
+
+** Continuous Deployment
+
+[[file:./images/heroku-continuous-delivery.png][file:./images/heroku-continuous-delivery.png]]
+
+** Tracable Deployment
+Git version numbers used to label each Heroku deployment
+- trace which version is deployed using Git log
+
+[[file:./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png][file:./images/git-log-commit-graph-decorate-oneline-abbrev-commit.png]]
+** Dashboard Activity trail
+Audit trail of activity for your app deployment
+
+[[file:./images/heroku-dashboard-activity-first-deployment.png][file:./images/heroku-dashboard-activity-first-deployment.png]]
+
 ** Heroku Dashboard in detail 
 
-
-** Heroku Toolbelt in detail 
-
+[[file:./images/heroku-dashboard-overview-example.png][file:./images/heroku-dashboard-overview-example.png]]
 
 ** Collaborating with Heroku 
 
+Allow other developers to deploy new versions 
 
+[[file:./images/heroku-dashboard-access-example.png][file:./images/heroku-dashboard-access-example.png]]
+
+** Collaborating with Heroku Orgs
+
+Support collaboration across a company and its partners
+
+[[file:./images/heroku-dashboard-org-access.png]]
 
 ** Developer worlflow with Heroku
 [[file:./images/heroku-developer-team-workflow-overview.png][file:./images/heroku-developer-team-workflow-overview.png]]
-
-
 
 
 ** Developer worlflow with Github and Heroku
 [[http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png][http://jr0cket.co.uk/developer-guides/heroku-developer-team-workflow-with-github.png]]
 
 
-* Running your app 
-** Procfile 
+* Running and Scaling your app 
 
-* Scaling your apps
-** web & other process types
+[[file:./images/heroku-scalability-concept.png][file:./images/heroku-scalability-concept.png]]
+
+** Defining Processes
+[[https://devcenter.heroku.com/articles/procfile][Procfile]] defines all the different processes in your app 
+
+[[https://devcenter.heroku.com/articles/process-model][Heroku Process Model]]
+
+** Web & other process types
+web: listens on http/https
+
+worker: one off process jobs
+
+call processes other than web anything you like
+
 ** Scaling a process
-** seperating out different processes
+
+[[file:./images/heroku-scalability-concept.png][file:./images/heroku-scalability-concept.png]]
+
+Scale a process up or down, instantly
+
+#+BEGIN_SRC bash 
+heroku ps:scale web=4
+heroku ps:scale worker=2 
+#+END_SRC
+
 ** Example Node app with multiple process 
+
+[[file:./images/heroku-dashboard-scaling-processes-node-example.png][file:./images/heroku-dashboard-scaling-processes-node-example.png]]
+
 ** Auto Scaling
-- no replacement for measuring the performance of your code 
+Services available in the [[https://addons.heroku.com][Heroku addons]] marketplace
+- analyse the performance of your code first though
 
+** Guiding Principles
+[[http://12factor.net][12factor.net]]
 
-* Environment Variables 
+* Managing Apps
+** Consistent Environments
+Dev, Test, QA, Staging, Production all from same codebase
+- automated creation of environments
+- automated deployment
+- minimises errors
+- repeatable process
+
+** Environment Variables 
+Manage differences in environments easily
+Avoid hard coding configuration 
+
+#+BEGIN_SRC zsh 
+heroku config
+#+END_SRC
+
+** Heroku Logs
+[[https://devcenter.heroku.com/articles/logging][Heroku logplex]]: all your logs in one stream 
+
+#+BEGIN_SRC zsh 
+heroku logs --tail
+heroku logs --source app | ps | heroku
+#+END_SRC
+
+** Longer term Logging
+[[https://addons.heroku.com][Heroku Addons]]
+- Logly
+- Papertrail
+
+** Releases
+Every Git Push is a Release
+Every Environment Variable change is a Release
+Every Addon service is a Release
+
+#+BEGIN_SRC zsh 
+heroku releases
+heroku releases:info v42
+#+END_SRC
+
+** Rollbacks 
+Instantly roll back to a previous version
+
+#+BEGIN_SRC zsh 
+heroku releases:rollback
+heroku releases:rollback v42
+#+END_SRC
+
+** Accessing the server, safely
+Spin up a copy of your app and access via secure shell
+
+#+BEGIN_SRC bash 
+heroku run bash 
+heroku run bundle ...
+#+END_SRC
+
+[[file:./images/heroku-toolbelt-run-bash-explore.png][file:./images/heroku-toolbelt-run-bash-explore.png]]
+
+** Performance metrics 
+Heroku Metrics
+New Relic 
+
 
 * Working with Addon services
+Datastores and services to support your apps
+
+[[https://addons.heroku.com][addons.heroku.com]]
 
 * Postgres
+Database on demand 
 
-* Maintaining your app on Heroku
-** Logging
-** Longer term Logging
-** Performance metrics 
+[[https://www.heroku.com/postgres][www.heroku.com/postgres]]
 
 
+* Thank you
 
-* Heroku Connect 
-Syncronise customer data with Salesforce 
+[[https://www.heroku.com][www.heroku.com]]
 
-[[file:./images/heroku-connect-activity-example.png][file:./images/heroku-connect-activity-example.png]]
 
-* Slide with background image  
- :PROPERTIES:
-    :reveal_background: ./images/leiningen-slide-background.png
-    :reveal_background_trans: slide
-    :END:
-
-[[http://www.google.co.uk][hyperlink-text]]
-
-#+ATTR_REVEAL: :frag roll-in
-  - bulletpoint
-  - dont go crazy
-
-** Sub-slide - srolls vertically from slide above
-
-Some source code using hightlits.js 
-
-#+BEGIN_SRC clojure
-(def clojure-devs "love brackets")
-#+END_SRC
-
-* Slied with code 
-#+BEGIN_SRC zsh 
-  git init 
-#+END_SRC
-
-* Slide with Colour - overriding the theme 
-:PROPERTIES:
-    :reveal_background: #770000
-    :reveal_background_trans: slide
-    :END:
-
-I love red.
-
-#+ATTR_REVEAL: :frag hightlight-red
-Hightliht text as a fragment of the slide 
-
- 
-
-** Fragments in Reveal.js
-
- Press the "Down" key on the page or the down arrow to trigger fragments
-
-#+ATTR_REVEAL: :frag highlight-blue
-   * Create
-   * Fragment
-   * At Ease
-
-** Fragment captions   
-#+CAPTION: The Org text source.
-#+BEGIN_SRC org
-#+ATTR_REVEAL: :frag
-   * Create
-   * Fragment
-   * At Ease
-#+END_SRC
-
-** Reveal.js Can Alert
-   :PROPERTIES:
-   :reveal_data_state: alert
-   :END:
-
-   Change slide style to wake up the sleepy audience.
 
