@@ -1,15 +1,459 @@
-#+Title: Getting Started with Clojure
+#+Title: Clojure for Everyone
 #+Author: John Stevenson
-#+Email: john@jr0cket.co.uk
+#+Email: @jr0cket
 
 #+OPTIONS: toc:nil num:nil
-#+OPTIONS: reveal_width:1600
-#+OPTIONS: reveal_height:900
+#+OPTIONS: reveal_width:1800
+#+OPTIONS: reveal_height:1000
 #+OPTIONS: reveal_center:nil 
 #+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
 #+REVEAL_TRANS: linear
 #+REVEAL_THEME: jr0cket
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Getting started with Clojure">
+
+* What is Clojure?
+
+General purpose Functional programming language
+- on the JVM or V8 engine
+
+A modern approach to LISP 
+- LISP is the 2nd oldest language still used in production
+
+** Who is using Clojure 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Everyone, its a general purpose language after all
+- USwitch      - creating meaningful data from multiple sources
+- Daily Mail   - High volume site Mail Online
+- Xively       - IoT
+- Masterdon C  - data centre analysis (Incanta, Storm)
+- Thoughtworks - rapid development for clients
+- CitiGroup    - financial trading
+- LinkedIn     - aspects of social graph
+- Meta-X       - performance art (Overtone, Quil)
+
+Also create games using play-clj 
+
+* Why Clojure
+
+What is it about Clojure that makes people love it so much ?
+
+[[./images/clojure-lambda.jpg]]
+
+
+* Simple Clojure syntax 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+Really quick to get coding with
+- define data structures (the data)
+- define functions (the behaviour)
+- call functions (which always return a value)
+
+** Simple Clojure program 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Defining a namespace, data structure & function, then calling the function.
+
+#+BEGIN_SRC clojure 
+(ns jr0cket.demo)
+
+(def my-data [1,2,3, frog])
+
+(defn do-stuff [parameter]
+  (str parameter))
+
+(do-stuff my-data)
+#+END_SRC
+
+
+** Clojure poetry 
+:PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[./images/clojure-dojo-poetry.png]]
+
+
+* Data Structure Driven Design 
+:PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- define a meaningful data structure
+- define the behaviour (functions) that work with that data
+ 
+#+BEGIN_SRC zsh 
+  "It is better to have 100 functions operate on one data structure than to have 10 functions operate on 10 data structures" - A.J. Perlis 
+#+END_SRC
+
+** Data Structures 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Persistent data structures built in:
+- List
+- Map 
+- Vector (think array) 
+- Sets
+
+Typical data structures are maps, vectors, maps of maps, vectors of vectors, etc
+
+** Mixing data structures all together 
+#+BEGIN_SRC clojure 
+(def data {:keyword1 value1 
+           :vector [1 2 3]
+           :map {:a 1 :b 2 :c cat}}
+           :mixed {:vector [1 2 3 fish]
+                   :vector-of-vectors 
+                     [1 2 [3 4]]
+                   :maps-n-vectors 
+                     {:co-ords [12.37 53.78]}})
+#+END_SRC
+
+Note that I have used keywords (names that start with a :) to describe the types of data structures used within the above map
+
+** Data Structure examples
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Expressive data structures made code more understandable 
+
+#+BEGIN_SRC clojure 
+(def locations {
+     :london {:latitude 34, :longtitude 57}})
+
+(def location {
+     :london     {:gps {:co-ords [12.37 53.78]}}
+     :new-york   {:gps {:co-ords [12.37 53.78]}}
+     :Birmingham {:gps {:co-ords [12.37 53.78]}}})
+#+END_SRC
+
+
+* Language design
+:PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+A very small core library 
+- with a large set of libraries 
+
+Build Automation, Real-time music creation, asyncronous communication, static type system
+
+** Only a handful of building blocks
+
+Clojure primatives
+#+BEGIN_SRC Clojure
+if let loop recur do set! quote var
+#+END_SRC
+
+And a few extra to make Java Interop nice 
+#+BEGIN_SRC Clojure
+new . throw try
+#+END_SRC
+
+* Stateless approach to design 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- immutability is awesome and everywhere  
+- persistent collections  
+- Software Transactional Memory (make changes like an atomic database)
+
+[[http://www.infoq.com/articles/in-depth-look-clojure-collections][In-depth look at Collections]]
+
+** Atomic Data Types
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- arbritrary precision integers
+- Doubles 1.234, BigDecials 1.23M
+- Rations 22/7 
+- Strings "jr0cket", Characters \a \b \c
+- Symbols fred wilma , keywords :barney :betty  (fast keys for maps) 
+- Boolean true false , Null nil (nil is false, `is nil` as a condition (eg, if else))
+- Regex patterns #"a*b"
+
+A great way to explain Clojure is to talk about data 
+
+
+
+** Persistent Data Structures
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+Lists, Vectors, Maps & Sets are all immutable 
+- cannot be changed once defined 
+
+** Modifying persistent data structures
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Making a change creates a new data structure
+- contains only the change
+- links back to the original data structure
+- original data structure remains unchanged
+
+** Software Transational Memory (STM)
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Change data in a controlled way 
+- live having an atomic in-memory database
+
+Define Atoms and swap! their values
+
+
+* Dynamic development 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- REPL 
+- define functions on the fly
+- load & compile code at runtime (load fixes into running production)
+- introspection - not just typing things in, but accessing the Clojure runtime
+
+Notions of phases of compilation are relaxed, you are compiling all the time into bytecode
+
+
+* Extensibility 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Macros allow developers to create new features for the language
+- no waiting for the langugage designers
+
+
+** All of Clojure
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Special Ops are the Clojure language, everything else is a Macro
+#+BEGIN_SRC clojure
+fn let loop recur do new . throw try set! quote var def if 
+#+END_SRC
+
+** Build Tool Macro
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Leiningen makes it really easy to define a Clojure project using a Macro 
+
+#+BEGIN_SRC
+(defproject name version 
+  :description ""
+  :dependencies [ [library version] [] ])
+#+END_SRC
+
+
+* The Whole JVM world of Libraries
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Easy to use Java/JVM libraries from Clojure 
+
+#+BEGIN_SRC
+.
+new 
+#+END_SRC
+
+** Importing libraries 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+** Java.Lang
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+java.lang library is always included
+
+** Example: Java Date
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+A function to return the current date 
+#+BEGIN_SRC
+(defn now [] (java.util.Date.))
+#+END_SRC
+
+** Example: Java Math
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Define a symbol to represent Pi
+
+#+BEGIN_SRC clojure
+(def pi Math/PI)
+#+END_SRC
+
+** Example: Joda Time
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+clj-time is a wrapper around joda-time
+
+#+BEGIN_SRC clojure
+(require '[clj-time.core :as time])
+(require '[clj-time.format :as time-format])
+
+(time/now) => #<DateTime 2013-03-31T03:23:47.328Z>
+
+(def time-formatter (time-format/formatters :basic-date-time))  ;; ISO 8601 UTC format
+(time-format/unparse custom-formatter (date-time 2010 10 3)) => "20101003T000000.000Z"
+#+END_SRC
+
+** Wealth of existing Java libraries
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+- many wrappers to make them even easier to use 
+- nicer to code in Clojure than Java
+
+
+* Amazing Clojure Libraries 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+clojars
+
+
+** Asynchronus coding as a library
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+core.async
+
+** Type system as a library
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+If you must really define your own types
+
+
+* Amazing community 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+
+
+
+
+
+* Lets play with Clojure 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Lets write some clojure using [[http://lighttable.com][LightTable]]
+
+
+* Why not other functional languages ?
+
+** Haskell 
+
+The pure approach makes Haskell a harder language to fully understand
+
+** JavaScript 
+
+Have you seen the syntax ?
+- actually Functional JavaScript is not too bad
+
+An immutable approach is not strongly supported by the language
+
+** Python
+
+Lots of great python developers out there
+- never seen that many using a Functional approach
+
+
+* Learning Clojure
+:PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+#+BEGIN_SRC clojure
+(false? (afraid brackets))
+#+END_SRC
+
+- Learn Clojure on the Internet
+- Read some Clojure books
+- find or start a Clojure / Functional meetup
+
+** 4Clojure
+
+An increasingly difficult set of changenges to help you understand Clojure 
+
+[[./images/clojure-4clojure-home.png]]
+
+** 4Clojure - simple example
+
+[[./images/clojure-4clojure-example-list-elementry.png]]
+
+** 4Clojure - more complexe example
+
+[[./images/clojure-4clojure-example-forthewin.png]]
+
+** Books
+
+- [[http://developerpress.com/en/clojure-made-simple-introduction-clojure][Clojure Made Simple]] (ebook) - £1.99 on [[http://www.amazon.co.uk/Clojure-Made-Simple-ebook/dp/B00BSY20HS][Amazon.co.uk]]
+- [[http://joyofclojure.com/][Joy of Clojure]]
+- [[http://www.clojurebook.com/][Clojure Programming]]
+- [[http://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] - 2nd edition 
+
+** Blogs, Documentation, etc.
+
+[[http://planet.clojure.in/][Planet Clojure]] - blog aggregator
+
+[[http://blog.jr0cket.co.uk/][blog.jr0cket.co.uk]] - Clojure, Emacs & Git articles
+ 
+[[http://clojure.org/][clojure.org]] - official documentation 
+
+[[http://clojuredocs.org/][clojuredocs.org]] - community docs & examples
+
+[[http://clojure.org/cheatsheet][Clojure Cheatsheet]] - quick syntax & function reference
+
+
+* Thank you
+
+@jr0cket
+
+jr0cket.co.uk 
+
+github.com/jr0cket 
+
+
 
 * Leiningen for everything 
  :PROPERTIES:
@@ -204,76 +648,6 @@ The [[https://github.com/EricThorsen/enclojure][Enclojure code is available on G
 [[http://wiki.jetbrains.net/intellij/Getting_started_with_La_Clojure][Getting started with La Clojure]]
 
 
-* Clojars.org - clojure libraries galore
- :PROPERTIES:
-    :reveal_background: ./images/clojure-slide-background.png
-    :reveal_background_trans: slide
-    :END:
-
-[[http://clojars.org][Clojars.org]] 
-
-- search for libraries 
-- gives you dependencie definitions
-
-** A few notable Clojar projects
- :PROPERTIES:
-    :reveal_background: ./images/clojure-slide-background.png
-    :reveal_background_trans: slide
-    :END:
-- [[https://clojars.org/midje][Midje]] - TDD testing framework
-- [[https://clojars.org/clj-time][clj-time]] - date/time library, wrapper around joda time
-- [[https://clojars.org/compojure][compojure]] - used to help build webapps with [[https://clojars.org/ring][Ring]]
-- [[https://clojars.org/com.cemerick/drawbridge][drawbridge]] - connect to your REPL and your webapp
-- [[https://clojars.org/brevis][brevis]] - artifical life generator
-- [[https://clojars.org/incanter][Incanter]] - statistical programming & data visualization
-
-
-* Learning Clojure
-:PROPERTIES:
-    :reveal_background: ./images/clojure-slide-background.png
-    :reveal_background_trans: slide
-    :END:
-#+BEGIN_SRC clojure
-(false? (afraid brackets))
-#+END_SRC
-
-- Join in the fun at London Clojurians
-- Learn Clojure on the Internet
-- Read some Clojure books
-
-** 4Clojure
-
-An increasingly difficult set of changenges to help you understand Clojure 
-
-[[./images/clojure-4clojure-home.png]]
-
-** 4Clojure - simple example
-
-[[./images/clojure-4clojure-example-list-elementry.png]]
-
-** 4Clojure - more complexe example
-
-[[./images/clojure-4clojure-example-forthewin.png]]
-
-** Books
-
-- [[http://developerpress.com/en/clojure-made-simple-introduction-clojure][Clojure Made Simple]] (ebook) - £1.99 on [[http://www.amazon.co.uk/Clojure-Made-Simple-ebook/dp/B00BSY20HS][Amazon.co.uk]]
-- [[http://joyofclojure.com/][Joy of Clojure]]
-- [[http://www.clojurebook.com/][Clojure Programming]]
-- [[http://pragprog.com/book/shcloj2/programming-clojure][Programming Clojure]] - 2nd edition 
-
-** Blogs, Documentation, etc.
-
-[[http://planet.clojure.in/][Planet Clojure]] - blog aggregator
-
-[[http://blog.jr0cket.co.uk/][blog.jr0cket.co.uk]] - Clojure, Emacs & Git articles
- 
-[[http://clojure.org/][clojure.org]] - official documentation 
-
-[[http://clojuredocs.org/][clojuredocs.org]] - community docs & examples
-
-[[http://clojure.org/cheatsheet][Clojure Cheatsheet]] - quick syntax & function reference
-
 
 * Thank you 
 
@@ -346,3 +720,22 @@ ps. This presentation was brought to you via Emacs & Revealjs
     [[https://github.com/yjwen/org-reveal]]
 
   [[./images/org-reveal.png]]
+
+** A bit more Clojure 
+ :PROPERTIES:
+    :reveal_background: ./images/clojure-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+Also using a local variable (which doesnt vary)
+#+BEGIN_SRC clojure 
+(ns jr0cket.demo)
+
+(def my-data [1 2 3 "frog"])
+
+(defn do-stuff [parameter]
+  (let [local-data (first parameter)]
+  (str local-data)))
+
+(do-stuff my-data)
+#+END_SRC
+
