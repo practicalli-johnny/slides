@@ -1,0 +1,193 @@
+#+Title: Creating without (as much) code
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Creating with out (as much) code">
+
+* Overview 
+
+You dont need to code everything, all the time 
+#+ATTR_REVEAL: :frag roll-in
+- Websites and blogs on Github pages 
+- Creating HTML5 Presentations from Emacs 
+- Forking code on Github / finding great libraries 
+- Kickstarting JavaScript apps (work in progress)
+
+* Using Github pages 
+
+A simple way to publish content to the web 
+
+** Automatic Page generator 
+
+[[./images/github-pages-auto-page-generator.png]]
+
+** Github pages Markdown editor 
+
+Github pages have a Markdown editor for creating content
+
+[[./images/github-pages-markdown-editor.png]]
+
+** Canned templates
+
+Apply a range of existing templates
+- customise them by cloning the repository and editing 
+
+[[./images/github-pages-templates-demo.png]]
+
+
+* Websites & Blog with Jekyll
+Use Markdown again for all your content
+#+ATTR_REVEAL: :frag roll-in
+- Jekyll takes care of the presentation
+- used with Github pages 
+
+[[./images/jekyll-logo-grey-background.png]]
+
+ 
+* Presentations with Org-mode & Reveal.js
+Reveal.js is a great way to create great looking slides
+#+ATTR_REVEAL: :frag roll-in
+- using Emacs & Org-mode you dont need to write any html
+- tweak the existing CSS templates for your own style
+
+[[http://blog.jr0cket.co.uk/2013/09/create-html5-presentations-emacs-revealjs.html][Create HTML5 presentations with Emacs & Reveal.js]]
+
+[[http://blog.jr0cket.co.uk/2013/10/create-cool-slides--Org-mode-Revealjs.html][Creating cool slides with Emacs & Reveal.js]]
+
+
+** Example of slides written in Emacs
+
+[[./images/emacs-org-mode-revealjs-example.png]]
+
+
+* Creating responsive & designed websites 
+
+Developers are not usually gifted with design skills
+#+ATTR_REVEAL: :frag roll-in
+- a good UI is important (especially at hackathons) 
+- many libraries like Twitter bootsrtap are available 
+- helps create a responsive design
+- use em's not pixels  
+
+** Twitter Bootstrap & other responsive templates
+#+ATTR_REVEAL: :frag roll-in
+- bootstrap can give you a great start 
+- many other similar libraries available 
+- be weary about creating just another bootstrap site 
+
+** Think about responsive design 
+
+[[./images/responsive-design.png]]
+
+
+** Using Bootply.com for fast feedback
+
+A visual way to construct and play with Bootstrap
+
+[[./images/responsive-bootply-bootstrap-playground.png]]
+
+
+* A world of API's
+
+[[./images/World-Weather-Online.jpg]]
+
+
+* More ideas to come 
+
+Thank you 
+
+@jr0cket
+
+#+ATTR_REVEAL: :frag hightlight-red
+ps. This presentation was brought to you via Emacs & Revealjs
+
+
+* Kickstarting Javascript apps
+** Creating apps with Yeoman 
+** Managing apps with Grunt 
+
+* Graphics on the web
+** Building things quickly with d3.js frameworks [TODO: find frameworks Christophe mentioned]
+
+* Deploying apps with Git & Heroku 
+Deploy using standard build tools & well tested buildpacks 
+
+
+* Enterprise apps with clicks
+** Data driven apps with Force.com 
+
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+

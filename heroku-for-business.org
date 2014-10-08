@@ -1,0 +1,143 @@
+#+Title: A taste of Clojure at Lightspeed
+#+Author: John Stevenson
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+
+* Who is Heroku for ?
+
+Salesforce customers with customer facing apps 
+
+Customers not interested in Salesforce Force.com
+
+Customers looking at Amazon, Google, Azure - looking for a simpler approach 
+
+* Heroku Simplified
+
+On Demand, highly scalable, compute platform for customer facing apps 
+
+Deploy apps in seconds, not days 
+
+Reduce operations burdon for app deployment & maintenance
+
+Oversight across all apps (via Heroku teams/orgs)
+
+Pay for compute usage only, no per-user licensing
+- typically sold as "compute resource packs" to existig Salesforce customers
+
+** Support existing development skills
+
+Tracable & secure deployment with Git source code management
+
+Deploy apps built in Java, C++, NodeJS, Python, PHP, Ruby, etc.
+
+- supporting any apps not destined for Force.com
+- minimising the re-skilling existing teams for Force.com develoment
+
+** Provision apps on demand 
+
+Compute resourse for your app on demand at the click of a button
+
+Or via simple command 
+
+#+BEGIN_SRC bash 
+    heroku create  
+#+END_SRC
+
+
+
+** Provision services on demand
+
+125+ databases & developer services available on demand via the Heroku addons marketplace
+
+Postgres Database - enterprise relational database
+Treasure Data - big data store using Hadoop
+New Relic - monitor your app performance
+HireFire - auto-scaling your app based on demand 
+Logly - log analytics for your app & the Heroku platform  
+
+
+** Efficient development workflow
+
+Provisioning of consistent environments (dev, testing, staging, production)
+
+Automated and repeatable deployment process
+
+Driven by development teams, no waiting for operations teams
+- typically a huge time drain between dev teams & operations (hence the DevOps movement)
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slide with code 
+#+BEGIN_SRC bash
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+

@@ -1,0 +1,141 @@
+#+Title: Title
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+* Command Line Git
+
+** Advantages of the command Line
+- learn the commands and options 
+- see what is going on without looking at logs 
+- learn Git quicker 
+- script interaction with Git 
+- customise the output of Git - eg. git log 
+
+
+
+* TODO GUI for Git 
+
+** Github for Windows / Mac 
+
+** Atlassian SourceTree
+
+* Tools related to Git 
+
+** Visual Diffing:  Meld 
+
+
+* Git as a Service
+
+** Github
+Github is the most well know service and therefore has the widest audience 
+
+- important once you get an open source project going 
+- private repos available commercially
+- Github locally with F1
+ 
+
+** Atlassian
+Good for teams of 5 or less 
+
+- free private repos for a team of up to 5
+- supports Mecurial & Git
+- can be used with Stash, Atlassian repository manager ??
+
+
+** Others
+Assembla
+Codebase (UK)
+
+** Can use multiple providers
+As Git uses a distributed model, you can have the same repos on different Git providers
+
+- clone
+- can you follow ?
+
+
+
+* Top tips 
+
+** Project names
+Dont include spaces or special characters in project namess
+
+- will prevent adding those repos to an online Git service 
+
+ 
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+

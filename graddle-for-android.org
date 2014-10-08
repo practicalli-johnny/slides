@@ -1,0 +1,75 @@
+* Overview 
+
+Gradleware approached by Google for an alternative way of building android apps 
+
+Google now maintain android plugin for Gradle 
+
+* Setting up Gradle
+Add this to your shell 
+
+#+BEGIN_SRC zsh 
+# Configuration for Gradle
+export GRADLE_HOME=$HOME/apps/gradle/current
+export PATH=$PATH:$GRADLE_HOME/bin 
+export GRADLE_OPTS=-Dorg.gradle.daemon=true
+#+END_SRC
+
+* Resources
+[[file:///home/jr0cket/projects/gradle/gradle-for-android/slides/index.html][Luke Dalaly Slides ]]
+[[http://www.gradle.org/docs/current/userguide/userguide.html][Gradle user guide]]
+[[http://www.gradle.org/docs/current/dsl/][Gradle Reference guide]]
+http://www.gradle.org/learn
+
+
+Idiomatic grail build files are configuration driven
+Most of the time there should be no execution time code 
+- unless you are writing your own custom tasks 
+
+* Using plugins - important for androids 
+
+using closure's to define our own configuration 
+
+
+* Running Gradle
+
+gradle tasks 
+- lists all tasks
+
+gradle task-name 
+- run a specific tasks
+
+gradle task-name -s 
+ - run a specific task and show the stack trace, useful if the gradle error message is not 
+
+
+* Dependencies 
+No built in repositories
+
+repositories {
+  mavenCentral
+}
+
+gradle please
+- gives you the gradle syntax for the dependencies you want to include 
+
+** Automatic dependency resolution 
+If you dont like that or get burnt to offen, you can switch it off with 
+resolutionStrategy.failOnVersionConflict()
+
+
+CI builds
+dont use the gradle Daemon
+
+--continue ;; keep going even if part of a task fails.  Stop when you get to the end of a task
+
+If you want to ensure unit tests run before integration and functional tests then you
+can define "mustRunAfter task-name"
+-- optomises feedback 
+
+finalisedBy ;; used to ensure you clean up even if your task fails 
+
+Parallel building and multi-build projects 
+gradle excecutes tasks serialy by default
+
+use the gradle --parallel option to run tasks in parallel
+

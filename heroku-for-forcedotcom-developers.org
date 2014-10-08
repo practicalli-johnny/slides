@@ -1,0 +1,189 @@
+# Aspects of Heroku to show
+
+
+* Overview of Heroku
+
+Scalable platform for easy application deployment  
+
+Operations team as a service
+
+A collection of services to support your applications 
+
+https://www.heroku.com/features
+
+
+* Why Use Heroku 
+
+Customer facing apps
+
+Use existing development skills & experience 
+
+Highly scalable apps without Govenor limits 
+
+
+* Integrating with Force.com apps
+
+
+** Support service for mobile apps 
+
+Provide back-end services for mobile apps
+
+- payment
+- transactions
+- security / identity
+- social (forums,  leaderboards, etc)
+
+
+** API deployment 
+
+Easily publish an API for other developers to use 
+
+
+* Getting started 
+
+Setting up account
+--  add credit card details if you want to deploy more than 5 apps on Heroku
+
+Install Heroku Toolbelt
+https://toolbelt.heroku.com 
+
+heroku commands  [create, log, ps, config, addons, ... ]
+
+
+* Where to get help 
+
+Developer center (Documentation)
+https://devcenter.heroku.com/
+
+Highter Order Heroku 
+
+stack exchange Heroku tag
+
+meetups
+
+
+
+
+## Creating an Heroku app
+-- creating an app
+-- Highlighting supported languages & buildpacks
+-- creating apps in different regions
+
+## Versioning your app with Git 
+-- setting up git (user.name / user.email / public key - heroku keys)
+-- creating a local repository
+-- adding & commiting files (mention staging & developer workflow)
+
+## Deploying your application on Heroku
+-- creating an app
+-- adding a remote git repo addreess & alias
+-- using git to deploy 
+-- basics of continuous deployment
+
+
+## Tracking your deployments
+-- Git log for tracking deployments
+-- Activity section on the Heroku website 
+-- Configuring git logs
+-- Using Git GUI tools (SourceTree, ... [TODO: good gui tool for Linux])
+-- Using Github with Heroku - benefits / workflow 
+-- Connecting Github repository to your heroku application 
+
+
+## Heroku and logging
+-- introduce logplex
+-- Displaying heroku logs 
+-- Showing only specific Logs
+-- show errors in logs
+-- persisting logs (eg. to meet company policies, legal requirements)
+
+
+## Rollbacks and managing failures
+-- discuss heroku releases and rollbacks 
+-- create a bug and push it to the heroku app
+-- list releases, show release details, rollback to a releases, push a real fix
+
+
+
+## Extending the deveployment workflow 
+-- the merits and challenges of different environments (testing, staging, UAT)
+-- creating multiple environments on Heroku (all the same, always the same)
+-- managing deployment across environments with Git log
+-- deploying to heroku from branches (other than master)
+like having a sandbox or more - you can have as many as you need and throw them away if you mess them up
+
+
+
+
+
+## Processes and the Procfile
+-- introduce the Procfile
+-- introduce the web: process type
+-- discuss other process types (everything else)
+-- working with heroku processes 
+-- heroku ps
+-- heroku ps:restart
+
+
+## How Heroku works (high level)
+-- buildpacks in more detail - the supported service - choosing your languages & application stack is put together 
+-- detecting your app 
+-- compiling code 
+-- pulling in dependencies 
+-- setting up data sources
+-- deploying the app 
+-- processes - scaling across a "server" 
+-- dynos - scaling across multiple "servers"
+-- supported languages & frameworks
+-- buildpacks for everything else
+
+
+* Releases and rollbacks - leave this till later
+
+  What happens when you make a mistake in your code? Let’s try removing one of the double quotes and see what happens:
+
+
+
+
+## Scaling your apps
+-- monitoring the performance of your apps
+-- new relic addon
+-- load testing your app with [apache jmeter | grinder | some online service]
+
+
+## Enhancing your apps with addons 
+-- how to manage addons 
+-- common addons used (New Relic, Reddis, Mongodb, ...)
+
+
+
+
+<!-- Review Heroku Postgres service and develop Elevate content around it -->
+** Postgres database
+-- database on demand
+-- forking, following
+-- dataclips
+
+** Mongodb addon with Meteor
+
+-- Using MongoLab addon  web console
+
+View the collections created
+View the documents in each collection 
+View the data in each documents
+
+ 
+-- using GUI client for mongodb access
+
+
+
+
+
+* Securing your apps and data
+
+** Controlling access to your website
+storm.. heroku addon
+
+** Controlling access to the database
+
+Encrypting data in postgres ?

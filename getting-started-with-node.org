@@ -1,0 +1,121 @@
+#+Title: Title
+#+Author: John Stevenson
+#+Email: john@jr0cket.co.uk
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+
+
+** Making node a little quieter 
+
+Node outputs a lot of information, to fast to follow it all the time
+
+
+silent: completely silent. Zero logging output.
+win: Just the “npm ok” or “npm not ok” message at the end.
+error: When something unexpected and bad happens.
+warn: When something odd or potentially dangerous is happening.
+info: Helpful information so you can track what’s happening.
+verbose: Even more. Perhaps just a wee bit obnoxious, even.
+silly: Completely fuckin crazy, man. Dump everything. Whole objects, you name it, whatever.
+Like any configuration option, you can set the loglevel in a few ways. To set it for just one command just add --loglevel silent to the command. This is particularly handy if something breaks, and you want to provide a bit more debugging output with --loglevel verbose.
+
+On your user account  
+npm config set loglevel win.
+
+Set globally
+npm config set loglevel info --global.
+
+Set in the environment 
+export npm_config_loglevel=verbose will ;; affects all subsequent npm commands
+-- [can we set this in user profile or shellrc file, I dont see why not]
+
+Oh, and if those npm config set and npm config get commands get tedious, you can just do npm c edit to open up the config in your favorite editor.
+
+See npm help config for more info.
+
+Get help with npm
+npm command -h
+
+Update the version of npm
+npm version 1.2.3
+
+npm ls ;; show what is on your system 
+
+npm help json  ;; to learn which fields npm cares about.
+
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+

@@ -1,0 +1,172 @@
+#+Title: Cloudy Agility
+#+Author: John Stevenson
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1200
+#+OPTIONS: reveal_height:800
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Cloudy Agility">
+
+* ... or the pros and cons of Enterprise Development
+
+
+* Purpose of this talk
+
+- Agile can work across the whole Enterprise
+- Agile isnt easy
+- The values and practices are the same, even though the tools may be different
+
+Enterprise companies inspire other enterprise companies to be more Agile
+- although its not as easy as that...
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slied with code 
+#+BEGIN_SRC zsh 
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
+
+
+
+
+* Notes 
+
+** Six Common Mistakes That Salesforce.com Didn't Make
+
+In my post last Thursday, I explained why key actions by Salesforce.com helped deliver a 41% annual return to shareholders over a sustained period and resulted in its CEO, Marc Benioff, being evaluated by Forbes as the highest value CEO of all.
+
+A key turning point for Salesforce.com occurred in 2006, when the leadership realized that innovation in the firm was starting to slow down. It did what many software companies have done: it turned to a radically different set of ­­ agile, customer-driven, outcome-oriented, iterative management practices (known in software development as Scrum or Agile).
+
+Yet Salesforce.com had much more spectacular results than many other companies  that have adopted Scrum or Agile. Thus around 70% or more of Agile or Scrum implementations fall short of their projected benefits.
+
+What were the mistakes made by those companies that Salesforce.com didn’t make?
+
+Mistake #1: Introduce the change as just another business process.
+
+Salesforce.com saw that Scrum involved not just the adoption of a new business process, but rather as a fundamental transformation of the way work was managed in the company. They were introducing a new  way of thinking, speaking and acting in the workplace for both managers and workers.
+
+This meant major changes for both managers and workers:
+
+Those managing the work had to shift from being controllers of individuals to enablers of self-organizing teams, with responsibility for establishing priorities in a timely fashion and removing impediments as they are identified, rather than controlling each worker.
+Those doing the work had to shift from being individuals reporting to bosses in accordance with a big plan to having the responsibility and accountability of delivering work as part of a self-organizing team and doing the work in short cycles without interruption from any manager.
+This is a radical transition for most individuals. Unlike a bureaucracy, there are no CYA routines up and down the line. Suddenly, everyone is accountable.
+Thus it is one thing to change the business processes. It is quite another for individuals to realign their whole way of thinking, speaking and acting in the world to reflect, as Mike Cottmeyer puts it, “a more agile world view, including things like servant leadership, responsibility, empowerment, emergence, uncertainty, and respect for people.”
+
+When firms adopt Agile or Scrum as merely a new business process, the result, as Mike Cottmeyer has noted, is often:
+
+In a functionally siloed hierarchical organization, people don’t embrace the Agile/Scrum values.
+When participants come back from a two-day Agile/Scrum course, totally pumped to be agile, they are faced with the same siloed hierarchical bureaucracy that won’t develop incrementally and iteratively in accordance with the Agile/Scrum philosophy.
+When firms reorganize around Scrum teams, but still focus on delivering with big plans, heavy processes, top-down command-and-control leadership, the potential gains are constrained.
+As Cottmeyer puts it: “Agile adoption and agile transformation are not the same thing. Agile adoption is about introducing practices, the doing side of the equation. Agile transformation has to do with change, the being side of the equation.”
+
+The leadership at Salesforce.com grasped this difference and saw that if a radically different approach to management were to be introduced in one part of the organization, there would be a tension at the interface between the part of the company still doing traditional management and the part managing work in the new way. The two parts would be operating in different modes and at different speeds. So they opted to go all out with change right across the whole organization. [i]
+
+Admittedly, Salesforce.com had the advantage of being a relatively young company. Having been formed in 1999, in 2006 it could still remember its days as a startup. The leadership saw the transformation not so much as a wholly new approach, but rather a return to the firm’s core values. Three other elements also helped the transition. First, the firm’s on-demand software model was a natural fit for iterative methods. Second, an extensive automated test system was already in place to provide the backbone of the new methodology. And third, a majority of the R&D organization was working at the same location.
+
+Mistake #2: Top management hedges its bets
+
+Because the iterative client-driven self-organizing teams of Scrum and Agile represent a radical departure from the top-down command-and-control hierarchical bureaucracy, traditional management often adopts a wait-and-see approach.  If the change succeeds, management will embrace it and celebrate it as its own. If it fails, they can say that it was not their idea: just another management fad that didn’t work.
+
+By contrast, the leadership at Salesforce.com made it clear from the outset that they were committed to making the change work. They embraced it from the outset. They supported it as implementation proceeded. They were there at critical points in the transition, when boundaries were tested. Without strong executive support, the transition might have failed. For example, a key executive decision was to stick to the release date regardless of the content of the release. Although many teams argued for more time to add more features, the executive management team stuck to the release date. Their ability to hold firm reinforced the principles of delivering early and often, reducing waste, and sticking to the deadline no matter what.
+
+Mistake #3: Rigidly apply a methodology conceived elsewhere.
+
+Some firms try to implement Scrum as a rigid methodology with no allowance made for the different requirements of different contexts. It’s implemented with the exact terminologies, job descriptions and procedures that have been worked out in other organizations. This can lead to considerable friction as the externally grown ideas don’t fit exactly the new environment.
+
+By contrast, Salesforce.com built on what had been learned in other organizations, but also adapted it to their own context.
+
+A document was prepared describing the new process, its benefits, and why the firm was moving away from the old process. The team held forty-five one-hour meetings with key people from all levels in the organization. Feedback from these meetings was incorporated into the document after each meeting, molding the design of the new process and creating broad organizational support for change. This open communication feedback loop allowed a large number of people to participate in the design of the new process and engage actively in the solution.
+
+One team in the organization had already successfully run a high-visibility project using iterative methods. This experience helped when they introduced it to all the other teams.
+
+Focusing on the principles rather than the mechanics also helped people understand why the firm was moving to a new way of working. When teams ran into a problem, they could refer back to the principles and adjust anything they thought did not correlate with the principles.
+
+Mistake #4: Micromanage the change
+
+The Scrum/Agile philosophy implies a shift in the traditional role of managers from controllers of individuals to enablers of self-organizing teams working in short iterations. It involves creating the space where those doing the work have the autonomy to apply their full talents and creativity to producing something will delight the customer.  In effect, the customer becomes the boss. For many managers and workers, these are very significant changes. If the shift itself is imposed from above in some peremptory eight-step program, there is a considerable risk that the new approach will be misinterpreted as a continuation of top-down command-and-control management.
+
+By contrast, the implementation of Scrum at Salesforce.com modeled the new management philosophy of direction-setting and enablement, rather than detailed control.  The change was led by a cross-functional team that was dedicated to making the change happened. This team was empowered to make decisions, used the new methodology for its own work. It held meetings in a public space where everyone could see what was going on. This enhanced accessibility, transparency, and shared ownership of the transition. It also brought in industry experts and other companies that had adopted similar techniques. It created a global schedule for the entire process, provided coaching and guidance, identified and removed systemic impediments to change, monitored success, and evangelized the new way of working throughout the organization.
+
+Key features of the change included a focus on team output rather than individual productivity and cross-functional teams that met daily. All teams used a simple iterative process with a common vocabulary, with prioritized work programs for each iteration. They planned the work with user stories, estimated tasks with planning poker, and defined organizational roles using the common Scrum terminology for all teams. The result was a new release of software every thirty days.
+
+Mistake #5: Keep key management decisions secret
+
+Hierarchical bureaucracy is notoriously non-transparent. Each layer of the bureaucracy tends to tell the layer above and the layer below what it wants to hear, rather than everything it needs to know. CYA routines operate, up and down the hierarchy. Finding out what’s really going depends on access to informal networks. When Scrum is introduced into such a context, the risk of miscommunication and misunderstanding is high.
+
+By contrast, Salesforce.com embraced the principle of total openness. All of the daily meetings were held in a public place so that everyone could see how things were progressing. A task board was displayed on the public lunch room wall so that everyone had access to what was going on. The willingness to share information with everyone enabled people to adapt on a daily basis to what was happening.
+
+Mistake #6: Skimp on training and coaching.
+
+A study at Yahoo! showed that the provision of external coaches had a high payoff in terms of team productivity.[ii]Traditional management tends to ignore such studies, because the mental model is that the managers are responsible for productivity. When the very future of the organization depends on success, skimping on coaching can be a highly counterproductive form of economizing.
+
+By contrast, Salesforce.com put a huge emphasis on providing the needed training and coaching . The process started by sending a large group of people (initially program and functional managers) to training and buying training books for all staff. Three key members from the cross-functional team developed a consolidated presentation and training deck that included concepts from the current methodology. Two-hour training sessions were held for every team.  In addition, training was given to the proxy client representatives who would be setting priorities as “product owners.” They also created an internal, wiki-based Web site as a reference for team members as they made the transition to the new methodology and for information about the change process.
+
+
+** Transforming your organisation to Agile
+
+http://www.ca.com/~/media/Files/whitepapers/wp-agile-development_242887.pdf
+
