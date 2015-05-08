@@ -1,0 +1,1273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Functional Advantage with Clojure</title>
+<meta name="author" content="(John Stevenson)"/>
+
+<link rel="stylesheet" href="./css/reveal.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Getting started with Clojure">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Functional Advantage with Clojure</h1>
+<h2>John Stevenson</h2>
+<h2><a href="mailto:@jr0cket">@jr0cket</a></h2>
+<h2></h2>
+</section>
+
+<section>
+<section id="slide-sec-1">
+<h2 id="sec-1">Why Funcitonal Programming?</h2>
+<p>
+Helps you think differently
+</p>
+
+<p>
+"New" tools to solve "new" problems
+</p>
+
+<p>
+Functional Programming is part of modern languages
+</p>
+
+</section>
+<section id="slide-sec-1-1">
+<h3 id="sec-1-1">Functional Programming Languages</h3>
+<p>
+The Classics
+</p>
+<ul>
+<li>Haskell, ML, Common Lisp, Scheme, etc</li>
+
+</ul>
+
+<p>
+The JVM Stack
+</p>
+<ul>
+<li>Clojure, Scala, Java 8 (lambdas)</li>
+
+</ul>
+
+<p>
+Other examples
+</p>
+<ul>
+<li>Python</li>
+<li>JavaScript (ECMAScript 6)</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-2">Why Clojure</h2>
+
+<p>
+Simple, Powerful, Fun
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-3">
+<h2 id="sec-3">Why not other functional languages ?</h2>
+<div class="outline-text-2" id="text-3">
+</div></section>
+<section id="slide-sec-3-1">
+<h3 id="sec-3-1">Haskell</h3>
+<p>
+The pure approach makes Haskell a harder language to make it useful
+</p>
+
+<p>
+Very academic approach to the language, evolving to become more Practical
+</p>
+
+<p>
+Strong focus on Types
+</p>
+
+</section>
+<section id="slide-sec-3-2">
+<h3 id="sec-3-2">JavaScript</h3>
+<p>
+An immutable approach is not strongly supported by the language, yet
+</p>
+
+<p>
+Usually written in a way that is hard to maintain
+</p>
+<ul>
+<li>Functional JavaScript can be so much more readable</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-3-3">
+<h3 id="sec-3-3">Python</h3>
+<p>
+A great language to learn programming
+</p>
+
+<p>
+Lots of really good libraries 
+</p>
+
+<p>
+So why has this not been more widely adopted?
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-4" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-4">What is Clojure?</h2>
+
+<p>
+General purpose Functional programming language on the 
+</p>
+<ul>
+<li>Java Virtual machine (JVM)</li>
+<li>Google Javascript V8 engine (ClojureScript)</li>
+<li>Microsoft Common Language Runtime (CLR)</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-4-1">A modern LISP</h3>
+<p>
+A powerful way to solve problems 
+</p>
+
+<p>
+LISP is the 2nd oldest language still used in production
+</p>
+
+<p>
+Clojure is a modern dialect of LISP
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-5" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-5">Who is using Clojure</h2>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">UBS</td>
+<td class="left">Classified</td>
+</tr>
+
+<tr>
+<td class="left">CitiGroup</td>
+<td class="left">Financial Trading</td>
+</tr>
+
+<tr>
+<td class="left">Netflix</td>
+<td class="left">Map-Reduce Languges for writing Apps for Hadoop Pig</td>
+</tr>
+
+<tr>
+<td class="left">Large Insurance company</td>
+<td class="left">Rebuild policy management system</td>
+</tr>
+
+<tr>
+<td class="left">USwitch</td>
+<td class="left">Creating meaningful data from multiple sources</td>
+</tr>
+
+<tr>
+<td class="left">Daily Mail</td>
+<td class="left">Runing the high volume site Mail Online</td>
+</tr>
+
+<tr>
+<td class="left">Xively</td>
+<td class="left">IoT</td>
+</tr>
+
+<tr>
+<td class="left">Masterdon C</td>
+<td class="left">Data centre analysis (Incanta, Storm)</td>
+</tr>
+
+<tr>
+<td class="left">Thoughtworks</td>
+<td class="left">Rapid development for clients</td>
+</tr>
+
+<tr>
+<td class="left">LinkedIn</td>
+<td class="left">Aspects of their social graph</td>
+</tr>
+
+<tr>
+<td class="left">Meta-X</td>
+<td class="left">Performance art (Overtone, Quil)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<a href="https://groups.google.com/forum/#!forum/london-clojurian-jobs">London Clojurians Jobs</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-6">
+<h2 id="sec-6">Lets explore Clojure further</h2>
+<p>
+See <a href="https://github.com/practicalli/clojure-through-code">Clojure Through Code</a> for lots of example code
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-7" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-7">Iterate faster with Clojure</h2>
+
+<p>
+Dynamic nature of Clojure is  perfect for discovering the real needs of the business 
+</p>
+
+<p>
+"REPL Driven Development"
+</p>
+
+
+</section>
+<section id="slide-sec-7-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-7-1">Dynamic environment</h3>
+<ul>
+<li>Evaluate code in place</li>
+<li>Use the REPL to quickly iterate on ideas</li>
+
+</ul>
+<p>
+&#x2013; No obvious compile cycle, no compile tea break
+</p>
+
+</section>
+<section id="slide-sec-7-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-7-2">Dynamic Typing</h3>
+
+<p>
+Type Inference does the heavy lifting
+</p>
+
+<p>
+No need to battle an every changing object model
+</p>
+
+</section>
+<section id="slide-sec-7-3" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-7-3">Data driven design</h3>
+
+<p>
+Flexible data structures form the knowledge of the application 
+</p>
+
+<p>
+Functions act on those data structures without side effects (unless you want them)
+</p>
+
+</section>
+<section id="slide-sec-7-4" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-7-4">Simple Java Interoperability</h3>
+
+<p>
+Clojure apps packaged as Java Jar (UberJar)
+</p>
+
+<p>
+Import &amp; use Java libraries (any JVM languages)
+</p>
+
+<p>
+Call Java easily 
+</p>
+
+<pre  class="example">
+. new throw try
+</pre>
+
+</section>
+<section id="slide-sec-7-5">
+<h3 id="sec-7-5">Dynamic Runtime option</h3>
+<p>
+Dynamic compilation allows code changes to be injected without restarting your application
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-8" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-8">Simple Clojure syntax</h2>
+
+<p>
+Really quick to get coding
+</p>
+<ul>
+<li>define data structures (the data)</li>
+<li>define functions (the behaviour)</li>
+<li>call functions (which always return a value)</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-8-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-8-1">Simple Clojure program</h3>
+<p>
+Defining a namespace, data structure &amp; function, then calling the function.
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">ns</span> <span style="color: #D8FA3C;">jr0cket.demo</span>)
+
+(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">my-data</span> [1,2,3, frog])
+
+(<span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493; font-weight: bold;">do-stuff</span> [parameter]
+  (str parameter))
+
+(do-stuff my-data)
+</pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-9" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-9">Data Structure Driven Design</h2>
+
+<p>
+Define a meaningful data structure
+</p>
+
+<p>
+Define the functions (behaviour) that work with that data
+</p>
+
+<p>
+"It is better to have 100 functions operate on one data structure than to have 10 functions operate on 10 data structures" - A.J. Perlis 
+</p>
+
+
+</section>
+<section id="slide-sec-9-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-9-1">Data Structures</h3>
+<p>
+Persistent data structures in Clojure:
+</p>
+<ul>
+<li>List</li>
+<li>Map    (HashMap, Key-Value pairs)</li>
+<li>Vector (Array)</li>
+<li>Sets   (Unique values)</li>
+
+</ul>
+
+<p>
+Typical data structures are maps, vectors, maps of maps, vectors of vectors, etc
+</p>
+
+</section>
+<section id="slide-sec-9-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-9-2">Mixing data structures all together</h3>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">data</span> {<span style="color: #4c83ff;">:keyword1</span> value1 
+           <span style="color: #4c83ff;">:vector</span> [1 2 3]
+           <span style="color: #4c83ff;">:map</span> {<span style="color: #4c83ff;">:a</span> 1 <span style="color: #4c83ff;">:b</span> 2 <span style="color: #4c83ff;">:c</span> cat}}
+           <span style="color: #4c83ff;">:mixed</span> {<span style="color: #4c83ff;">:vector</span> [1 2 3 fish]
+                   <span style="color: #4c83ff;">:vector-of-vectors</span> 
+                     [1 2 [3 4]]
+                   <span style="color: #4c83ff;">:maps-n-vectors</span> 
+                     {<span style="color: #4c83ff;">:co-ords</span> [12.37 53.78]}})
+</pre>
+</div>
+
+<p>
+Keywords (names starting with :) are keys pointing to values, in this case other data structures
+</p>
+
+</section>
+<section id="slide-sec-9-3" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-9-3">Data Structure examples</h3>
+<p>
+Expressive data structures made code more understandable 
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">locations</span> {
+     <span style="color: #4c83ff;">:london</span> {<span style="color: #4c83ff;">:latitude</span> 34, <span style="color: #4c83ff;">:longtitude</span> 57}})
+
+(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">location</span> {
+     <span style="color: #4c83ff;">:london</span>     {<span style="color: #4c83ff;">:gps</span> {<span style="color: #4c83ff;">:co-ords</span> [12.37 53.78]}}
+     <span style="color: #4c83ff;">:new-york</span>   {<span style="color: #4c83ff;">:gps</span> {<span style="color: #4c83ff;">:co-ords</span> [12.37 53.78]}}
+     <span style="color: #4c83ff;">:Birmingham</span> {<span style="color: #4c83ff;">:gps</span> {<span style="color: #4c83ff;">:co-ords</span> [12.37 53.78]}}})
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-10" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-10">Small, Composable Components</h2>
+<p>
+Clojure was "Microservices" before the idea was coined
+</p>
+
+<p>
+Similar to the design principles of Unix
+</p>
+<ul>
+<li>do one thing and do it well</li>
+<li>easily compose things together with functions</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-11" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-11">Language design</h2>
+<p>
+A very small core library 
+</p>
+<ul>
+<li>with a large set of libraries</li>
+
+</ul>
+
+<p>
+Build Automation, logic, asyncronous communication, static type system
+</p>
+
+</section>
+<section id="slide-sec-11-1">
+<h3 id="sec-11-1">Only a handful of building blocks</h3>
+<p>
+Clojure primatives
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-Clojure">if let loop recur do set! quote var
+</pre>
+</div>
+
+<p>
+And a few extra to make Java Interop nice 
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-Clojure">new . throw try
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-12" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-12">Stateless approach to design</h2>
+<ul>
+<li>immutability is the default</li>
+<li>persistent collections</li>
+<li>Software Transactional Memory (make changes like an atomic database)</li>
+
+</ul>
+
+<p>
+<a href="http://www.infoq.com/articles/in-depth-look-clojure-collections">In-depth look at Collections</a>
+</p>
+
+</section>
+<section id="slide-sec-12-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-12-1">Data Types</h3>
+<ul>
+<li>arbritrary precision integers</li>
+<li>Doubles 1.234, BigDecials 1.23M</li>
+<li>Rations 22/7</li>
+<li>Strings "jr0cket", Characters \a \b \c</li>
+<li>Symbols fred wilma , keywords :barney :betty  (fast keys for maps)</li>
+<li>Boolean true false , Null nil (nil is false, `is nil` as a condition (eg, if else))</li>
+<li>Regex patterns #"a*b"</li>
+
+</ul>
+
+<p>
+A great way to explain Clojure is to talk about data 
+</p>
+
+
+</section>
+<section id="slide-sec-12-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-12-2">Persistent Data Structures</h3>
+
+<p>
+Lists, Vectors, Maps &amp; Sets are all immutable 
+</p>
+<ul>
+<li>cannot be changed once defined</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-12-3" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-12-3">Modifying persistent data structures</h3>
+<p>
+Making a change creates a new data structure
+</p>
+<ul>
+<li>contains only the change</li>
+<li>links back to the original data structure</li>
+<li>original data structure remains unchanged</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-12-4" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-12-4">Software Transational Memory (STM)</h3>
+<p>
+Change data in a controlled way 
+</p>
+<ul>
+<li>live having an atomic in-memory database</li>
+
+</ul>
+
+<p>
+Define Atoms and swap! their values
+</p>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-13" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-13">Efficient Memory use</h2>
+
+</section>
+<section id="slide-sec-13-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-13-1">Sharing Memory</h3>
+
+<p>
+Persistent Data Structures are immutable
+</p>
+
+<p>
+Evaluating functions over data structures returns a new result
+</p>
+
+<p>
+Updating data structures is simulated by memory sharing
+</p>
+
+</section>
+<section id="slide-sec-13-2">
+<h3 id="sec-13-2">Sharing Memory visualised</h3>
+<p>
+A persistent data structure is a binary tree in Clojure
+</p>
+
+<p>
+If you try change a persistent data structure, a new one is returned
+</p>
+
+
+<div class="figure">
+<p><img src="./images/clojure-persistent-data-structures-sharing.png" alt="clojure-persistent-data-structures-sharing.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-13-3" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-13-3">Lazy Evaluation</h3>
+
+<p>
+Efficiently work with large data structures by only evaluating what is needed
+</p>
+
+<p>
+Simplest example is the Ratio type
+</p>
+
+</section>
+<section id="slide-sec-13-4" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-13-4">Tail Recursion</h3>
+
+<p>
+Tail Recursion re-uses memory space efficiently 
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-Clojure">(defn recursive-function [args]
+  (recur (recursive-function args)))
+</pre>
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-14" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-14">Dynamic development</h2>
+<ul>
+<li>REPL</li>
+<li>define functions on the fly</li>
+<li>load &amp; compile code at runtime (load fixes into running production)</li>
+<li>introspection - not just typing things in, but accessing the Clojure runtime</li>
+
+</ul>
+
+<p>
+Notions of phases of compilation are relaxed, you are compiling all the time into bytecode
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-15" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-15">Extensibility</h2>
+<p>
+Macros allow developers to create new features for the language
+</p>
+<ul>
+<li>no waiting for the langugage designers</li>
+
+</ul>
+
+
+</section>
+<section id="slide-sec-15-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-15-1">All of Clojure</h3>
+<p>
+Special Ops are the Clojure language, everything else is a Macro
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-clojure">fn let loop recur do new . throw try set! quote var def if
+</pre>
+</div>
+
+</section>
+<section id="slide-sec-15-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-15-2">Build Tool Macro</h3>
+<p>
+Leiningen makes it really easy to define a Clojure project using a Macro 
+</p>
+
+<pre  class="example">
+(defproject name version 
+  :description ""
+  :dependencies [ [library version] [] ])
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-16" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-16">The Whole JVM world of Libraries</h2>
+<p>
+Easy to use Java/JVM libraries from Clojure 
+</p>
+
+<pre  class="example">
+.
+new
+</pre>
+
+</section>
+<section id="slide-sec-16-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-1">Importing libraries</h3>
+
+</section>
+<section id="slide-sec-16-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-2">Java.Lang</h3>
+<p>
+java.lang library is always included
+</p>
+
+</section>
+<section id="slide-sec-16-3" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-3">Example: Java Date</h3>
+<p>
+A function to return the current date 
+</p>
+<pre  class="example">
+(defn now [] (java.util.Date.))
+</pre>
+
+</section>
+<section id="slide-sec-16-4" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-4">Example: Java Math</h3>
+<p>
+Define a symbol to represent Pi
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">pi</span> <span style="color: #D8FA3C;">Math</span>/<span style="color: #4c83ff;">PI</span>)
+</pre>
+</div>
+
+</section>
+<section id="slide-sec-16-5" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-5">Example: Joda Time</h3>
+<p>
+clj-time is a wrapper around joda-time
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(require '[<span style="color: #D8FA3C;">clj-time.core</span> <span style="color: #4c83ff;">:as</span> time])
+(require '[<span style="color: #D8FA3C;">clj-time.format</span> <span style="color: #4c83ff;">:as</span> time-format])
+
+(<span style="color: #D8FA3C;">time</span>/now) =&gt; #&lt;DateTime 2013-03-31T03:23:47.328Z&gt;
+
+(<span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">time-formatter</span> (<span style="color: #D8FA3C;">time-format</span>/formatters <span style="color: #4c83ff;">:basic-date-time</span>))  <span style="color: #8B8989; font-style: italic;">;; </span><span style="color: #8B8989; font-style: italic;">ISO 8601 UTC format</span>
+(<span style="color: #D8FA3C;">time-format</span>/unparse custom-formatter (date-time 2010 10 3)) =&gt; <span style="color: #61CE3C;">"20101003T000000.000Z"</span>
+</pre>
+</div>
+
+</section>
+<section id="slide-sec-16-6" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-16-6">Wealth of existing Java libraries</h3>
+<ul>
+<li>many wrappers to make them even easier to use</li>
+<li>nicer to code in Clojure than Java</li>
+
+</ul>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-17" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-17">Amazing Clojure Libraries</h2>
+<p>
+clojars
+</p>
+
+
+</section>
+<section id="slide-sec-17-1" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-17-1">Asynchronus coding as a library</h3>
+<p>
+core.async
+</p>
+
+</section>
+<section id="slide-sec-17-2" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h3 id="sec-17-2">Type system as a library</h3>
+<p>
+If you must really define your own types
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-18" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-18">Amazing community</h2>
+
+
+
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-19" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-19">Lets play with Clojure</h2>
+<p>
+Lets write some clojure using <a href="http://lighttable.com">LightTable</a>
+</p>
+
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-20" data-background="./images/clojure-slide-background.png" data-background-transition="slide">
+<h2 id="sec-20">Learning Clojure</h2>
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(false? (afraid brackets))
+</pre>
+</div>
+
+<ul>
+<li>Learn Clojure on the Internet</li>
+<li>Read some Clojure books</li>
+<li>find or start a Clojure / Functional meetup</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-20-1">
+<h3 id="sec-20-1">4Clojure</h3>
+<p>
+An increasingly difficult set of changenges to help you understand Clojure 
+</p>
+
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-home.png" alt="clojure-4clojure-home.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-20-2">
+<h3 id="sec-20-2">4Clojure - simple example</h3>
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-example-list-elementry.png" alt="clojure-4clojure-example-list-elementry.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-20-3">
+<h3 id="sec-20-3">4Clojure - more complexe example</h3>
+
+<div class="figure">
+<p><img src="./images/clojure-4clojure-example-forthewin.png" alt="clojure-4clojure-example-forthewin.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-20-4">
+<h3 id="sec-20-4">Books</h3>
+<ul>
+<li><a href="http://developerpress.com/en/clojure-made-simple-introduction-clojure">Clojure Made Simple</a> (ebook) - £1.99 on <a href="http://www.amazon.co.uk/Clojure-Made-Simple-ebook/dp/B00BSY20HS">Amazon.co.uk</a></li>
+<li><a href="http://joyofclojure.com/">Joy of Clojure</a></li>
+<li><a href="http://www.clojurebook.com/">Clojure Programming</a></li>
+<li><a href="http://pragprog.com/book/shcloj2/programming-clojure">Programming Clojure</a> - 2nd edition</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-20-5">
+<h3 id="sec-20-5">Blogs, Documentation, etc.</h3>
+<p>
+<a href="http://planet.clojure.in/">Planet Clojure</a> - blog aggregator
+</p>
+
+<p>
+<a href="http://blog.jr0cket.co.uk/">blog.jr0cket.co.uk</a> - Clojure, Emacs &amp; Git articles
+</p>
+
+<p>
+<a href="http://clojure.org/">clojure.org</a> - official documentation 
+</p>
+
+<p>
+<a href="http://clojuredocs.org/">clojuredocs.org</a> - community docs &amp; examples
+</p>
+
+<p>
+<a href="http://clojure.org/cheatsheet">Clojure Cheatsheet</a> - quick syntax &amp; function reference
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-21">
+<h2 id="sec-21">Thank you</h2>
+<p>
+@jr0cket
+</p>
+
+<p>
+jr0cket.co.uk 
+</p>
+
+<p>
+github.com/jr0cket 
+</p>
+
+
+
+</section>
+</section>
+<section>
+<section id="slide-sec-22">
+<h2 id="sec-22">Clojure Development Tools</h2>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-23" data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+<h2 id="sec-23">Leiningen for everything</h2>
+
+<p>
+<a href="http://leiningen.org">Leiningen</a> allows you to:
+</p>
+
+<ul class="fragment roll-in">
+<li>Create projects</li>
+<li>Manage dependencies (uses mvn local cache)</li>
+<li>Package projects into libraries</li>
+<li>Generate Maven POM files (if you must)</li>
+<li>Deploy your libraries on <a href="http://clojars.org">Clojars</a></li>
+<li>Run the REPL</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-23-1">
+<h3 id="sec-23-1">Leiningen Requirements</h3>
+<p>
+Must have the Java JDK (not just the JRE)
+</p>
+
+<ul>
+<li>this is a requirement for any Clojure development</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-23-2" data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+<h3 id="sec-23-2">Leiningen Demo</h3>
+
+<p>
+Time for some live hacking&#x2026;
+</p>
+
+</section>
+<section id="slide-sec-23-3">
+<h3 id="sec-23-3">Leiningen core commands</h3>
+<ul>
+<li>Create a new project</li>
+
+</ul>
+<p>
+lein new project-name
+</p>
+
+<ul>
+<li>Check dependencies and download any required</li>
+
+</ul>
+<p>
+lein deps 
+</p>
+
+<ul>
+<li>Run a REPL</li>
+
+</ul>
+<p>
+lein repl 
+</p>
+
+<ul>
+<li>Find out more</li>
+
+</ul>
+<p>
+lein help 
+</p>
+
+</section>
+<section id="slide-sec-23-4" data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+<h3 id="sec-23-4">Demo code - project.clj</h3>
+
+<p>
+A basic Leiningen project definition
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">defproject</span> <span style="color: #ff1493; font-weight: bold;">whats-my-salary</span> <span style="color: #61CE3C;">"0.1.0-SNAPSHOT"</span>
+  <span style="color: #4c83ff;">:description</span> <span style="color: #61CE3C;">"Calculate salary after tax for perminant employees"</span>
+  <span style="color: #4c83ff;">:url</span> <span style="color: #61CE3C;">"http://blog.jr0cket.co.uk"</span>
+  <span style="color: #4c83ff;">:license</span> {<span style="color: #4c83ff;">:name</span> <span style="color: #61CE3C;">"Eclipse Public License"</span>
+            <span style="color: #4c83ff;">:url</span> <span style="color: #61CE3C;">"http://www.eclipse.org/legal/epl-v10.html"</span>}
+  <span style="color: #4c83ff;">:dependencies</span> [[<span style="color: #D8FA3C;">org.clojure</span>/clojure <span style="color: #61CE3C;">"1.4.0"</span>]]
+  <span style="color: #4c83ff;">:main</span> <span style="color: #D8FA3C;">whats-my-salary.core</span> )
+</pre>
+</div>
+
+</section>
+<section id="slide-sec-23-5" data-background="./images/leiningen-slide-background.png" data-background-transition="slide">
+<h3 id="sec-23-5">Demo code - more stuff..</h3>
+
+<p>
+Colourful code
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-clojure">(<span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493; font-weight: bold;">show-me-the-colours</span> [colour]
+   ( str <span style="color: #61CE3C;">"The colour of money is"</span> colour))
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-sec-24">
+<h2 id="sec-24">Emacs for Clojure</h2>
+<p>
+Emacs is a powerful tool for your developer life, its a nice editor too&#x2026;
+</p>
+
+<ul>
+<li>development environments for lots of languages</li>
+<li>manage tasks, take effective notes and create presentations</li>
+
+</ul>
+
+<ul class="fragment roll-in">
+<li>Ubuntu:  <a href="https://launchpad.net/~cassou/+archive/emacs">Personal Package Archive</a> for latest version</li>
+<li>MacOSX: <a href="http://emacsformacosx.com/">EmacsForMacOSX.com</a> or via <a href="http://brew.sh/">Homebrew</a></li>
+<li>Windows: <a href="http://ftp.gnu.org/gnu/emacs/windows/">pre-compiled version available</a></li>
+
+</ul>
+
+</section>
+<section id="slide-sec-24-1">
+<h3 id="sec-24-1">Emacs Live</h3>
+<p>
+Creates an amazing environment for Clojure development
+</p>
+
+<ul class="fragment roll-in">
+<li>keeping () under control with ParEdit</li>
+<li>starting / connecting to a REPL</li>
+<li>evaluating code in-line (C-x C-e) or all the code (C-c C-k)</li>
+<li>syntax highlighting &amp; auto-complete</li>
+<li>gloriously colourful themes</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-24-2">
+<h3 id="sec-24-2">Roll your own Emacs setup</h3>
+<p>
+Add the following Emacs packages 
+</p>
+
+<p>
+clojure-mode 
+clojure-test-mode
+rainbow-delimiters
+ac-slime
+</p>
+
+<p>
+Look at my basic setup on <a href="http://clojuremadesimple.co.uk">clojuremadesimple.co.uk</a> 
+</p>
+
+
+</section>
+<section id="slide-sec-24-3">
+<h3 id="sec-24-3">Learning Lisp with Emacs</h3>
+<p>
+Configuring Emacs is via a Lisp language called ELisp
+</p>
+
+<ul class="fragment roll-in">
+<li>practice your core Clojure skills by tweaking Emacs</li>
+<li>lots of examples of Lisp code on Github</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-sec-25" data-background="./images/clojure-lighttable-slide-background.png" data-background-transition="slide">
+<h2 id="sec-25">Light Table</h2>
+
+<p>
+A project to create a great experience for Clojure Development
+</p>
+
+<ul class="fragment roll-in">
+<li>instarepl</li>
+<li>start / connect to multiple REPL's</li>
+<li>written in Clojurescript &amp; a few lines of Clojure</li>
+<li>run browser &amp; graphics in a window</li>
+<li>also supports Clojurescript, JavaScript &amp; Python</li>
+<li>still beta, not officially release as yet</li>
+<li>join <a href="https://groups.google.com/forum/#!forum/light-table-discussion">light-table-discussion</a> Google group to keep up with changes</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-25-1">
+<h3 id="sec-25-1">Installing Light Table</h3>
+<p>
+<a href="http://lighttable.com">LightTable.com</a> - binaries for Linux (32bit &amp; 64bit), MacOSX &amp; Windows
+</p>
+
+</section>
+<section id="slide-sec-25-2">
+<h3 id="sec-25-2">Documentation</h3>
+<p>
+Built in documentation 
+</p>
+
+<p>
+<a href="http://docs.lighttable.com/">docs.lighttable.com</a>
+</p>
+
+<p>
+<a href="http://www.chris-granger.com/">Chris Granger's blog</a> - major announcements &amp; a few guides
+</p>
+</section>
+</section>
+<section>
+<section id="slide-sec-26" data-background="#770000" data-background-transition="slide">
+<h2 id="sec-26">Java IDE's</h2>
+
+</section>
+<section id="slide-sec-26-1" data-background="#770000" data-background-transition="slide">
+<h3 id="sec-26-1">Eclipse &amp; Counterclockwise</h3>
+
+<p>
+<a href="https://code.google.com/p/counterclockwise/">code.google.com/p/counterclockwise</a>
+</p>
+
+<p>
+A great combo if you are used to Eclipse
+</p>
+
+<ul class="fragment roll-in">
+<li>uses Leiningen underneath</li>
+<li>provides a REPL window</li>
+<li>usual syntax highlighting and other IDE stuff</li>
+
+</ul>
+
+
+</section>
+<section id="slide-sec-26-2" data-background="#770000" data-background-transition="slide">
+<h3 id="sec-26-2">Netbeans &amp; Enclojure</h3>
+
+<p>
+Sadly the <a href="http://enclojure.wikispaces.com/">Enclojure</a> plugin for Netbeans is depreciated
+</p>
+
+<p>
+The <a href="https://github.com/EricThorsen/enclojure">Enclojure code is available on Github</a>, if you want to kickstart the project. 
+</p>
+
+
+</section>
+<section id="slide-sec-26-3" data-background="#770000" data-background-transition="slide">
+<h3 id="sec-26-3">Intelij &amp; LaClojure</h3>
+
+<p>
+<a href="http://wiki.jetbrains.net/intellij/Getting_started_with_La_Clojure">Getting started with La Clojure</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-27">
+<h2 id="sec-27">Case Studies</h2>
+<p>
+Clojure Conj 2014 Lucas Cavalcanti &amp; Edward Wible - how they use Datomic to implement their banking service. <sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup> 
+You can find the talk on youtube. <sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-sec-28">
+<h2 id="sec-28">Thank you</h2>
+<p>
+Get Leiningen
+</p>
+
+<p>
+Use Emacs, LightTable or your favourite IDE
+</p>
+
+<p>
+Have fun in the REPL and love writing Clojure
+</p>
+</section>
+</section>
+</div>
+</div>
+
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: false,
+slideNumber: true,
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1800,
+height: 1000,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
+</body>
+</html>
