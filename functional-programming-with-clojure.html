@@ -4,8 +4,8 @@
 <meta charset="utf-8"/>
 <title>Get into Functional Programming with Clojure</title>
 <meta name="author" content="(John Stevenson)"/>
-<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
-<link rel="stylesheet" href="./reveal.js/css/theme/jr0cket.css" id="theme"/>
+<link rel="stylesheet" href="./css/reveal.css"/>
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
 <link rel="stylesheet" href=""/>
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -13,7 +13,7 @@
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = './reveal.js/css/print/pdf.css';
+        link.href = './css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
     }
 </script>
@@ -200,7 +200,7 @@ Defining a namespace, data structure &amp; function, then calling the function.
 <span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">my-data</span> <span style="color: #006400;">[</span><span style="color: #4c83ff;">1</span>,<span style="color: #4c83ff;">2</span>,<span style="color: #4c83ff;">3</span>, frog<span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
 
 <span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">do-stuff</span> <span style="color: #006400;">[</span>parameter<span style="color: #006400;">]</span>
-  <span style="color: #006400;">(</span><span style="color: #ff1493;">str</span> parameter<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
+  <span style="color: #006400;">(</span>str parameter<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
 
 <span style="color: #8b0000;">(</span>do-stuff my-data<span style="color: #8b0000;">)</span>
 </pre>
@@ -261,7 +261,7 @@ Typical data structures are maps, vectors, maps of maps, vectors of vectors, etc
 
 <pre  class="src src-clojure"><span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">data</span> <span style="color: #006400;">{</span><span style="color: #4c83ff;">:keyword1</span> value1 
            <span style="color: #4c83ff;">:vector</span> <span style="color: #ff1493;">[</span><span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">2</span> <span style="color: #4c83ff;">3</span><span style="color: #ff1493;">]</span>
-           <span style="color: #4c83ff;">:map</span> <span style="color: #ff1493;">{</span><span style="color: #4c83ff;">:a</span> <span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">:b</span> <span style="color: #4c83ff;">2</span> <span style="color: #4c83ff;">:c</span> <span style="color: #ff1493;">cat</span><span style="color: #ff1493;">}</span><span style="color: #006400;">}</span>
+           <span style="color: #4c83ff;">:map</span> <span style="color: #ff1493;">{</span><span style="color: #4c83ff;">:a</span> <span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">:b</span> <span style="color: #4c83ff;">2</span> <span style="color: #4c83ff;">:c</span> cat<span style="color: #ff1493;">}</span><span style="color: #006400;">}</span>
            <span style="color: #4c83ff;">:mixed</span> <span style="color: #006400;">{</span><span style="color: #4c83ff;">:vector</span> <span style="color: #ff1493;">[</span><span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">2</span> <span style="color: #4c83ff;">3</span> fish<span style="color: #ff1493;">]</span>
                    <span style="color: #4c83ff;">:vector-of-vectors</span> 
                      <span style="color: #ff1493;">[</span><span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">2</span> <span style="color: #ffff00;">[</span><span style="color: #4c83ff;">3</span> <span style="color: #4c83ff;">4</span><span style="color: #ffff00;">]</span><span style="color: #ff1493;">]</span>
@@ -568,12 +568,12 @@ clj-time is a wrapper around joda-time
 
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #8b0000;">(</span><span style="color: #ff1493;">require</span> '<span style="color: #006400;">[</span><span style="color: #D8FA3C;">clj-time.core</span> <span style="color: #4c83ff;">:as</span> time<span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
-<span style="color: #8b0000;">(</span><span style="color: #ff1493;">require</span> '<span style="color: #006400;">[</span><span style="color: #D8FA3C;">clj-time.format</span> <span style="color: #4c83ff;">:as</span> time-format<span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
+<pre  class="src src-clojure"><span style="color: #8b0000;">(</span>require '<span style="color: #006400;">[</span><span style="color: #D8FA3C;">clj-time.core</span> <span style="color: #4c83ff;">:as</span> time<span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
+<span style="color: #8b0000;">(</span>require '<span style="color: #006400;">[</span><span style="color: #D8FA3C;">clj-time.format</span> <span style="color: #4c83ff;">:as</span> time-format<span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
 
 <span style="color: #8b0000;">(</span><span style="color: #D8FA3C;">time</span>/now<span style="color: #8b0000;">)</span> =&gt; #&lt;DateTime <span style="color: #4c83ff;">2013-03-31T03:23:47.328Z&gt;</span>
 
-<span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">time-formatter</span> <span style="color: #006400;">(</span><span style="color: #D8FA3C;">time-format</span>/formatters <span style="color: #4c83ff;">:basic-date-time</span><span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>  <span style="color: #8B8989; font-style: italic;">;; </span><span style="color: #8B8989; font-style: italic;">ISO 8601 UTC </span><span style="color: #8B8989; font-style: italic;">format</span>
+<span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">time-formatter</span> <span style="color: #006400;">(</span><span style="color: #D8FA3C;">time-format</span>/formatters <span style="color: #4c83ff;">:basic-date-time</span><span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>  <span style="color: #8B8989; font-style: italic;">;; </span><span style="color: #8B8989; font-style: italic;">ISO 8601 UTC format</span>
 <span style="color: #8b0000;">(</span><span style="color: #D8FA3C;">time-format</span>/unparse custom-formatter <span style="color: #006400;">(</span>date-time <span style="color: #4c83ff;">2010</span> <span style="color: #4c83ff;">10</span> <span style="color: #4c83ff;">3</span><span style="color: #006400;">)</span><span style="color: #8b0000;">)</span> =&gt; <span style="color: #61CE3C;">"20101003T000000.000Z"</span>
 </pre>
 </div>
@@ -681,7 +681,7 @@ Lots of great python developers out there
 <h2 id="orgheadline49">Learning Clojure</h2>
 <div class="org-src-container">
 
-<pre  class="src src-clojure"><span style="color: #8b0000;">(</span><span style="color: #ff1493;">false?</span> <span style="color: #006400;">(</span>afraid brackets<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
+<pre  class="src src-clojure"><span style="color: #8b0000;">(</span>false? <span style="color: #006400;">(</span>afraid brackets<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
 </pre>
 </div>
 
@@ -879,7 +879,7 @@ Colourful code
 <div class="org-src-container">
 
 <pre  class="src src-clojure"><span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">show-me-the-colours</span> <span style="color: #006400;">[</span>colour<span style="color: #006400;">]</span>
-   <span style="color: #006400;">(</span> <span style="color: #ff1493;">str</span> <span style="color: #61CE3C;">"The colour of money is"</span> colour<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
+   <span style="color: #006400;">(</span> str <span style="color: #61CE3C;">"The colour of money is"</span> colour<span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
 </pre>
 </div>
 
@@ -1176,8 +1176,8 @@ Also using a local variable (which doesnt vary)
 <span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">def</span> <span style="color: #D8FA3C;">my-data</span> <span style="color: #006400;">[</span><span style="color: #4c83ff;">1</span> <span style="color: #4c83ff;">2</span> <span style="color: #4c83ff;">3</span> <span style="color: #61CE3C;">"frog"</span><span style="color: #006400;">]</span><span style="color: #8b0000;">)</span>
 
 <span style="color: #8b0000;">(</span><span style="color: #FBDE2D;">defn</span> <span style="color: #ff1493;">do-stuff</span> <span style="color: #006400;">[</span>parameter<span style="color: #006400;">]</span>
-  <span style="color: #006400;">(</span><span style="color: #FBDE2D;">let</span> <span style="color: #ff1493;">[</span>local-data <span style="color: #ffff00;">(</span><span style="color: #ff1493;">first</span> parameter<span style="color: #ffff00;">)</span><span style="color: #ff1493;">]</span>
-  <span style="color: #ff1493;">(</span><span style="color: #ff1493;">str</span> local-data<span style="color: #ff1493;">)</span><span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
+  <span style="color: #006400;">(</span><span style="color: #FBDE2D;">let</span> <span style="color: #ff1493;">[</span>local-data <span style="color: #ffff00;">(</span>first parameter<span style="color: #ffff00;">)</span><span style="color: #ff1493;">]</span>
+  <span style="color: #ff1493;">(</span>str local-data<span style="color: #ff1493;">)</span><span style="color: #006400;">)</span><span style="color: #8b0000;">)</span>
 
 <span style="color: #8b0000;">(</span>do-stuff my-data<span style="color: #8b0000;">)</span>
 </pre>
@@ -1186,8 +1186,8 @@ Also using a local variable (which doesnt vary)
 </section>
 </div>
 </div>
-<script src="./reveal.js/lib/js/head.min.js"></script>
-<script src="./reveal.js/js/reveal.js"></script>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
@@ -1216,11 +1216,11 @@ multiplex: {
 
 // Optional libraries used to extend on reveal.js
 dependencies: [
- { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
- { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
- { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
- { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+ { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
 });
 </script>
 </body>
