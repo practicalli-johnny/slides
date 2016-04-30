@@ -256,9 +256,10 @@ Lists, Vectors, Maps & Sets are all immutable
     :END:
 Making a change creates a new data structure
 - contains only the change
-- links back to the original data structure
+- shares memory with the original data structure
 - original data structure remains unchanged
 
+** Example of Memory Sharing
 [[./images/clojure-persistent-data-structures.png]]
 
 ** Software Transational Memory (STM)
