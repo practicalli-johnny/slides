@@ -1,0 +1,252 @@
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_history:t
+#+REVEAL_THEME: black
+#+REVEAL_TRANS: convex
+#+REVEAL_EXTRA_CSS: extra.css
+#+COPYRIGHT: © Kris Jenkins, 2015
+#+AUTHOR:
+#+TITLE: ClojureScript for Scale
+#+EMAIL: @krisajenkins
+
+* Rendering is now a solved problem
+
+** ...in theory
+
+** Pure Function
+#+BEGIN_SRC haskell
+Data ⟶ HTML
+#+END_SRC
+
+** Sadly we stumble
+** Sadly we put business logic in the HTML
+
+#+BEGIN_SRC clojure
+  [:div {:on-click
+         (fn [_]
+           (go
+             (let [result (<! (rest/put-foo @foo))]
+               ...
+               (swap! @foo update :stuff result)
+               ...)))}]
+#+END_SRC
+
+** Which means...
+
+#+BEGIN_SRC haskell
+Data ⟷ HTML
+#+END_SRC
+
+( ຈ ﹏ ຈ )
+
+** Sadly we let the data come from Magicland
+
+#+BEGIN_SRC clojure
+(defn some-view
+   []
+   [:div ...])
+#+END_SRC
+
+** Which means...
+
+#+BEGIN_SRC haskell
+...???... ⟶ HTML
+#+END_SRC
+
+໒( ◉ ‸ ◉ )७
+
+** Sadly we let the HTML talk to itself
+
+#+BEGIN_QUOTE
+...set up a core.async channel between your =tr= and =table= tags, then....
+#+END_QUOTE
+
+** Which means...
+
+#+BEGIN_SRC haskell
+Data ⟷ (HTML ⟷ HTML)
+#+END_SRC
+
+┏༼ ◉ ╭╮ ◉༽┓
+
+** Rendering is a solved problem
+
+....but we're throwing away the benefits.
+
+(╯°□°）╯︵ (\ . 0 .)\
+
+* Pure Functions To The Rescue!
+
+- Pure functions are testable.
+- Pure functions are rational.
+- Pure functions scale.
+
+╰(◕ᗜ◕)╯
+
+** Linear Control Flow To The Rescue!
+- Linear control flow matches our brains.
+- Linear control flow is debuggable.
+- Linear control flow scales.
+
+∩༼˵☯‿☯˵༽つ¤=[]:::::>
+
+** Decomplexition To The Rescue!
+
+- Separation
+- Separation
+- Separation
+
+/╲/\╭⁞ ͡° ͜ʖ ͡° ⁞╮/\╱﻿\
+
+* What Would That Look Like?
+
+ԅ⁞ ◑ ₒ ◑ ⁞ᓄ
+
+** A queue of things to do...
+
+#+BEGIN_SRC clojure
+(message, message, message, message ...)
+#+END_SRC
+
+** A function to move the world forward...
+
+#+BEGIN_SRC clojure
+(process message app-state) ⇒ new-app-state
+#+END_SRC
+
+** The rendering we know & love...
+
+#+BEGIN_SRC clojure
+  (render app-state)
+#+END_SRC
+
+** A mental Model
+
+#+BEGIN_SRC haskell
+  t0 : (Message, Data) ⟶ NewData
+                           ⟶ HTML
+               ...
+  t1 : (Message, Data) ⟶ NewData
+                           ⟶ HTML
+               ...
+  t2 : (Message, Data) ⟶ NewData
+                           ⟶ HTML
+#+END_SRC
+
+** How do we do it?
+
+*** Core Yaysync
+
+s( ^ ‿ ^)-b
+
+... /plus/ data plain ol' data.
+
+** HTML is responsible for...
+
+- Rendering
+- /plus/ letting the user send messages.
+
+* Show Me Some Code
+
+[[./bruce.jpg]]
+
+* The Modularisation Problem
+
+¯\_| ✖ 〜 ✖ |_/¯
+
+** MVC When It's Simple
+
+#+BEGIN_SRC ascii
+M --- C --- V
+#+END_SRC
+
+** MVC As It Grows
+
+#+BEGIN_SRC ascii
+     M --- C --- V
+                / \
+               /   \
+              /     \
+             /       \
+            /         \
+           /           \
+  M - C - V     M - C - V
+                       / \
+                      /   \
+                     /     \
+                    /       \
+                   /         \
+                  /           \
+         M - C - V     M - C - V
+#+END_SRC
+
+** The mess is in the mix
+
+#+BEGIN_SRC haskell
+Data ⟶ HTML
+
++
+
+MVC
+
+=
+
+MVC
+#+END_SRC
+
+** Here's The Solution
+
+#+BEGIN_SRC haskell
+Data ⟶ HTML
+
++
+
+Data ⟶ HTML
+
+=
+
+Data ⟶ HTML
+#+END_SRC
+
+** Mix Things of The Same Kind
+
+#+BEGIN_SRC text
+       M
+      / \
+     /   o
+    m   / \
+       m   m
+
+       C
+      / \
+     /   o
+    c   / \
+       c   c
+
+       V
+      / \
+     /   \
+    v     v
+           \
+            \
+             v
+
+  M --- C --- V
+#+END_SRC
+* Summary
+
+- We can make UIs /mostly/ pure.
+- We can make /most/ parts testable.
+- We can retain purity as we modularize.
+- We /should/ do all these things.
+
+ ✿*∗˵╰༼✪ᗜ✪༽╯˵∗*✿
+
+* Links
+
+- The Framework
+
+https://github.com/krisajenkins/petrol
+
+- Elm Architecture
+
+https://github.com/evancz/elm-architecture-tutorial
