@@ -1,0 +1,45 @@
+* Emacs Litterate Programming 
+
+
+Using the build in macro templates for org-mode you can create source code blocks very quickly 
+
+For example, <s <TAB> will expand to a basic source code block as below 
+
+#+BEGIN_SRC 
+<s
+#+END_SRC
+
+
+Add your own templates by customising the variable org-structure-template-alist
+
+
+** Edit Code in its own buffer 
+
+You can open the code block from your .org file in its own buffer, using the major/minor modes associated with the code block programming language 
+
+So if your code block is `#+BEGIN_SRC clojure` then a clojure mode buffer will open when you call M-x org-edit-src-code 
+
+Or use the keyboard bindings: C-c '
+
+#+BEGIN_SRC clojure -n
+  (def hello-literate-programming "Org-mode is just so amazing")
+
+  hello-literate-programming
+
+#+END_SRC
+
+#+RESULTS:
+: ;;=> "Org-mode is just so amazing"
+
+
+** Running code from Org-mode 
+
+Place the cursor in the code body in the org-mode file and use the keybinding: C-c C-c 
+
+C-c C-o Open the results of a codeblock in a seperate buffer
+
+C-c C-c gives the results inline 
+
+> Hmm, I get an error with this keyboard combo: `or: No org-babel-execute function for clojure!`
+
+> Added the 
