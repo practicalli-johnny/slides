@@ -1,0 +1,272 @@
+#+Title: Functional Abstractions & Patterns
+#+Author: John Stevenson
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1920
+#+OPTIONS: reveal_height:1080
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil 
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t 
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+
+* Aim of this talk
+
+Better understand the abstractions & patters that are often built into functional programming languages
+
+Developers from an OO background often believe these patterns to be missing as they are often so trivial in the FP language that they are not obviously a pattern 
+
+* Basic abstractions
+
+** Pure functions 
+
+** Impure functions
+
+
+** Higher Order functions 
+
+All functions evaluate to a value so can be used as an argument to other function calls
+
+** Composabile functions
+
+
+* Sequence Comprehension
+
+* Iterators 
+Avoiding local mutation when processing data structures
+
+using data structure relatedd functions - reducers - fold, reduce, etc....
+
+
+*  Alternate title: Pure Thoughts - functional patterns & abstractions
+
+First class functions 
+Chaining functions
+Recursion
+Iterators / List Comprehension
+Immutability
+Persistent Data Structures
+
+
+
+Understand 
+
+- immutablility 
+- lazyness 
+- recursion 
+-- efficient use of memory - tail recursion
+- destructuring
+- list comprehension - more powerful than the for loop
+
+Clojure idioms
+- using lists for data 
+- using maps for structured data
+- using sets for unique data 
+
+
+
+
+
+#+BEGIN_SRC bash 
+    lein new my-app
+    lein new template my-app
+#+END_SRC
+
+
+* Functional patterns talk 
+notes from video 
+
+All the OO paterns can be implemented by functions
+Functional patterns are not a 1-2-1 mapping with OO paterns, its a different paradigm, so why would they map?
+
+** Core principles of FP design
+- functions, types, composition
+- Design Pattern: Functions all the way down 
+*** Functions are things
+- a stand-alone thing not attached to an object or class
+- functions are values, so can be passed around
+- functions and values are defined in the same way - homoiconicity 
+*** Composition is everywhere
+- functions take other functions as arguments (as all functions return a value)
+- functions can therefore be composed together to make new functions - build new functions from smaller functions
+- composition gives you abstraction
+- componsition is fractal in that is the same at the small find grained level as it is at the larger granular level
+- gives an input & output model (not a request/response model as with OO)
+- multiple functions can be combined into a service (like a micro-service without the hype) - services are combined into a use case which is typically event driven - then compose use cases into a web application (http request / response) 
+**** Example:  Address validation
+- function to check form of email
+- function to check email does not already exist
+- function to check password suitability
+*** Types are not classes 
+- its more like set theory
+- a type is the name given to a set of inputs or outputs for a function, so a value, a domain construct or a function can be a type 
+-- a type is a name given to a set of values
+- types do not have behaviour - so behaviour and data are seperate
+- types can be composed too (algebraic types)
+-- multiply them together as a product type 
+-- add types together to combine them as a choice / union / sum type 
+**** Design Principle: Strive for Totality
+- for every input there is a valid output 
+**** Design Principle: Use Static Types for Domain modeling & documentation
+- JPs: in Clojure use Prismatic schema or defrecords ??
+** Functions as parameters
+**** functions as interfaces
+if you take the single responsibility principle & Interface Segregation Principle to the extreme you get _Each Interface should have only one method_
+**** paramitise functions to make the calling function generic
+- requiring only 1 function whereas OO would create many 
+- example is map
+**** paramitise all the things  
+- values and behaviour 
+- fold & reducers
+**** Every function is a one parameter function
+In a functional programming language, every multi-argument function is a function that generates a function that bakes in each argument until there are no arguments left.
+- this leads to partial applications 
+**** partial application and dependency injection
+- partial function is possibly one of the most important patterns in FP - gives you a function that can be used in many contexts
+***** Design Pattern: Partical application with Lists
+***** Design Pattern: Partical application to do dependency injection 
+
+**** continuations 
+- chainging and the pyramid of doom
+- a continuation is a function that tells you what to do next, given a certain condition (type).  Example: pass in a function that is called if a certain error condition arrises.
+***** Design Pattern: The hollywood principle - dont call us, we'll call you 
+** Monads
+- error handling, async
+- chaining continuations
+**** Binding  
+if you have a function with one input but two outputs, then its hard to chain them together.  However if you use bind it acts like an adaptor to allow you to 
+** Maps
+- dealing with wrapped data
+- functors
+** Monoids
+- aggregating data & operations
+*** Closure 
+the result of combining two things is always another one of those things
+*** 
+
+* --------------------
+* Overview of Clojure 
+
+A modern dialect of LISP 
+
+Functional paradigm
+
+Dynamic typing 
+
+Created to run on the Java Virtual Machine
+- everything is bytecode in the end 
+
+** Functional programming
+A relatively pure approach 
+- encourages minimum state change
+
+Everything is an expression (data & functions)
+
+Everything is a data structure (a list)
+
+Uses prefix notation  
+
+Organise expressions in namespaces (like Java packages)
+
+** Runs on the Java Virtual Machine
+Clojure is compiled into bytecode before running
+
+** Runs on other environments
+
+ClojureScript in the browser
+
+Clojure on Microsoft CLR
+
+
+
+
+
+* Slide with background image  
+ :PROPERTIES:
+    :reveal_background: ./images/leiningen-slide-background.png
+    :reveal_background_trans: slide
+    :END:
+
+[[http://www.google.co.uk][hyperlink-text]]
+
+#+ATTR_REVEAL: :frag roll-in
+  - bulletpoint
+  - dont go crazy
+
+** Sub-slide - srolls vertically from slide above
+
+Some source code using hightlits.js 
+
+#+BEGIN_SRC clojure
+(def clojure-devs "love brackets")
+#+END_SRC
+
+* Slide with code 
+#+BEGIN_SRC bash
+  git init 
+#+END_SRC
+
+* Slide with Colour - overriding the theme 
+:PROPERTIES:
+    :reveal_background: #770000
+    :reveal_background_trans: slide
+    :END:
+
+I love red.
+
+#+ATTR_REVEAL: :frag hightlight-red
+Hightliht text as a fragment of the slide 
+
+ 
+
+** Fragments in Reveal.js
+
+ Press the "Down" key on the page or the down arrow to trigger fragments
+
+#+ATTR_REVEAL: :frag highlight-blue
+   * Create
+   * Fragment
+   * At Ease
+
+** Fragment captions   
+#+CAPTION: The Org text source.
+#+BEGIN_SRC org
+#+ATTR_REVEAL: :frag
+   * Create
+   * Fragment
+   * At Ease
+#+END_SRC
+
+** Reveal.js Can Alert
+   :PROPERTIES:
+   :reveal_data_state: alert
+   :END:
+
+   Change slide style to wake up the sleepy audience.
+
+
+
+* Improving sleep 
+** A dark room 
+The skin is photosensitive so when it detects light it stops your body producing melatonin 
+** Sound 
+rhythmic or white noise type sounds are good for sleep, other sound is not.
+** Move your mobile phone away from your bed
+It emits electromagnetic waves that can disrupt your sleep.
+** WiFi
+The electromagnetic waves of WiFi can also prevent deep sleep.
+** A cool room - 19 to 20 degrees 
+The body sleeps better when its cooler
+** Caffine - nothing after 4pm for 10pm sleep
+has a half life of 8 hours and its accumulative
+** Breath deeply
+stimulates the nervous system (parasympathetic nervous system) 
+** Leave 2-3 hours between using electronic devices (laptop) & sleep 
+leave off the laptop as early as possible - use deep breathing to carm the body to mitigate this
+
+* Eating 
