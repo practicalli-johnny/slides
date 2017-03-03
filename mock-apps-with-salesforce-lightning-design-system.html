@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Mock up Apps with Salesforce Lightning Design System</title>
+<meta name="author" content="(John Stevenson)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./css/reveal.css"/>
+
+<link rel="stylesheet" href="./css/theme/jr0cket.css" id="theme"/>
+
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Title">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Mock up Apps with Salesforce Lightning Design System</h1><h2 class="author">John Stevenson</h2><p class="date">Created: 2017-03-03 Fri 14:13</p>
+</section>
+
+<section>
+<section id="slide-orgeb19117">
+<h2 id="orgeb19117">What is SLDS</h2>
+<p>
+An open source, platform-agnostic CSS framework that welcomes contributions from developers &amp; partners (reporting issues &amp; submitting pull requests)
+</p>
+
+<p>
+Build custom applications with a look and feel that is consistent with Salesforce core features
+</p>
+
+<p>
+Follow our detailed guidelines to confidently design excellent apps that fit right into the Salesforce ecosystem.
+</p>
+
+<p>
+Access to the Salesforce core visual and interaction design patterns and follow established best practices
+</p>
+
+</section>
+<section id="slide-orga40ca89">
+<h4 id="orga40ca89">Why SLDS</h4>
+<p>
+In Visualforce Pages you could effectively use what ever frameworks you like, from simple Bootstrap based sites to more involved Angular.js frameworks.
+</p>
+
+<p>
+Had to include things as static resources - no longer the case for SLDS
+</p>
+
+<p>
+This gave fexibilty, but didn't provide much in the way of a standard UI or UX.
+</p>
+
+<p>
+Did anyone actually follow the Salesforce style guide for Visualforce?
+</p>
+
+</section>
+<section id="slide-org3c29794">
+<h4 id="org3c29794">Comparing it to Bootstrap</h4>
+<p>
+Both are frameworks that are composed of pre-designed buttons, labels, grids and other presentation artefacts.
+</p>
+
+<p>
+Both help speed up the development of any web based (or hybrid mobile) UI and provide a form of responsive design (Bootstrap more so than SLDS)
+</p>
+
+<p>
+SLDS is the only framework that provides the artefacts to create UI's and UX that match Salesforce Lightning Experience.
+</p>
+
+
+</section>
+<section id="slide-org3f47f8a">
+<h4 id="org3f47f8a">What it is not</h4>
+<p>
+LDS - Latter Day Saints, also known as the Mormons
+</p>
+
+<p>
+A replacement for Lightning Components (its a complementary technology)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org1b89e83">
+<h2 id="org1b89e83">Getting Started</h2>
+<p>
+Download a zip file of the latest release and add it like any other CSS library to your projects
+</p>
+
+<p>
+<a href="https://www.lightningdesignsystem.com/downloads/">https://www.lightningdesignsystem.com/downloads/</a>
+</p>
+
+<p>
+For node.js projects use npm or bower to add SLDS to your project
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orga50b028">
+<h2 id="orga50b028">Starter Kit - starting even faster</h2>
+<p>
+A way to build mock applications really quickly
+</p>
+
+<ul>
+<li>Fork the repository</li>
+<li>Clone it or download it onto your computer</li>
+<li>In a terminal, cd into the design-system-starter-kit directory</li>
+<li>Run npm install</li>
+<li>Run npm run dev</li>
+<li>Open <a href="http://localhost:3000">http://localhost:3000</a></li>
+
+</ul>
+
+</section>
+<section id="slide-orgbd174c0">
+<h3 id="orgbd174c0">Making changes</h3>
+<p>
+Start by editing the `src/views/index.html` file as this is the main page of the running website.
+</p>
+
+<ul>
+<li>src/assets: images, fonts</li>
+<li>src/scripts: JavaScript files*</li>
+<li>src/styles: stylesheets (built using Sass)</li>
+<li>src/views: markup and data for your pages and templates</li>
+
+</ul>
+
+</section>
+<section id="slide-orgc75b177">
+<h3 id="orgc75b177">Tips</h3>
+<ol>
+<li>Search SLDS website for UI elements and paste in the code.</li>
+
+</ol>
+
+<p>
+Barry Hughes showing Starter Kit in action: <a href="https://youtu.be/oJm2nQz-tKM">https://youtu.be/oJm2nQz-tKM</a>
+</p>
+
+</section>
+<section id="slide-orgc2d60d8">
+<h3 id="orgc2d60d8">Converting to actual app</h3>
+<p>
+When building the real app, re-use all the styles and layouts from the Starter Kit
+</p>
+
+<p>
+Use Starter Kit as the basis of building your own prototypes
+</p>
+
+<p>
+See the license conditions of the project before distributing in source code and binary form.
+</p>
+
+</section>
+<section id="slide-orgb78c200">
+<h3 id="orgb78c200">sketch UI Kit for Lightning Design Sys</h3>
+<p>
+tem - goo.gl/7RHDrX
+</p>
+
+<p>
+MacOSX only tool - a plugin for <a href="https://www.sketchapp.com/">https://www.sketchapp.com/</a> which is also commercial ($99)
+</p>
+
+<p>
+sketch UK kit also available from SLDS downloads: <a href="https://www.lightningdesignsystem.com/downloads/">https://www.lightningdesignsystem.com/downloads/</a>
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgeb98ab4">
+<h2 id="orgeb98ab4">Awesome Bristolians</h2>
+<p>
+Demo: Code examples from the demo are at
+</p>
+
+<p>
+<a href="https://github.com/jr0cket/design-system-starter-kit-bristol-dg">https://github.com/jr0cket/design-system-starter-kit-bristol-dg</a>
+</p>
+
+<p>
+Check out the bristol-dg branch for my changes
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-orgcf87c76">
+<h2 id="orgcf87c76">Trailhead</h2>
+<p>
+Introduction to SLDS
+<a href="https://trailhead.salesforce.com/modules/lightning_design_system">https://trailhead.salesforce.com/modules/lightning_design_system</a>
+</p>
+
+<p>
+SLDS with VisualForce
+<a href="https://trailhead.salesforce.com/projects/workshop-lightning-design-system-visualforce">https://trailhead.salesforce.com/projects/workshop-lightning-design-system-visualforce</a>
+</p>
+
+<p>
+SLDS Github repository
+<a href="https://github.com/salesforce-ux/design-system">https://github.com/salesforce-ux/design-system</a>
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-org97c0152">
+<h2 id="org97c0152">Licenses</h2>
+<ul>
+<li>Source code is licensed under BSD License Clause 2 - <a href="http://opensource.org/licenses/BSD-2-Clause">http://opensource.org/licenses/BSD-2-Clause</a></li>
+<li>All icons and images are licensed under Creative Commons Attribution-NoDerivatives 4.0 - <a href="http://creativecommons.org/licenses/by-nd/4.0/">http://creativecommons.org/licenses/by-nd/4.0/</a></li>
+<li>The font is licensed under our font license - <a href="https://www.lightningdesignsystem.com/assets/licenses/License-for-font.txt">https://www.lightningdesignsystem.com/assets/licenses/License-for-font.txt</a></li>
+
+</ul>
+
+<p>
+&gt; I am unsure about Salesforce font license (assumed it was still for employees only)
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org60bcee5">
+<h2 id="org60bcee5">Alternative projects</h2>
+<p>
+SLDS with React.js
+</p>
+<ul>
+<li><a href="https://github.com/ccoenraets/lightning-react-app">https://github.com/ccoenraets/lightning-react-app</a></li>
+<li></li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org3591920">
+<h2 id="org3591920">Background Resources</h2>
+<ul>
+<li>W3 Schools - <a href="https://www.w3schools.com/">https://www.w3schools.com/</a></li>
+
+<li>Anyone can build an Awesome Responsive Website - <a href="http://agileforce.co.uk/awesome-workshop/">http://agileforce.co.uk/awesome-workshop/</a></li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./lib/js/head.min.js"></script>
+<script src="./js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: false,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1920,
+height: 1080,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>

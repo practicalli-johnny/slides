@@ -1,0 +1,137 @@
+#+Title: Mock up Apps with Salesforce Lightning Design System
+#+Author: John Stevenson
+#+Email: @jr0cket
+
+#+OPTIONS: toc:nil num:nil
+#+OPTIONS: reveal_width:1920
+#+OPTIONS: reveal_height:1080
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+OPTIONS: reveal_center:nil
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: jr0cket
+#+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Title">
+
+* What is SLDS
+
+An open source, platform-agnostic CSS framework that welcomes contributions from developers & partners (reporting issues & submitting pull requests)
+
+Build custom applications with a look and feel that is consistent with Salesforce core features
+
+Follow our detailed guidelines to confidently design excellent apps that fit right into the Salesforce ecosystem.
+
+Access to the Salesforce core visual and interaction design patterns and follow established best practices
+
+*** Why SLDS
+
+In Visualforce Pages you could effectively use what ever frameworks you like, from simple Bootstrap based sites to more involved Angular.js frameworks.
+
+Had to include things as static resources - no longer the case for SLDS
+
+This gave fexibilty, but didn't provide much in the way of a standard UI or UX.
+
+Did anyone actually follow the Salesforce style guide for Visualforce?
+
+*** Comparing it to Bootstrap
+
+Both are frameworks that are composed of pre-designed buttons, labels, grids and other presentation artefacts.
+
+Both help speed up the development of any web based (or hybrid mobile) UI and provide a form of responsive design (Bootstrap more so than SLDS)
+
+SLDS is the only framework that provides the artefacts to create UI's and UX that match Salesforce Lightning Experience.
+
+
+*** What it is not
+
+LDS - Latter Day Saints, also known as the Mormons
+
+A replacement for Lightning Components (its a complementary technology)
+
+* Getting Started
+
+Download a zip file of the latest release and add it like any other CSS library to your projects
+
+https://www.lightningdesignsystem.com/downloads/
+
+For node.js projects use npm or bower to add SLDS to your project
+
+* Starter Kit - starting even faster
+
+A way to build mock applications really quickly
+
+- Fork the repository
+- Clone it or download it onto your computer
+- In a terminal, cd into the design-system-starter-kit directory
+- Run npm install
+- Run npm run dev
+- Open http://localhost:3000
+
+** Making changes
+
+Start by editing the `src/views/index.html` file as this is the main page of the running website.
+
+- src/assets: images, fonts
+- src/scripts: JavaScript files*
+- src/styles: stylesheets (built using Sass)
+- src/views: markup and data for your pages and templates
+
+** Tips
+
+1) Search SLDS website for UI elements and paste in the code.
+
+Barry Hughes showing Starter Kit in action: https://youtu.be/oJm2nQz-tKM
+
+** Converting to actual app
+When building the real app, re-use all the styles and layouts from the Starter Kit
+
+Use Starter Kit as the basis of building your own prototypes
+
+See the license conditions of the project before distributing in source code and binary form.
+
+** sketch UI Kit for Lightning Design Sys
+    tem - goo.gl/7RHDrX
+
+MacOSX only tool - a plugin for https://www.sketchapp.com/ which is also commercial ($99)
+
+sketch UK kit also available from SLDS downloads: https://www.lightningdesignsystem.com/downloads/
+
+* Awesome Bristolians
+
+Demo: Code examples from the demo are at
+
+https://github.com/jr0cket/design-system-starter-kit-bristol-dg
+
+Check out the bristol-dg branch for my changes
+
+* Trailhead
+
+Introduction to SLDS
+https://trailhead.salesforce.com/modules/lightning_design_system
+
+SLDS with VisualForce
+https://trailhead.salesforce.com/projects/workshop-lightning-design-system-visualforce
+
+SLDS Github repository
+https://github.com/salesforce-ux/design-system
+
+
+* Licenses
+
+- Source code is licensed under BSD License Clause 2 - http://opensource.org/licenses/BSD-2-Clause
+- All icons and images are licensed under Creative Commons Attribution-NoDerivatives 4.0 - http://creativecommons.org/licenses/by-nd/4.0/
+- The font is licensed under our font license - https://www.lightningdesignsystem.com/assets/licenses/License-for-font.txt
+
+> I am unsure about Salesforce font license (assumed it was still for employees only)
+
+* Alternative projects
+
+SLDS with React.js
+- https://github.com/ccoenraets/lightning-react-app
+-
+* Background Resources
+
+- W3 Schools - https://www.w3schools.com/
+
+- Anyone can build an Awesome Responsive Website - http://agileforce.co.uk/awesome-workshop/
